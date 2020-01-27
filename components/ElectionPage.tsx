@@ -4,16 +4,14 @@ import * as React from 'react';
 import { ElectionLayout } from './base/ElectionLayout';
 import { ElectionContent } from './content/ElectionContent';
 
-interface ILyonPageProps {
+interface IElectionPageProps {
   children: React.ReactNode;
 }
 
-export function LyonPage({ children }: ILyonPageProps) {
-  return (
-    <ElectionLayout>
-      <ElectionContent>
-        {children}
-      </ElectionContent>
-    </ElectionLayout>
-  );
-}
+export const ElectionPage = ({ children }: IElectionPageProps) => (
+  <ElectionLayout>
+    <ElectionContent>
+      {children}
+    </ElectionContent>
+  </ElectionLayout>
+);

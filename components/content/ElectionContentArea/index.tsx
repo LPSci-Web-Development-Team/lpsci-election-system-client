@@ -8,7 +8,7 @@ interface IProps {
   children: React.ReactNode;
 }
 
-export function AdminContentArea({ children }: IProps) {
+export const ElectionContentArea = ({ children }: IProps) => {
   const classes = useStyles();
 
   const isMobile = MobileView.useSelector((state) => state.isMobile);

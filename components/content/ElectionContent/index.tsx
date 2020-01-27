@@ -8,7 +8,7 @@ interface IProps {
   children: React.ReactNode;
 }
 
-export function AdminContent({ children }: IProps) {
+export const ElectionContent = ({ children }: IProps) => {
   const classes = useStyles();
 
   const isDesktop = MobileView.useSelector((state) => state.isDesktop);
@@ -23,4 +23,4 @@ export function AdminContent({ children }: IProps) {
       {children}
     </div>
   );
-}
+};
