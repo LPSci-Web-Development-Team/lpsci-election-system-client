@@ -36,7 +36,6 @@ const initialConfig = {
 };
 
 module.exports = foldLeft(
-  withBundleAnalyzer,
   withTSConfig,
   initialConfig,
 );
