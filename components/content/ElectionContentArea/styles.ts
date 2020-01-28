@@ -18,6 +18,7 @@ export const OUTER: BlockOverrides = {
       display: 'grid',
       alignItems: 'center',
       justifyContent: 'center',
+      overflow: 'hidden',
     },
   },
 };
