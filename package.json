@@ -13,14 +13,15 @@
   },
   "dependencies": {
     "@lxsmnsyc/react-scoped-model": "^0.10.0",
-    "@material-ui/core": "^4.9.0",
-    "@material-ui/styles": "^4.9.0",
     "axios": "^0.19.2",
+    "baseui": "^9.46.0",
     "dotenv": "^8.2.0",
     "next": "^9.2.1",
     "normalize.css": "^8.0.1",
     "react": "^16.12.0",
     "react-dom": "^16.12.0",
+    "styletron-engine-atomic": "^1.4.4",
+    "styletron-react": "^5.2.6",
     "swr": "^0.1.16",
     "tsconfig-paths-webpack-plugin": "^3.2.0",
     "webpack": "^4.41.5"
