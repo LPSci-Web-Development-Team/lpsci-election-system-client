@@ -1,7 +1,12 @@
+// ANCHOR Base
+import { DarkTheme } from 'baseui';
+
 // ANCHOR Theme
-import { createMuiTheme } from '@material-ui/core/styles';
+import { BREAKPOINTS } from './breakpoints';
 import { TYPOGRAPHY } from './typography';
 
-export const THEME = createMuiTheme({
+export const THEME = {
+  media: BREAKPOINTS,
   typography: TYPOGRAPHY,
-});
+  name: 'lyon-theme',
+};
