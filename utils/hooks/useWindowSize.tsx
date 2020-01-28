@@ -1,7 +1,7 @@
 import * as React from 'react';
 import { useIsomorphicEffect } from './useIsomorphicEffect';
 
-export function useWindowSize(initialWidth = Infinity, initialHeight = Infinity) {
+export const useWindowSize = (initialWidth = Infinity, initialHeight = Infinity) => {
   // Initial setup for the mobile view state
   const [width, setWidth] = React.useState(initialWidth);
   const [height, setHeight] = React.useState(initialHeight);
@@ -33,4 +33,4 @@ export function useWindowSize(initialWidth = Infinity, initialHeight = Infinity)
   }, []);
 
   return { width, height };
-}
+};

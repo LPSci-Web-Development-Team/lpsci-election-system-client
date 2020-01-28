@@ -5,6 +5,6 @@ interface IProps {
   children: React.ReactNode;
 }
 
-export function Compose({ elements, children }: IProps) {
-  return <>{elements.reduceRight((acc, el) => React.cloneElement(el, {}, acc), children)}</>;
-}
+export const Compose = (
+  { elements, children }: IProps,
+) => <>{elements.reduceRight((acc, el) => React.cloneElement(el, {}, acc), children)}</>;
