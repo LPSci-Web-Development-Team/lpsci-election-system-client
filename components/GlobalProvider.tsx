@@ -1,11 +1,20 @@
+// ANCHOR React
 import * as React from 'react';
 
-import { CssBaseline } from '@material-ui/core';
-import { ThemeProvider } from '@material-ui/styles';
+// ANCHOR Styletron
+import { Provider as StyletronProvider } from 'styletron-react';
 
-import { THEME } from '../utils/themes';
-import { Compose } from './utils/Compose';
+// ANCHOR Utilities
+import { debug, styletron } from '../utils/styletron';
+
+// ANCHOR Providers
 import { makeProviders } from './utils/Providers';
+
+// ANCHOR Utils
+import { Compose } from './utils/Compose';
+
+// ANCHOR Components
+import { ElectionThemeProvider } from './ElectionThemeProvider';
 
 
 interface IProps {
@@ -14,9 +23,14 @@ interface IProps {
 
 export const GlobalProvider = ({ children }: IProps) => (
   <Compose elements={makeProviders()}>
-    <ThemeProvider theme={THEME}>
-      <CssBaseline />
-      {children}
-    </ThemeProvider>
+    <StyletronProvider
+      value={styletron}
+      debug={debug}
+      debugAfterHydration
+    >
+      <ElectionThemeProvider>
+        {children}
+      </ElectionThemeProvider>
+    </StyletronProvider>
   </Compose>
 );

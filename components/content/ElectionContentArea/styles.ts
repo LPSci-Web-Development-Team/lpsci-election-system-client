@@ -1,18 +1,23 @@
-import { makeStyles } from '@material-ui/core/styles';
+import { BlockOverrides } from 'baseui/block';
+
+export const INNER: BlockOverrides = {
+  Block: {
+    style: {
+      padding: '0px 0px 8px 0px',
+      width: '100%',
+    },
+  },
+};
 
 // ANCHOR Max width for mobile (or when the sidebar is opened)
-export const MOBILE_MAX_WIDTH = '90%';
+export const MOBILE_MAX_WIDTH = '100%';
 
-// ANCHOR Max width for desktop
-export const DESKTOP_MAX_WIDTH = '85%';
-
-export const useStyles = makeStyles({
-  inner: {
-    padding: '0px 0px 8px 0px',
+export const OUTER: BlockOverrides = {
+  Block: {
+    style: {
+      display: 'grid',
+      alignItems: 'center',
+      justifyContent: 'center',
+    },
   },
-  outer: {
-    display: 'grid',
-    alignItems: 'center',
-    justifyItems: 'center',
-  },
-});
+};

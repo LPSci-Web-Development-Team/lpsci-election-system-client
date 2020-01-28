@@ -1,26 +1,17 @@
 import * as React from 'react';
 
-import { useStyles, MOBILE_COLUMN, DESKTOP_COLUMN } from './styles';
+// ANCHOR Base
+import { Block } from 'baseui/block';
 
-import { MobileView } from '../../../models/scoped-models/MobileView';
+import { BLOCK, MOBILE_COLUMN } from './styles';
+
 
 interface IProps {
   children: React.ReactNode;
 }
 
-export const ElectionContent = ({ children }: IProps) => {
-  const classes = useStyles();
-
-  const isDesktop = MobileView.useSelector((state) => state.isDesktop);
-
-  // Memoize column definition
-  const columns = React.useMemo(() => (isDesktop ? DESKTOP_COLUMN : MOBILE_COLUMN), [
-    isDesktop,
-  ]);
-
-  return (
-    <div className={classes.root} style={{ gridColumn: columns }}>
-      {children}
-    </div>
-  );
-};
+export const ElectionContent = ({ children }: IProps) => (
+  <Block gridColumn={MOBILE_COLUMN} overrides={BLOCK}>
+    {children}
+  </Block>
+);
