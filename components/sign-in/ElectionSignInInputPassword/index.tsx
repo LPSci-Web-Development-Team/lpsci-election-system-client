@@ -1,6 +1,9 @@
 // ANCHOR React
 import * as React from 'react';
 
+// ANCHOR Hooks
+import { useConstant } from '@lpsci/utils/hooks/useConstant';
+
 // ANCHOR Base
 import { FormControl } from 'baseui/form-control';
 import { Input } from 'baseui/input';
@@ -12,15 +15,19 @@ import { faLock } from '@fortawesome/free-solid-svg-icons';
 // ANCHOR Styles
 import { INPUT } from './styles';
 
-export const ElectionSignInInputPassword = React.memo(() => (
-  <FormControl
-    label="Password"
-  >
-    <Input
-      placeholder="*****"
-      type="password"
-      startEnhancer={<FontAwesomeIcon icon={faLock} />}
-      overrides={INPUT}
-    />
-  </FormControl>
-));
+export const ElectionSignInInputPassword = React.memo(() => {
+  const MemoFontAwesome = useConstant(() => <FontAwesomeIcon icon={faLock} />);
+
+  return (
+    <FormControl
+      label="Password"
+    >
+      <Input
+        placeholder="*****"
+        type="password"
+        startEnhancer={MemoFontAwesome}
+        overrides={INPUT}
+      />
+    </FormControl>
+  );
+});
