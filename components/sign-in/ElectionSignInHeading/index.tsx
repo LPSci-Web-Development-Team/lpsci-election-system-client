@@ -8,5 +8,5 @@ import { H1 } from 'baseui/typography';
 import { HEADING } from './styles';
 
 export const ElectionSignInHeading = React.memo(() => (
-  <H1 overrides={HEADING}>Welcome Back.</H1>
+  <H1 overrides={HEADING}>Welcome Back</H1>
 ));

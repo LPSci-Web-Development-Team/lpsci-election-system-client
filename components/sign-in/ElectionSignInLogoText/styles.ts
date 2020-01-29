@@ -16,7 +16,7 @@ export const ELECTIONS: BlockOverrides = {
       fontWeight: 800,
       fontSize: '16px',
       marginTop: '5px',
-      marginBottom: '25px',
+      marginBottom: '10px',
     },
   },
 };

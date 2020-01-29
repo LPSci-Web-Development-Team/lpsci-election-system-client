@@ -2,7 +2,6 @@
 import { LightTheme } from 'baseui';
 
 // ANCHOR Theme
-import { BREAKPOINTS } from './breakpoints';
 import { TYPOGRAPHY } from './typography';
 
 export const THEME = {
@@ -12,7 +11,6 @@ export const THEME = {
   lighting: {
     ...LightTheme.lighting,
   },
-  media: BREAKPOINTS,
   typography: TYPOGRAPHY,
   name: 'election-theme',
 };

@@ -1,9 +1,8 @@
-// ANCHOR React library
+// ANCHOR React
 import * as React from 'react';
 
 // ANCHOR Base
 import { Block } from 'baseui/block';
-
 
 // ANCHOR Styles
 import { BLOCK, MOBILE_COLUMN } from './styles';

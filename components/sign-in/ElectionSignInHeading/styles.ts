@@ -4,7 +4,7 @@ export const HEADING: BlockOverrides = {
   Block: {
     style: {
       fontWeight: 700,
-      marginTop: '-10px',
+      marginTop: '0px',
       marginBottom: '20px',
     },
   },
