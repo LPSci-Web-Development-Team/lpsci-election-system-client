@@ -8,12 +8,18 @@ import { Avatar } from 'baseui/avatar';
 // ANCHOR Styles
 import { LOGO } from './styles';
 
-export const ElectionSignInLogo = React.memo(() => (
+interface IElectionLogoProps {
+  name: string;
+  size: string;
+  src: string;
+}
+
+export const ElectionSignInLogo = React.memo(({ name, size, src }: IElectionLogoProps) => (
   <Block overrides={LOGO}>
     <Avatar
-      name="lpsci-ssg-election"
-      size="100px"
-      src="img/lpsci-logo.png"
+      name={name}
+      size={size}
+      src={src}
     />
   </Block>
 ));

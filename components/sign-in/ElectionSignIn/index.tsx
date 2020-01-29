@@ -14,7 +14,7 @@ import { ElectionSignInSubmitButton } from '../ElectionSignInSubmitButton';
 export const ElectionSignIn = React.memo(() => (
   <>
     <ElectionSignInLogoContainer>
-      <ElectionSignInLogo />
+      <ElectionSignInLogo name="lpsci-logo" size="100px" src="img/lpsci-logo.png" />
       <ElectionSignInLogoText />
     </ElectionSignInLogoContainer>
     <ElectionSignInHeading />
