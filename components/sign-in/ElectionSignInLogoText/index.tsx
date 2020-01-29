@@ -5,11 +5,22 @@ import * as React from 'react';
 import { Block } from 'baseui/block';
 import { H1 } from 'baseui/typography';
 
+// ANCHOR Utils
+import getYear from 'date-fns/getYear';
+
 // ANCHOR Styles
 import { ELECTIONS, ELECTIONS_CONTAINER } from './styles';
 
+const currentYear = getYear(new Date());
+
 export const ElectionSignInLogoText = React.memo(() => (
   <Block overrides={ELECTIONS_CONTAINER}>
-    <H1 overrides={ELECTIONS}>LPSCI SSG ELECTIONS &apos;20-&apos;21</H1>
+    <H1 overrides={ELECTIONS}>
+      LPSCI SSG ELECTIONS
+      {' '}
+      {currentYear}
+      &nbsp;-&nbsp;
+      {currentYear + 1}
+    </H1>
   </Block>
 ));
