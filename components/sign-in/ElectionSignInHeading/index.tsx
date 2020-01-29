@@ -2,11 +2,14 @@
 import * as React from 'react';
 
 // ANCHOR Base
+import { Block } from 'baseui/block';
 import { H1 } from 'baseui/typography';
 
 // ANCHOR Styles
-import { HEADING } from './styles';
+import { HEADING, HEADING_CONTAINER } from './styles';
 
 export const ElectionSignInHeading = React.memo(() => (
-  <H1 overrides={HEADING}>Welcome Back</H1>
+  <Block overrides={HEADING_CONTAINER}>
+    <H1 overrides={HEADING}>Welcome Back!</H1>
+  </Block>
 ));
