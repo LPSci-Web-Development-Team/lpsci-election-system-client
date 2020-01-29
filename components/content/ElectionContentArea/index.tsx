@@ -5,8 +5,7 @@ import * as React from 'react';
 import { Block } from 'baseui/block';
 
 // ANCHOR Styles
-import { INNER, OUTER, MOBILE_MAX_WIDTH } from './styles';
-
+import { INNER, OUTER, MOBILE_MIN_WIDTH } from './styles';
 
 // ANCHOR Interface
 interface IProps {
@@ -15,7 +14,7 @@ interface IProps {
 
 export const ElectionContentArea = ({ children }: IProps) => (
   <Block overrides={OUTER}>
-    <Block maxWidth={MOBILE_MAX_WIDTH} overrides={INNER}>
+    <Block minWidth={MOBILE_MIN_WIDTH} overrides={INNER}>
       {children}
     </Block>
   </Block>

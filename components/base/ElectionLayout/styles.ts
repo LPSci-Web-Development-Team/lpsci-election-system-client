@@ -1,13 +1,13 @@
 import { BlockOverrides } from 'baseui/block';
 
 // ANCHOR Layout width
-export const WIDTH = '100vw';
+export const WIDTH = '100%';
 
 // ANCHOR Layout height
-export const HEIGHT = '100vh';
+export const HEIGHT = '100%';
 
 // ANCHOR Grid column definition when on mobile
-export const MOBILE_COLUMN = '100vw';
+export const MOBILE_COLUMN = '100%';
 
 export const BLOCK: BlockOverrides = {
   Block: {
