@@ -13,10 +13,13 @@ export const ELECTIONS_CONTAINER: BlockOverrides = {
 export const ELECTIONS: BlockOverrides = {
   Block: {
     style: {
-      fontWeight: 800,
+      fontWeight: 700,
       fontSize: '16px',
       marginTop: '5px',
       marginBottom: '10px',
+      textTransform: 'uppercase',
+      textAlign: 'center',
+      lineHeight: 1.4,
     },
   },
 };
