@@ -26,6 +26,7 @@ export const ElectionSignInInputLRN = React.memo(() => {
         placeholder="226503351137"
         startEnhancer={MemoFontAwesome}
         overrides={INPUT}
+        name="lrn"
       />
     </FormControl>
   );
