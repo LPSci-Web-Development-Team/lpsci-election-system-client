@@ -1,37 +1,33 @@
-import { TabsOverrides } from 'baseui/tabs';
+import { ButtonOverrides } from 'baseui/button';
 import { BlockOverrides } from 'baseui/block';
 
-export const HEADING_CONTAINER: BlockOverrides = {
+export const BUTTON_CONTAINER: BlockOverrides = {
   Block: {
     style: {
-      marginTop: '20px',
+      position: 'fixed',
+      bottom: 0,
+      paddingTop: '25px',
+      paddingBottom: '25px',
+      backgroundColor: 'white',
+      display: 'flex',
+      width: '80%',
     },
   },
 };
 
-export const HEADING: BlockOverrides = {
-  Block: {
-    style: {
-      fontWeight: 700,
-      marginTop: '0px',
-      marginBottom: '20px',
-    },
-  },
-};
-
-export const ELECTION_TAB: TabsOverrides<any> = {
-  TabBar: {
+export const BUTTON_BACK: ButtonOverrides = {
+  BaseButton: {
     style: () => ({
-      position: 'absolute',
-      bottom: '30px',
+      width: '100%',
+      marginRight: '5%',
     }),
   },
-  TabContent: {
+};
+
+export const BUTTON_NEXT: ButtonOverrides = {
+  BaseButton: {
     style: () => ({
-      paddingBottom: '0px',
-      paddingTop: '0px',
-      paddingLeft: '0px',
-      paddingRight: '0px',
+      width: '100%',
     }),
   },
 };

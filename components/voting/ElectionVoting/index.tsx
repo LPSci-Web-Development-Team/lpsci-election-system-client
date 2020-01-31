@@ -22,11 +22,11 @@ export const ElectionVoting = React.memo(() => {
     <>
       <ElectionVotingTabContainer>
         {
-          Object.values(IPosition).map((position) => (
-            <ElectionVotingTab title={`Vote for ${position}`}>
+          Object.values(IPosition).map(( position, index ) => (
+            <ElectionVotingTab title={`Vote for ${position}`} key={index}>
               <ElectionVotingTabHeading position={position} />
               {VOTE.map((cand) => (
-                position === cand.position && <Paragraph1>{cand.position}</Paragraph1>
+                position === cand.position && <Paragraph1 key={cand.firstName}>{cand.position}</Paragraph1>
               ))}
             </ElectionVotingTab>
           ))

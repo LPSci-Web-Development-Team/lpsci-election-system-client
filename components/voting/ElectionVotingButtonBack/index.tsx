@@ -24,6 +24,7 @@ export const ElectionVotingButtonBack = React.memo(() => {
       }}
       overrides={BUTTON_BACK}
       kind={KIND.secondary}
+      disabled={activeTabNum === 0}
     >
     Back
     </Button>
