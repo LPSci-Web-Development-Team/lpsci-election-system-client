@@ -22,6 +22,6 @@ export enum IPosition {
 }
 
 export interface IParty {
-  partyName: string;
+  name: string;
   colorHex: string;
 }
