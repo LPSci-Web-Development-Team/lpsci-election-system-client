@@ -12,9 +12,8 @@ import { Input } from 'baseui/input';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faLock } from '@fortawesome/free-solid-svg-icons';
 
-// ANCHOR Styles
+// ANCHOR Components
 import { ElectionSignInInputContainer } from '@lpsci/components/sign-in/ElectionSignInInputContainer';
-import { INPUT } from './styles';
 
 interface IElectionPasswordProps {
   label: string;
@@ -34,7 +33,6 @@ export const ElectionSignUpInputPassword = React.memo(({ label, name }: IElectio
           type="password"
           name={name}
           startEnhancer={MemoFontAwesome}
-          overrides={INPUT}
         />
       </FormControl>
     </ElectionSignInInputContainer>
