@@ -27,10 +27,20 @@ export const ElectionVotingFlexGrid = React.memo(({ position }: IElectionVotingF
     flexGridRowGap="scale600"
     {...FLEX}
   >
-    {VOTE.map((candidate) => (
+    {VOTE.map((candidate, index) => (
       position === candidate.position && (
-        <FlexGridItem>
-          <CandicateCard src={candidate.imageURL} alt="test" candidateName={`${candidate.firstName} ${candidate.lastName}`} candidateParty={candidate.party.name} colorHex={candidate.party.colorHex} />
+        <FlexGridItem key={index}>
+          <CandicateCard
+            src={candidate.imageURL}
+            alt="test"
+            candidateUuid={candidate.candidateId}
+            candidateFirstName={candidate.firstName}
+            candidateLastName={candidate.lastName}
+            candidateParty={candidate.party.name}
+            candidatePosition={candidate.position}
+            candidateImage={candidate.imageURL}
+            candidateColorHex={candidate.party.colorHex}
+          />
         </FlexGridItem>
       )
     ))}
