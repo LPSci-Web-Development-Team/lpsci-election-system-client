@@ -3,6 +3,7 @@ export interface ICandidate {
   lastName: string;
   party: IParty;
   position: IPosition;
+  imageURL: string;
 }
 
 export enum IPosition {
