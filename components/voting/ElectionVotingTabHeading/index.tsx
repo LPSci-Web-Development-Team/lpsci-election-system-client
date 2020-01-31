@@ -14,6 +14,6 @@ interface IElectionVotingTabHeadingProps {
 
 export const ElectionVotingTabHeading = React.memo(({ position }: IElectionVotingTabHeadingProps) => (
   <Block overrides={HEADING_CONTAINER}>
-    <H1 overrides={HEADING}>{`Choose Your ${position}.`}</H1>
+    <H1 overrides={HEADING}>{`Choose your ${position}.`}</H1>
   </Block>
 ));
