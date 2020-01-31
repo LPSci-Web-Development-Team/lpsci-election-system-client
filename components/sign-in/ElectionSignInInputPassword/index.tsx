@@ -27,6 +27,7 @@ export const ElectionSignInInputPassword = React.memo(() => {
         type="password"
         startEnhancer={MemoFontAwesome}
         overrides={INPUT}
+        name="password"
       />
     </FormControl>
   );
