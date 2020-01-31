@@ -1,9 +1,19 @@
 export interface ICandidate {
+  candidateId: string;
   firstName: string;
   lastName: string;
   party: IParty;
   position: IPosition;
   imageURL: string;
+}
+
+export interface IVoteList {
+  position: IPosition;
+  candidateId?: string;
+  firstName?: string;
+  lastName?: string;
+  party?: IParty;
+  imageURL?: string;
 }
 
 export enum IPosition {

@@ -2,6 +2,7 @@ import { ICandidate, IPosition } from 'models/interface/Vote';
 
 export const VOTE: ICandidate[] = [
   {
+    candidateId: '1123612346123',
     firstName: 'Prince',
     lastName: 'Castro',
     party: {
@@ -12,6 +13,7 @@ export const VOTE: ICandidate[] = [
     imageURL: 'https://encrypted-tbn0.gstatic.com/images?q=tbn%3AANd9GcTomd3CkfJrcFl7WOD3RpViSUDNNE72M1FPIqk6KZaGjdmdEBPu',
   },
   {
+    candidateId: 'fasdghaset1',
     firstName: 'Prince Neil Cedrick',
     lastName: 'Castro',
     party: {
@@ -22,6 +24,7 @@ export const VOTE: ICandidate[] = [
     imageURL: 'https://scontent.fmnl4-6.fna.fbcdn.net/v/t1.0-9/58649504_1486528368149285_3526713872855597056_n.jpg?_nc_cat=108&_nc_ohc=EGKSPyVbclwAX8siQmm&_nc_ht=scontent.fmnl4-6.fna&oh=79af9ffd397cc16d97628c67d689671f&oe=5ED9C1C7',
   },
   {
+    candidateId: '1223',
     firstName: 'Prince',
     lastName: 'Castro',
     party: {
@@ -32,6 +35,7 @@ export const VOTE: ICandidate[] = [
     imageURL: 'https://encrypted-tbn0.gstatic.com/images?q=tbn%3AANd9GcTomd3CkfJrcFl7WOD3RpViSUDNNE72M1FPIqk6KZaGjdmdEBPu',
   },
   {
+    candidateId: '1241233',
     firstName: 'Prince Neil Cedrick',
     lastName: 'Castro',
     party: {
@@ -42,6 +46,7 @@ export const VOTE: ICandidate[] = [
     imageURL: 'https://scontent.fmnl4-6.fna.fbcdn.net/v/t1.0-9/58649504_1486528368149285_3526713872855597056_n.jpg?_nc_cat=108&_nc_ohc=EGKSPyVbclwAX8siQmm&_nc_ht=scontent.fmnl4-6.fna&oh=79af9ffd397cc16d97628c67d689671f&oe=5ED9C1C7',
   },
   {
+    candidateId: '12fasd43',
     firstName: 'Prince',
     lastName: 'Castro',
     party: {
@@ -52,6 +57,7 @@ export const VOTE: ICandidate[] = [
     imageURL: 'https://encrypted-tbn0.gstatic.com/images?q=tbn%3AANd9GcTomd3CkfJrcFl7WOD3RpViSUDNNE72M1FPIqk6KZaGjdmdEBPu',
   },
   {
+    candidateId: '12fah34af3',
     firstName: 'Prince Neil Cedrick',
     lastName: 'Castro',
     party: {
@@ -62,6 +68,7 @@ export const VOTE: ICandidate[] = [
     imageURL: 'https://scontent.fmnl4-6.fna.fbcdn.net/v/t1.0-9/58649504_1486528368149285_3526713872855597056_n.jpg?_nc_cat=108&_nc_ohc=EGKSPyVbclwAX8siQmm&_nc_ht=scontent.fmnl4-6.fna&oh=79af9ffd397cc16d97628c67d689671f&oe=5ED9C1C7',
   },
   {
+    candidateId: '1hfadkdut23',
     firstName: 'Prince',
     lastName: 'Castro',
     party: {
@@ -72,6 +79,7 @@ export const VOTE: ICandidate[] = [
     imageURL: 'https://encrypted-tbn0.gstatic.com/images?q=tbn%3AANd9GcTomd3CkfJrcFl7WOD3RpViSUDNNE72M1FPIqk6KZaGjdmdEBPu',
   },
   {
+    candidateId: '12asguy3',
     firstName: 'Prince Neil Cedrick',
     lastName: 'Castro',
     party: {
@@ -82,6 +90,7 @@ export const VOTE: ICandidate[] = [
     imageURL: 'https://scontent.fmnl4-6.fna.fbcdn.net/v/t1.0-9/58649504_1486528368149285_3526713872855597056_n.jpg?_nc_cat=108&_nc_ohc=EGKSPyVbclwAX8siQmm&_nc_ht=scontent.fmnl4-6.fna&oh=79af9ffd397cc16d97628c67d689671f&oe=5ED9C1C7',
   },
   {
+    candidateId: '12gassadet3',
     firstName: 'Prince',
     lastName: 'Castro',
     party: {
@@ -92,6 +101,7 @@ export const VOTE: ICandidate[] = [
     imageURL: 'https://encrypted-tbn0.gstatic.com/images?q=tbn%3AANd9GcTomd3CkfJrcFl7WOD3RpViSUDNNE72M1FPIqk6KZaGjdmdEBPu',
   },
   {
+    candidateId: '1agdswaet23',
     firstName: 'Prince Neil Cedrick',
     lastName: 'Castro',
     party: {
@@ -102,6 +112,7 @@ export const VOTE: ICandidate[] = [
     imageURL: 'https://scontent.fmnl4-6.fna.fbcdn.net/v/t1.0-9/58649504_1486528368149285_3526713872855597056_n.jpg?_nc_cat=108&_nc_ohc=EGKSPyVbclwAX8siQmm&_nc_ht=scontent.fmnl4-6.fna&oh=79af9ffd397cc16d97628c67d689671f&oe=5ED9C1C7',
   },
   {
+    candidateId: '123fasdgasdf',
     firstName: 'Prince',
     lastName: 'Castro',
     party: {
@@ -112,6 +123,7 @@ export const VOTE: ICandidate[] = [
     imageURL: 'https://encrypted-tbn0.gstatic.com/images?q=tbn%3AANd9GcTomd3CkfJrcFl7WOD3RpViSUDNNE72M1FPIqk6KZaGjdmdEBPu',
   },
   {
+    candidateId: '12fasdfasdaewtwqt3',
     firstName: 'Prince Neil Cedrick',
     lastName: 'Castro',
     party: {
@@ -122,6 +134,7 @@ export const VOTE: ICandidate[] = [
     imageURL: 'https://scontent.fmnl4-6.fna.fbcdn.net/v/t1.0-9/58649504_1486528368149285_3526713872855597056_n.jpg?_nc_cat=108&_nc_ohc=EGKSPyVbclwAX8siQmm&_nc_ht=scontent.fmnl4-6.fna&oh=79af9ffd397cc16d97628c67d689671f&oe=5ED9C1C7',
   },
   {
+    candidateId: '151235dgsady23',
     firstName: 'Prince',
     lastName: 'Castro',
     party: {
@@ -132,6 +145,7 @@ export const VOTE: ICandidate[] = [
     imageURL: 'https://encrypted-tbn0.gstatic.com/images?q=tbn%3AANd9GcTomd3CkfJrcFl7WOD3RpViSUDNNE72M1FPIqk6KZaGjdmdEBPu',
   },
   {
+    candidateId: '1523sgas23',
     firstName: 'Prince Neil Cedrick',
     lastName: 'Castro',
     party: {
@@ -142,6 +156,7 @@ export const VOTE: ICandidate[] = [
     imageURL: 'https://scontent.fmnl4-6.fna.fbcdn.net/v/t1.0-9/58649504_1486528368149285_3526713872855597056_n.jpg?_nc_cat=108&_nc_ohc=EGKSPyVbclwAX8siQmm&_nc_ht=scontent.fmnl4-6.fna&oh=79af9ffd397cc16d97628c67d689671f&oe=5ED9C1C7',
   },
   {
+    candidateId: '12fasdg35sgdas3',
     firstName: 'Prince',
     lastName: 'Castro',
     party: {
@@ -152,6 +167,7 @@ export const VOTE: ICandidate[] = [
     imageURL: 'https://encrypted-tbn0.gstatic.com/images?q=tbn%3AANd9GcTomd3CkfJrcFl7WOD3RpViSUDNNE72M1FPIqk6KZaGjdmdEBPu',
   },
   {
+    candidateId: '12fasdgq46srah233',
     firstName: 'Prince Neil Cedrick',
     lastName: 'Castro',
     party: {
@@ -162,6 +178,7 @@ export const VOTE: ICandidate[] = [
     imageURL: 'https://scontent.fmnl4-6.fna.fbcdn.net/v/t1.0-9/58649504_1486528368149285_3526713872855597056_n.jpg?_nc_cat=108&_nc_ohc=EGKSPyVbclwAX8siQmm&_nc_ht=scontent.fmnl4-6.fna&oh=79af9ffd397cc16d97628c67d689671f&oe=5ED9C1C7',
   },
   {
+    candidateId: '162467gags',
     firstName: 'Prince',
     lastName: 'Castro',
     party: {
@@ -172,6 +189,7 @@ export const VOTE: ICandidate[] = [
     imageURL: 'https://encrypted-tbn0.gstatic.com/images?q=tbn%3AANd9GcTomd3CkfJrcFl7WOD3RpViSUDNNE72M1FPIqk6KZaGjdmdEBPu',
   },
   {
+    candidateId: '12512sadgaswt23',
     firstName: 'Prince Neil Cedrick',
     lastName: 'Castro',
     party: {
@@ -182,6 +200,7 @@ export const VOTE: ICandidate[] = [
     imageURL: 'https://scontent.fmnl4-6.fna.fbcdn.net/v/t1.0-9/58649504_1486528368149285_3526713872855597056_n.jpg?_nc_cat=108&_nc_ohc=EGKSPyVbclwAX8siQmm&_nc_ht=scontent.fmnl4-6.fna&oh=79af9ffd397cc16d97628c67d689671f&oe=5ED9C1C7',
   },
   {
+    candidateId: '12fasdy34yargasd3',
     firstName: 'Prince',
     lastName: 'Castro',
     party: {
@@ -192,6 +211,7 @@ export const VOTE: ICandidate[] = [
     imageURL: 'https://encrypted-tbn0.gstatic.com/images?q=tbn%3AANd9GcTomd3CkfJrcFl7WOD3RpViSUDNNE72M1FPIqk6KZaGjdmdEBPu',
   },
   {
+    candidateId: '1251235efsdashaewry43',
     firstName: 'Prince Neil Cedrick',
     lastName: 'Castro',
     party: {
@@ -202,6 +222,7 @@ export const VOTE: ICandidate[] = [
     imageURL: 'https://scontent.fmnl4-6.fna.fbcdn.net/v/t1.0-9/58649504_1486528368149285_3526713872855597056_n.jpg?_nc_cat=108&_nc_ohc=EGKSPyVbclwAX8siQmm&_nc_ht=scontent.fmnl4-6.fna&oh=79af9ffd397cc16d97628c67d689671f&oe=5ED9C1C7',
   },
   {
+    candidateId: '12fasdgy436yq4tdsgfa3',
     firstName: 'Prince',
     lastName: 'Castro',
     party: {
@@ -212,6 +233,7 @@ export const VOTE: ICandidate[] = [
     imageURL: 'https://encrypted-tbn0.gstatic.com/images?q=tbn%3AANd9GcTomd3CkfJrcFl7WOD3RpViSUDNNE72M1FPIqk6KZaGjdmdEBPu',
   },
   {
+    candidateId: '1hasrhjwae5y734ysrh3q423',
     firstName: 'Prince Neil Cedrick',
     lastName: 'Castro',
     party: {
@@ -222,6 +244,7 @@ export const VOTE: ICandidate[] = [
     imageURL: 'https://scontent.fmnl4-6.fna.fbcdn.net/v/t1.0-9/58649504_1486528368149285_3526713872855597056_n.jpg?_nc_cat=108&_nc_ohc=EGKSPyVbclwAX8siQmm&_nc_ht=scontent.fmnl4-6.fna&oh=79af9ffd397cc16d97628c67d689671f&oe=5ED9C1C7',
   },
   {
+    candidateId: '123245123512fafds3',
     firstName: 'Prince',
     lastName: 'Castro',
     party: {
@@ -232,6 +255,7 @@ export const VOTE: ICandidate[] = [
     imageURL: 'https://encrypted-tbn0.gstatic.com/images?q=tbn%3AANd9GcTomd3CkfJrcFl7WOD3RpViSUDNNE72M1FPIqk6KZaGjdmdEBPu',
   },
   {
+    candidateId: '12368iyjshwatqw2tsdh3',
     firstName: 'Prince Neil Cedrick',
     lastName: 'Castro',
     party: {
