@@ -8,7 +8,7 @@ export const ELECTION_TAB: TabsOverrides<any> = {
   },
   TabContent: {
     style: () => ({
-      paddingBottom: '0px',
+      paddingBottom: '20%',
       paddingTop: '0px',
       paddingLeft: '0px',
       paddingRight: '0px',

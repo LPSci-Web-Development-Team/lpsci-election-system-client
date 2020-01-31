@@ -3,7 +3,10 @@ import { BlockOverrides } from 'baseui/block';
 export const HEADING_CONTAINER: BlockOverrides = {
   Block: {
     style: {
-      marginTop: '20px',
+      paddingTop: '20px',
+      position: 'fixed',
+      backgroundColor: 'white',
+      top: 0,
     },
   },
 };

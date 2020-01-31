@@ -7,6 +7,7 @@ import { IPosition } from 'models/interface/Vote';
 
 // ANCHOR Base
 import { FlexGrid, FlexGridItem } from 'baseui/flex-grid';
+import { BlockProps } from 'baseui/block';
 
 // ANCHOR Components
 import { CandicateCard } from '@lpsci/components/candidate-card';
@@ -17,6 +18,10 @@ import { ElectionVotingButtonContainer } from '../ElectionVotingButtonContainer'
 import { ElectionVotingButtonBack } from '../ElectionVotingButtonBack';
 import { ElectionVotingButtonNext } from '../ElectionVotingButtonNext';
 
+const FLEX: BlockProps = {
+  marginTop: '150px',
+};
+
 export const ElectionVoting = React.memo(() => (
   <>
     <ElectionVotingTabContainer>
@@ -26,8 +31,9 @@ export const ElectionVoting = React.memo(() => (
               <ElectionVotingTabHeading position={position} />
               <FlexGrid
                 flexGridColumnCount={2}
-                flexGridColumnGap="scale400"
-                flexGridRowGap="scale400"
+                flexGridColumnGap="scale500"
+                flexGridRowGap="scale600"
+                {...FLEX}
               >
                 {VOTE.map((candidate) => (
                   position === candidate.position && (

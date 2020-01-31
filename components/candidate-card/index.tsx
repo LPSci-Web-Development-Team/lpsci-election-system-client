@@ -13,6 +13,7 @@ import { CandicateCardImage } from './CandidateCardImage';
 import { CandidateCardName } from './CandidateCardName';
 import { CandidateCardParty } from './CandidateCardParty';
 import { CandidateToggleIdentifier } from './CandidateToggleIdentifier';
+import { CandidateCardContainer } from './CandidateCardContainer';
 
 interface IProps {
   src: string;
@@ -31,18 +32,18 @@ const ClickableDiv = styled('div',
 export const CandicateCard = React.memo(({
   src, alt, candidateName, candidateParty, colorHex,
 }: IProps) => {
-  const [on, toggle] = useToggle(true);
+  const [on, toggle] = useToggle(false);
 
   return (
-    <>
+    <CandidateCardContainer>
       <ClickableDiv onClick={toggle}>
         <CandicateCardImageContainer toggled={on}>
           <CandicateCardImage src={src} alt={alt} />
+          {on && <CandidateToggleIdentifier />}
           <CandidateCardName value={candidateName} />
           <CandidateCardParty value={candidateParty} colorHex={colorHex} />
         </CandicateCardImageContainer>
       </ClickableDiv>
-      {on && <CandidateToggleIdentifier />}
-    </>
+    </CandidateCardContainer>
   );
 });
