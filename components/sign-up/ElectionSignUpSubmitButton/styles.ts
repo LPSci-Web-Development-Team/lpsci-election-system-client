@@ -3,7 +3,10 @@ import { ButtonOverrides } from 'baseui/button';
 export const SUBMIT_BUTTON: ButtonOverrides = {
   BaseButton: {
     style: () => ({
-      margin: '15px 0px 35px 0px',
+      marginTop: '15px',
+      marginRight: '0px',
+      marginBottom: '35px',
+      marginLeft: '0px',
       width: '100%',
     }),
   },

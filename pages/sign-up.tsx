@@ -1,8 +1,6 @@
 // ANCHOR React
 import * as React from 'react';
 
-// ANCHOR Base
-
 // ANCHOR Components
 import { ElectionPage } from '@lpsci/components/ElectionPage';
 import { GlobalProvider } from '@lpsci/components/GlobalProvider';

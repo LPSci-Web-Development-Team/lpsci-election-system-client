@@ -13,6 +13,7 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faLock } from '@fortawesome/free-solid-svg-icons';
 
 // ANCHOR Styles
+import { ElectionSignInInputContainer } from '@lpsci/components/sign-in/ElectionSignInInputContainer';
 import { INPUT } from './styles';
 
 interface IElectionPasswordProps {
@@ -24,16 +25,18 @@ export const ElectionSignUpInputPassword = React.memo(({ label, name }: IElectio
   const MemoFontAwesome = useConstant(() => <FontAwesomeIcon icon={faLock} />);
 
   return (
-    <FormControl
-      label={label}
-    >
-      <Input
-        placeholder="*****"
-        type="password"
-        name={name}
-        startEnhancer={MemoFontAwesome}
-        overrides={INPUT}
-      />
-    </FormControl>
+    <ElectionSignInInputContainer>
+      <FormControl
+        label={label}
+      >
+        <Input
+          placeholder="*****"
+          type="password"
+          name={name}
+          startEnhancer={MemoFontAwesome}
+          overrides={INPUT}
+        />
+      </FormControl>
+    </ElectionSignInInputContainer>
   );
 });

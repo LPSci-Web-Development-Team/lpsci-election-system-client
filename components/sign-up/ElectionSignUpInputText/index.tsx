@@ -7,28 +7,31 @@ import { Input } from 'baseui/input';
 
 // ANCHOR Styles
 import { INPUT } from './styles';
+import { ElectionSignInInputContainer } from '@lpsci/components/sign-in/ElectionSignInInputContainer';
 
 interface IElectionInputProps {
   label: string;
   placeholder: string;
   name: string;
-  startEnhancer: JSX.Element;
+  Icon: JSX.Element;
 }
 
 export const ElectionSignUpInputText = React.memo(({
   label,
   placeholder,
   name,
-  startEnhancer,
+  Icon,
 }: IElectionInputProps) => (
-  <FormControl
-    label={label}
-  >
-    <Input
-      placeholder={placeholder}
-      startEnhancer={startEnhancer}
-      overrides={INPUT}
-      name={name}
-    />
-  </FormControl>
+    <ElectionSignInInputContainer>
+      <FormControl
+        label={label}
+      >
+        <Input
+          placeholder={placeholder}
+          startEnhancer={Icon}
+          overrides={INPUT}
+          name={name}
+        />
+      </FormControl>
+    </ElectionSignInInputContainer>
 ));

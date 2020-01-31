@@ -13,7 +13,6 @@ import { ElectionSignUpLogo } from '../ElectionSignUpLogo';
 import { ElectionSignUpLogoText } from '../ElectionSignUpLogoText';
 import { ElectionSignUpHeading } from '../ElectionSignUpHeading';
 import { ElectionSignUpLogoContainer } from '../ElectionSignUpLogoContainer';
-import { ElectionSignUpInputContainer } from '../ElectionSignUpInputContainer';
 import { ElectionSignUpInputText } from '../ElectionSignUpInputText';
 import { ElectionSignUpInputPassword } from '../ElectionSignUpInputPassword';
 import { ElectionSignUpSubmitButton } from '../ElectionSignUpSubmitButton';
@@ -33,42 +32,32 @@ export const ElectionSignUp = React.memo(() => {
         <ElectionSignUpLogoText />
       </ElectionSignUpLogoContainer>
       <ElectionSignUpHeading />
-      <ElectionSignUpInputContainer>
-        <ElectionSignUpInputText
-          label="Learner's Reference Number"
-          placeholder="226503351137"
-          name="lrn"
-          startEnhancer={BadgeIcon}
-        />
-      </ElectionSignUpInputContainer>
-      <ElectionSignUpInputContainer>
-        <ElectionSignUpInputText
-          label="First Name"
-          placeholder="Juan"
-          name="firstName"
-          startEnhancer={UserIcon}
-        />
-      </ElectionSignUpInputContainer>
-      <ElectionSignUpInputContainer>
-        <ElectionSignUpInputText
-          label="Last Name"
-          placeholder="Dela Cruz"
-          name="lastName"
-          startEnhancer={UserIcon}
-        />
-      </ElectionSignUpInputContainer>
-      <ElectionSignUpInputContainer>
-        <ElectionSignUpInputPassword
-          label="Password"
-          name="password"
-        />
-      </ElectionSignUpInputContainer>
-      <ElectionSignUpInputContainer>
-        <ElectionSignUpInputPassword
-          label="Confirm Password"
-          name="confirmPassword"
-        />
-      </ElectionSignUpInputContainer>
+      <ElectionSignUpInputText
+        label="Learner's Reference Number"
+        placeholder="226503351137"
+        name="lrn"
+        Icon={BadgeIcon}
+      />
+      <ElectionSignUpInputText
+        label="First Name"
+        placeholder="Juan"
+        name="firstName"
+        Icon={UserIcon}
+      />
+      <ElectionSignUpInputText
+        label="Last Name"
+        placeholder="Dela Cruz"
+        name="lastName"
+        Icon={UserIcon}
+      />
+      <ElectionSignUpInputPassword
+        label="Password"
+        name="password"
+      />
+      <ElectionSignUpInputPassword
+        label="Confirm Password"
+        name="confirmPassword"
+      />
       <ElectionSignUpSubmitButton />
     </>
   );
