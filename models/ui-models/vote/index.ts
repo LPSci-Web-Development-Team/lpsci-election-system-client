@@ -1,4 +1,4 @@
-import { ICandidate, IPosition } from '../../interface/Vote';
+import { ICandidate, IPosition } from 'models/interface/Vote';
 
 export const VOTE: ICandidate[] = [
   {

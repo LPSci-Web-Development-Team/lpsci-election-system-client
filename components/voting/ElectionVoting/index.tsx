@@ -4,13 +4,19 @@ import * as React from 'react';
 // ANCHOR Base
 import { Button } from 'baseui/button';
 
-// ANCHOR Models
+// ANCHOR Scoped-Models
 import { VotingTab } from 'models/scoped-models/voting/VotingTab';
 
+// ANCHOR UI Models
+import { VOTE } from 'models/ui-models/vote';
+import { IPosition } from 'models/interface/Vote';
+
 // ANCHOR Components
+import { Paragraph1 } from 'baseui/typography';
 import { ElectionVotingTabContainer } from '../ElectionVotingTabContainer';
 import { ElectionVotingTab } from '../ElectionVotingTab';
 import { ElectionVotingTabHeading } from '../ElectionVotingTabHeading';
+
 
 export const ElectionVoting = React.memo(() => {
   const [setActiveTab, activeTabNum, setActiveTabNum] = VotingTab.useSelectors((
@@ -20,15 +26,16 @@ export const ElectionVoting = React.memo(() => {
   return (
     <>
       <ElectionVotingTabContainer>
-        <ElectionVotingTab title="Vote President">
-          <ElectionVotingTabHeading position="President" />
-        </ElectionVotingTab>
-        <ElectionVotingTab title="Vote Vice President">
-          <ElectionVotingTabHeading position="Vice President" />
-        </ElectionVotingTab>
-        <ElectionVotingTab title="Vote Secretary">
-          <ElectionVotingTabHeading position="Secretary" />
-        </ElectionVotingTab>
+        {
+          Object.values(IPosition).map((position) => (
+            <ElectionVotingTab title={`Vote for ${position}`}>
+              <ElectionVotingTabHeading position={position} />
+              {VOTE.map((cand) => (
+                position === cand.position && <Paragraph1>{cand.position}</Paragraph1>
+              ))}
+            </ElectionVotingTab>
+          ))
+        }
       </ElectionVotingTabContainer>
       <Button
         onClick={() => {
