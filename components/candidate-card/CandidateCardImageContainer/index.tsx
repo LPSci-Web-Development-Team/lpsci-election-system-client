@@ -9,10 +9,13 @@ import { BLOCK } from './styles';
 
 interface ICandidateCardContainerProps {
   children: React.ReactNode;
+  toggled: boolean;
 }
 
-export const CandicateCardImageContainer = React.memo(({ children }: ICandidateCardContainerProps) => (
-  <Block overrides={BLOCK}>
-    {children}
-  </Block>
-));
+export const CandicateCardImageContainer = React.memo(
+  ({ children }: ICandidateCardContainerProps) => (
+    <Block overrides={BLOCK}>
+      {children}
+    </Block>
+  ),
+);
