@@ -2,45 +2,34 @@
 import * as React from 'react';
 
 // ANCHOR Base
-import { Block } from 'baseui/block';
-import { H1 } from 'baseui/typography';
-import { Tabs, Tab } from 'baseui/tabs';
 import { Button } from 'baseui/button';
 
-// ANCHOR Components
+// ANCHOR Models
+import { VotingTab } from 'models/scoped-models/voting/VotingTab';
 
-// ANCHOR Styles
-import { HEADING, HEADING_CONTAINER, ELECTION_TAB } from './styles';
+// ANCHOR Components
+import { ElectionVotingTabContainer } from '../ElectionVotingTabContainer';
+import { ElectionVotingTab } from '../ElectionVotingTab';
+import { ElectionVotingTabHeading } from '../ElectionVotingTabHeading';
 
 export const ElectionVoting = React.memo(() => {
-  const [activeTab, setActiveTab] = React.useState<any>('0');
-  const [activeTabNum, setActiveTabNum] = React.useState<any>(0);
+  const [setActiveTab, activeTabNum, setActiveTabNum] = VotingTab.useSelectors((
+    state,
+  ) => [state.setActiveTab, state.activeTabNum, state.setActiveTabNum]);
 
   return (
     <>
-      <Tabs
-        onChange={({ activeKey }) => {
-          setActiveTab(activeKey);
-        }}
-        overrides={ELECTION_TAB}
-        activeKey={activeTab}
-      >
-        <Tab title="Vote President">
-          <Block overrides={HEADING_CONTAINER}>
-            <H1 overrides={HEADING}>Choose Your President.</H1>
-          </Block>
-        </Tab>
-        <Tab title="Vote Vice President">
-          <Block overrides={HEADING_CONTAINER}>
-            <H1 overrides={HEADING}>Choose Your Vice President.</H1>
-          </Block>
-        </Tab>
-        <Tab title="Vote Secretary">
-          <Block overrides={HEADING_CONTAINER}>
-            <H1 overrides={HEADING}>Choose Your Secretary.</H1>
-          </Block>
-        </Tab>
-      </Tabs>
+      <ElectionVotingTabContainer>
+        <ElectionVotingTab title="Vote President">
+          <ElectionVotingTabHeading position="President" />
+        </ElectionVotingTab>
+        <ElectionVotingTab title="Vote Vice President">
+          <ElectionVotingTabHeading position="Vice President" />
+        </ElectionVotingTab>
+        <ElectionVotingTab title="Vote Secretary">
+          <ElectionVotingTabHeading position="Secretary" />
+        </ElectionVotingTab>
+      </ElectionVotingTabContainer>
       <Button
         onClick={() => {
           const backTabIndex = activeTabNum - 1;
