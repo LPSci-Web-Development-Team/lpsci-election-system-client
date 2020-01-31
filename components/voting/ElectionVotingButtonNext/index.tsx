@@ -16,24 +16,23 @@ import { BUTTON_NEXT } from './styles';
 export const ElectionVotingButtonNext = React.memo(() => {
   const [setActiveTab, activeTabNum, setActiveTabNum] = VotingTab.useSelectors((
     state,
-  ) => [state.setActiveTab, state.activeTabNum, state.setActiveTabNum]);
-
-  [
-
-  ];
+  ) => [state.setActiveTab, state.activeTabNum, state.setActiveTabNum, state.vote]);
 
   const positionLength: number = Object.values(IPosition).length - 1;
   const isDoneVoting = positionLength === activeTabNum;
+
+  const nextTab = React.useCallback(() => {
+    const nextTabIndex = activeTabNum + 1;
+    setActiveTab(`${nextTabIndex}`);
+    setActiveTabNum(nextTabIndex);
+    localStorage.setItem('activeTab', `${nextTabIndex}`);
+  }, [activeTabNum]);
 
   return (
     <>
       { !isDoneVoting ? (
         <Button
-          onClick={() => {
-            const nextTabIndex = activeTabNum + 1;
-            setActiveTab(`${nextTabIndex}`);
-            setActiveTabNum(nextTabIndex);
-          }}
+          onClick={nextTab}
           overrides={BUTTON_NEXT}
         >
         Next

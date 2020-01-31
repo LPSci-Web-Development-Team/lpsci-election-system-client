@@ -4,10 +4,16 @@ import * as React from 'react';
 // ANCHOR Base
 import { styled } from 'baseui';
 
-// ANCHOR Components
+// ANCHOR Scoped Models
 import { VotingTab } from 'models/scoped-models/voting/VotingTab';
+
+// ANCHOR UI Models
 import { IPosition } from 'models/interface/Vote';
+
+// ANCHOR Hooks
 import { useConstantCallback } from '@lpsci/utils/hooks/useConstantCallback';
+
+// ANCHOR Components
 import { CandicateCardImageContainer } from './CandidateCardImageContainer';
 import { CandicateCardImage } from './CandidateCardImage';
 import { CandidateCardName } from './CandidateCardName';

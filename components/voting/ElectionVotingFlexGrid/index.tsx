@@ -3,7 +3,6 @@ import * as React from 'react';
 
 // ANCHOR UI Models
 import { VOTE } from 'models/ui-models/vote';
-import { IPosition } from 'models/interface/Vote';
 
 // ANCHOR Base
 import { FlexGrid, FlexGridItem } from 'baseui/flex-grid';
@@ -17,7 +16,7 @@ const FLEX: BlockProps = {
 };
 
 interface IElectionVotingFlexProps {
-  position: IPosition;
+  position: string | null;
 }
 
 export const ElectionVotingFlexGrid = React.memo(({ position }: IElectionVotingFlexProps) => (

@@ -15,13 +15,16 @@ export const ElectionVotingButtonBack = React.memo(() => {
     state,
   ) => [state.setActiveTab, state.activeTabNum, state.setActiveTabNum]);
 
+  const backTab = React.useCallback(() => {
+    const backTabIndex = activeTabNum - 1;
+    setActiveTab(`${backTabIndex}`);
+    setActiveTabNum(backTabIndex);
+    localStorage.setItem('activeTab', `${backTabIndex}`);
+  }, [activeTabNum]);
+
   return (
     <Button
-      onClick={() => {
-        const backTabIndex = activeTabNum - 1;
-        setActiveTab(`${backTabIndex}`);
-        setActiveTabNum(backTabIndex);
-      }}
+      onClick={backTab}
       overrides={BUTTON_BACK}
       kind={KIND.secondary}
       disabled={activeTabNum === 0}
