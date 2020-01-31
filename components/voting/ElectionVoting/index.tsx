@@ -1,27 +1,22 @@
 // ANCHOR React
 import * as React from 'react';
 
-// ANCHOR Base
-import { Button } from 'baseui/button';
-
-// ANCHOR Scoped-Models
-import { VotingTab } from 'models/scoped-models/voting/VotingTab';
-
 // ANCHOR UI Models
 import { VOTE } from 'models/ui-models/vote';
 import { IPosition } from 'models/interface/Vote';
 
-// ANCHOR Components
+// ANCHOR Base
 import { Paragraph1 } from 'baseui/typography';
+
+// ANCHOR Components
 import { ElectionVotingTabContainer } from '../ElectionVotingTabContainer';
 import { ElectionVotingTab } from '../ElectionVotingTab';
 import { ElectionVotingTabHeading } from '../ElectionVotingTabHeading';
-
+import { ElectionVotingButtonContainer } from '../ElectionVotingButtonContainer';
+import { ElectionVotingButtonBack } from '../ElectionVotingButtonBack';
+import { ElectionVotingButtonNext } from '../ElectionVotingButtonNext';
 
 export const ElectionVoting = React.memo(() => {
-  const [setActiveTab, activeTabNum, setActiveTabNum] = VotingTab.useSelectors((
-    state,
-  ) => [state.setActiveTab, state.activeTabNum, state.setActiveTabNum]);
 
   return (
     <>
@@ -37,24 +32,10 @@ export const ElectionVoting = React.memo(() => {
           ))
         }
       </ElectionVotingTabContainer>
-      <Button
-        onClick={() => {
-          const backTabIndex = activeTabNum - 1;
-          setActiveTab(`${backTabIndex}`);
-          setActiveTabNum(backTabIndex);
-        }}
-      >
-        Back
-      </Button>
-      <Button
-        onClick={() => {
-          const nextTabIndex = activeTabNum + 1;
-          setActiveTab(`${nextTabIndex}`);
-          setActiveTabNum(nextTabIndex);
-        }}
-      >
-        Next
-      </Button>
+      <ElectionVotingButtonContainer>
+        <ElectionVotingButtonBack />
+        <ElectionVotingButtonNext />
+      </ElectionVotingButtonContainer>
     </>
   );
 });
