@@ -31,7 +31,7 @@ export const ElectionVotingFlexGrid = React.memo(({ position }: IElectionVotingF
         <FlexGridItem key={index}>
           <CandicateCard
             src={candidate.imageURL}
-            alt="test"
+            alt={candidate.firstName}
             candidateUuid={candidate.candidateId}
             candidateFirstName={candidate.firstName}
             candidateLastName={candidate.lastName}

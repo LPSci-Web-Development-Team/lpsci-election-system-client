@@ -1,9 +1,6 @@
 // ANCHOR React
 import * as React from 'react';
 
-// ANCHOR Base
-import { styled } from 'baseui';
-
 // ANCHOR Scoped Models
 import { VotingTab } from 'models/scoped-models/voting/VotingTab';
 
@@ -17,6 +14,7 @@ import { CandidateCardName } from './CandidateCardName';
 import { CandidateCardParty } from './CandidateCardParty';
 import { CandidateToggleIdentifier } from './CandidateToggleIdentifier';
 import { CandidateCardContainer } from './CandidateCardContainer';
+import { CandidateClickableDiv } from './CandidateClickableDiv';
 
 interface IProps {
   src: string;
@@ -30,12 +28,6 @@ interface IProps {
   candidateColorHex: string;
 }
 
-const ClickableDiv = styled('div',
-  {
-    width: '100%',
-    height: '100%',
-  });
-
 export const CandicateCard = React.memo(({
   src,
   alt,
@@ -48,37 +40,10 @@ export const CandicateCard = React.memo(({
   candidateColorHex,
 }: IProps) => {
   // ANCHOR Voting Tab Models
-  const [vote, setVote] = VotingTab.useSelectors((state) => [
-    state.vote, state.setVote,
-  ]);
+  const vote = VotingTab.useSelector((state) => state.vote);
 
   // ANCHOR Active Vote Toggle
   const [on, toggle] = React.useState<boolean>(false);
-
-  const changeActiveVote = React.useCallback(() => {
-    if (vote?.candidateId === candidateUuid) {
-      setVote({
-        position: candidatePosition,
-        candidateId: undefined,
-        firstName: undefined,
-        lastName: undefined,
-        party: undefined,
-        imageURL: undefined,
-      });
-    } else {
-      setVote({
-        candidateId: candidateUuid,
-        firstName: candidateFirstName,
-        lastName: candidateLastName,
-        party: {
-          name: candidateParty,
-          colorHex: candidateColorHex,
-        },
-        position: candidatePosition,
-        imageURL: candidateImage,
-      });
-    }
-  }, [vote]);
 
   React.useEffect(() => {
     if (window) {
@@ -90,14 +55,22 @@ export const CandicateCard = React.memo(({
 
   return (
     <CandidateCardContainer>
-      <ClickableDiv onClick={changeActiveVote}>
+      <CandidateClickableDiv
+        candidateUuid={candidateUuid}
+        candidateFirstName={candidateFirstName}
+        candidateLastName={candidateLastName}
+        candidateParty={candidateParty}
+        candidatePosition={candidatePosition}
+        candidateImage={candidateImage}
+        candidateColorHex={candidateColorHex}
+      >
         <CandicateCardImageContainer toggled={on}>
           <CandicateCardImage src={src} alt={alt} />
           {on && <CandidateToggleIdentifier />}
           <CandidateCardName value={`${candidateFirstName} ${candidateLastName}`} />
           <CandidateCardParty value={candidateParty} colorHex={candidateColorHex} />
         </CandicateCardImageContainer>
-      </ClickableDiv>
+      </CandidateClickableDiv>
     </CandidateCardContainer>
   );
 });
