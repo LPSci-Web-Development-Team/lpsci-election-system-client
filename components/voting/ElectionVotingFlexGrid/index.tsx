@@ -17,21 +17,24 @@ const FLEX: BlockProps = {
 
 interface IElectionVotingFlexProps {
   position: string | null;
+  positionIndex: number;
 }
 
-export const ElectionVotingFlexGrid = React.memo(({ position }: IElectionVotingFlexProps) => (
-  <FlexGrid
-    flexGridColumnCount={2}
-    flexGridColumnGap="scale500"
-    flexGridRowGap="scale600"
-    {...FLEX}
-  >
-    {VOTE.map((candidate, index) => (
-      position === candidate.position && (
+export const ElectionVotingFlexGrid = React.memo(
+  ({ position, positionIndex }: IElectionVotingFlexProps) => (
+    <FlexGrid
+      flexGridColumnCount={2}
+      flexGridColumnGap="scale500"
+      flexGridRowGap="scale600"
+      {...FLEX}
+    >
+      {VOTE.map((candidate, index) => (
+        position === candidate.position && (
         <FlexGridItem key={index}>
           <CandicateCard
             src={candidate.imageURL}
             alt={candidate.firstName}
+            positionIndex={positionIndex}
             candidateUuid={candidate.candidateId}
             candidateFirstName={candidate.firstName}
             candidateLastName={candidate.lastName}
@@ -41,7 +44,8 @@ export const ElectionVotingFlexGrid = React.memo(({ position }: IElectionVotingF
             candidateColorHex={candidate.party.colorHex}
           />
         </FlexGridItem>
-      )
-    ))}
-  </FlexGrid>
-));
+        )
+      ))}
+    </FlexGrid>
+  ),
+);

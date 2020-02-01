@@ -26,6 +26,7 @@ interface IProps {
   candidatePosition: IPosition;
   candidateImage: string;
   candidateColorHex: string;
+  positionIndex: number;
 }
 
 export const CandicateCard = React.memo(({
@@ -38,6 +39,7 @@ export const CandicateCard = React.memo(({
   candidatePosition,
   candidateImage,
   candidateColorHex,
+  positionIndex,
 }: IProps) => {
   // ANCHOR Voting Tab Models
   const vote = VotingTab.useSelector((state) => state.vote);
@@ -56,6 +58,7 @@ export const CandicateCard = React.memo(({
   return (
     <CandidateCardContainer>
       <CandidateClickableDiv
+        positionIndex={positionIndex}
         candidateUuid={candidateUuid}
         candidateFirstName={candidateFirstName}
         candidateLastName={candidateLastName}

@@ -14,10 +14,11 @@ import { HEADING, HEADING_CONTAINER } from './styles';
 
 interface IElectionVotingTabHeadingProps {
   position: IPosition;
+  positionIndex: number;
 }
 
 export const ElectionVotingTabHeading = React.memo(
-  ({ position }: IElectionVotingTabHeadingProps) => {
+  ({ position, positionIndex }: IElectionVotingTabHeadingProps) => {
   // ANCHOR Voting Tabs Model
     const [setVote] = VotingTab.useSelectors((state) => [
       state.setVote,
@@ -25,6 +26,7 @@ export const ElectionVotingTabHeading = React.memo(
 
     React.useEffect(() => {
       setVote({
+        index: positionIndex,
         position,
       });
     }, [position]);

@@ -25,6 +25,7 @@ interface ICandidateClickableDivProps {
   candidatePosition: IPosition;
   candidateImage: string;
   candidateColorHex: string;
+  positionIndex: number;
 }
 
 export const CandidateClickableDiv = React.memo(({
@@ -36,6 +37,7 @@ export const CandidateClickableDiv = React.memo(({
   candidatePosition,
   candidateImage,
   candidateColorHex,
+  positionIndex,
 }: ICandidateClickableDivProps) => {
   // ANCHOR Voting Tab Models
   const [vote, setVote] = VotingTab.useSelectors((state) => [
@@ -45,6 +47,7 @@ export const CandidateClickableDiv = React.memo(({
   const changeActiveVote = React.useCallback(() => {
     if (vote?.candidateId === candidateUuid) {
       setVote({
+        index: positionIndex,
         position: candidatePosition,
         candidateId: undefined,
         firstName: undefined,
@@ -54,6 +57,7 @@ export const CandidateClickableDiv = React.memo(({
       });
     } else {
       setVote({
+        index: positionIndex,
         candidateId: candidateUuid,
         firstName: candidateFirstName,
         lastName: candidateLastName,
