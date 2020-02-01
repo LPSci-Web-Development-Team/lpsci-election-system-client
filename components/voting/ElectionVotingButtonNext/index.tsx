@@ -1,3 +1,6 @@
+/* eslint-disable no-param-reassign */
+/* eslint-disable no-unused-expressions */
+
 // ANCHOR React
 import * as React from 'react';
 
@@ -8,25 +11,66 @@ import { Button } from 'baseui/button';
 import { VotingTab } from 'models/scoped-models/voting/VotingTab';
 
 // ANCHOR UI Models
-import { IPosition } from 'models/interface/Vote';
+import { IPosition, IVoteList } from 'models/interface/Vote';
 
 // ANCHOR Styles
 import { BUTTON_NEXT } from './styles';
 
 export const ElectionVotingButtonNext = React.memo(() => {
-  const [setActiveTab, activeTabNum, setActiveTabNum] = VotingTab.useSelectors((
+  // ANCHOR Voting Tabs Model
+  const [setActiveTab, activeTabNum, setActiveTabNum, vote] = VotingTab.useSelectors((
     state,
   ) => [state.setActiveTab, state.activeTabNum, state.setActiveTabNum, state.vote]);
 
+  // ANCHOR Vote List
+  const [voteList, setVoteList] = React.useState<IVoteList[]>();
+  let uniqueCandidate = [];
+  let filteredList = [];
+
+  React.useEffect(() => {
+    if (window) {
+      setVoteList(JSON.parse(localStorage.getItem('voteList') ?? '[{}]'));
+    }
+  }, [activeTabNum]);
+
+  // ANCHOR Action Button Logic
   const positionLength: number = Object.values(IPosition).length - 1;
   const isDoneVoting = positionLength === activeTabNum;
 
+  const nextVoteList = (activeVote: IVoteList | undefined) => {
+    voteList?.forEach((item: IVoteList | undefined) => {
+      // ANCHOR Push or Update Logic
+      if (item?.position === activeVote?.position) {
+        Object.assign(item, activeVote);
+      } else {
+        voteList.push(activeVote);
+      }
+
+      // ANCHOR Filter duplicate candidate vote
+      uniqueCandidate = voteList.filter(
+        (list, index, self) => index === self.findIndex((l) => (
+          l.candidateId === list.candidateId && l.position === list.position
+        )),
+      );
+
+      // ANCHOR Filter duplicate position
+      filteredList = uniqueCandidate.filter(
+        (list, index, self) => index === self.findIndex((l) => (
+          l.position === list.position
+        )),
+      );
+
+      localStorage.setItem('voteList', JSON.stringify(filteredList));
+    });
+  };
+
   const nextTab = React.useCallback(() => {
+    nextVoteList(vote);
     const nextTabIndex = activeTabNum + 1;
     setActiveTab(`${nextTabIndex}`);
     setActiveTabNum(nextTabIndex);
     localStorage.setItem('activeTab', `${nextTabIndex}`);
-  }, [activeTabNum]);
+  }, [activeTabNum, vote]);
 
   return (
     <>

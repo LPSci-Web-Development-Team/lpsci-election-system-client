@@ -13,18 +13,10 @@ import { ElectionVotingButtonBack } from '../ElectionVotingButtonBack';
 import { ElectionVotingButtonNext } from '../ElectionVotingButtonNext';
 import { ElectionVotingFlexGrid } from '../ElectionVotingFlexGrid';
 
-export const ElectionVoting = React.memo(() => {
-  // ANCHOR Local storage
-  React.useEffect(() => {
-    if (window) {
-      localStorage.setItem('voteList', JSON.stringify([]));
-    }
-  }, []);
-
-  return (
-    <>
-      <ElectionVotingTabContainer>
-        {
+export const ElectionVoting = React.memo(() => (
+  <>
+    <ElectionVotingTabContainer>
+      {
           Object.values(IPosition).map((position, index) => (
             <ElectionVotingTab title={`Vote for ${position}`} key={index}>
               <ElectionVotingTabHeading position={position} />
@@ -32,11 +24,10 @@ export const ElectionVoting = React.memo(() => {
             </ElectionVotingTab>
           ))
         }
-      </ElectionVotingTabContainer>
-      <ElectionVotingButtonContainer>
-        <ElectionVotingButtonBack />
-        <ElectionVotingButtonNext />
-      </ElectionVotingButtonContainer>
-    </>
-  );
-});
+    </ElectionVotingTabContainer>
+    <ElectionVotingButtonContainer>
+      <ElectionVotingButtonBack />
+      <ElectionVotingButtonNext />
+    </ElectionVotingButtonContainer>
+  </>
+));
