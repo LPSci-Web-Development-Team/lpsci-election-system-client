@@ -10,9 +10,6 @@ import { VotingTab } from 'models/scoped-models/voting/VotingTab';
 // ANCHOR UI Models
 import { IPosition } from 'models/interface/Vote';
 
-// ANCHOR Hooks
-import { useConstantCallback } from '@lpsci/utils/hooks/useConstantCallback';
-
 // ANCHOR Components
 import { CandicateCardImageContainer } from './CandidateCardImageContainer';
 import { CandicateCardImage } from './CandidateCardImage';
@@ -50,29 +47,46 @@ export const CandicateCard = React.memo(({
   candidateImage,
   candidateColorHex,
 }: IProps) => {
+  // ANCHOR Voting Tab Models
   const [vote, setVote] = VotingTab.useSelectors((state) => [
     state.vote, state.setVote,
   ]);
+
+  // ANCHOR Active Vote Toggle
   const [on, toggle] = React.useState<boolean>(false);
 
+  const changeActiveVote = React.useCallback(() => {
+    if (vote?.candidateId === candidateUuid) {
+      setVote({
+        position: candidatePosition,
+        candidateId: undefined,
+        firstName: undefined,
+        lastName: undefined,
+        party: undefined,
+        imageURL: undefined,
+      });
+    } else {
+      setVote({
+        candidateId: candidateUuid,
+        firstName: candidateFirstName,
+        lastName: candidateLastName,
+        party: {
+          name: candidateParty,
+          colorHex: candidateColorHex,
+        },
+        position: candidatePosition,
+        imageURL: candidateImage,
+      });
+    }
+  }, [vote]);
+
   React.useEffect(() => {
+    if (window) {
+      JSON.parse(localStorage.getItem('voteList') ?? '[{}]');
+    }
     if (vote?.candidateId === candidateUuid) toggle(true);
     else toggle(false);
   }, [vote]);
-
-  const changeActiveVote = useConstantCallback(() => {
-    setVote({
-      candidateId: candidateUuid,
-      firstName: candidateFirstName,
-      lastName: candidateLastName,
-      party: {
-        name: candidateParty,
-        colorHex: candidateColorHex,
-      },
-      position: candidatePosition,
-      imageURL: candidateImage,
-    });
-  });
 
   return (
     <CandidateCardContainer>

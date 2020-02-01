@@ -37,10 +37,10 @@ export const ElectionVotingButtonNext = React.memo(() => {
   const positionLength: number = Object.values(IPosition).length - 1;
   const isDoneVoting = positionLength === activeTabNum;
 
-  const nextVoteList = (activeVote: IVoteList | undefined) => {
-    voteList?.forEach((item: IVoteList | undefined) => {
+  const nextVoteList = (activeVote: IVoteList) => {
+    voteList?.forEach((item: IVoteList) => {
       // ANCHOR Push or Update Logic
-      if (item?.position === activeVote?.position) {
+      if (item.position === activeVote.position) {
         Object.assign(item, activeVote);
       } else {
         voteList.push(activeVote);
@@ -49,14 +49,14 @@ export const ElectionVotingButtonNext = React.memo(() => {
       // ANCHOR Filter duplicate candidate vote
       uniqueCandidate = voteList.filter(
         (list, index, self) => index === self.findIndex((l) => (
-          l.candidateId === list.candidateId && l.position === list.position
+          list.candidateId === l.candidateId && list.position === l.position
         )),
       );
 
       // ANCHOR Filter duplicate position
       filteredList = uniqueCandidate.filter(
         (list, index, self) => index === self.findIndex((l) => (
-          l.position === list.position
+          list.position === l.position
         )),
       );
 
