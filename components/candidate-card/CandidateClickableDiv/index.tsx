@@ -45,7 +45,8 @@ export const CandidateClickableDiv = React.memo(({
   ]);
 
   const changeActiveVote = React.useCallback(() => {
-    if (vote?.candidateId === candidateUuid) {
+    // ANCHOR Unselect and Select
+    if (vote && vote.candidateId === candidateUuid) {
       setVote({
         index: positionIndex,
         position: candidatePosition,

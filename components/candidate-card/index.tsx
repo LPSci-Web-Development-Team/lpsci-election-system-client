@@ -48,10 +48,7 @@ export const CandicateCard = React.memo(({
   const [on, toggle] = React.useState<boolean>(false);
 
   React.useEffect(() => {
-    if (window) {
-      JSON.parse(localStorage.getItem('voteList') ?? '[{}]');
-    }
-    if (vote?.candidateId === candidateUuid) toggle(true);
+    if (vote.candidateId === candidateUuid) toggle(true);
     else toggle(false);
   }, [vote]);
 

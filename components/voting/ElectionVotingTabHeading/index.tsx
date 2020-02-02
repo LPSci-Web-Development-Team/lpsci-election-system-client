@@ -42,10 +42,10 @@ export const ElectionVotingTabHeading = React.memo(
     }, []);
 
     React.useEffect(() => {
-      if (vote.index === positionIndex) {
+      if (vote && vote.index === positionIndex && voteList) {
         // ANCHOR Check if vote list for active vote
         // eslint-disable-next-line no-unused-expressions
-        voteList?.forEach((item: IVoteList) => {
+        voteList.forEach((item: IVoteList) => {
           if (item.index === activeTabNum) {
             setVote({
               index: item.index,
@@ -66,7 +66,6 @@ export const ElectionVotingTabHeading = React.memo(
         });
       }
     }, [voteList]);
-
     return (
       <Block overrides={HEADING_CONTAINER}>
         <H1 overrides={HEADING}>{`Choose Your ${position}.`}</H1>
