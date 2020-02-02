@@ -38,11 +38,9 @@ export const ElectionVotingButtonNext = React.memo(() => {
   // ANCHOR Push or Update Logic
   const nextVoteList = React.useCallback((activeVote: IVoteList) => {
     voteList?.forEach((item: IVoteList) => {
-      if (item.position === activeVote.position) {
-        Object.assign(item, activeVote);
-      } else {
-        voteList.push(activeVote);
-      }
+      item.position === activeVote.position
+        ? Object.assign(item, activeVote)
+        : voteList.push(activeVote);
 
       // ANCHOR Filter duplicate candidate vote
       // eslint-disable-next-line react-hooks/exhaustive-deps
