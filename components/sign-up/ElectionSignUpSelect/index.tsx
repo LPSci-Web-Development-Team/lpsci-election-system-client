@@ -77,6 +77,7 @@ export const ElectionSignUpSelect = React.memo(({ sectionValue, label }: IElecti
           filterOutSelected={false}
           required
           searchable={false}
+          clearable={false}
           placeholder={label === 'Section' ? 'Select section...' : 'Select grade level...'}
           onChange={changeValue}
         />
