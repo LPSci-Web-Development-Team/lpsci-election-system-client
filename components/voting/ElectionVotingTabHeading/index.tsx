@@ -13,7 +13,6 @@ import { IPosition } from 'models/interface/Vote';
 import { VotingTab } from 'models/scoped-models/voting/VotingTab';
 
 // ANCHOR Styles
-import { useTraceUpdate } from '@lpsci/utils/hooks/useTraceUpdate';
 import { HEADING, HEADING_CONTAINER } from './styles';
 
 interface IElectionVotingTabHeadingProps {
@@ -50,7 +49,6 @@ export const ElectionVotingTabHeading = React.memo(
           position,
         });
       }
-      useTraceUpdate('ACTIVE', vote);
     // eslint-disable-next-line react-hooks/exhaustive-deps
     }, [position, positionIndex, setVote, voteList]);
     return (
