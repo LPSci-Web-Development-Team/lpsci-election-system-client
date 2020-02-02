@@ -12,9 +12,6 @@ import { Input } from 'baseui/input';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faIdBadge } from '@fortawesome/free-solid-svg-icons';
 
-// ANCHOR Styles
-import { INPUT } from './styles';
-
 export const ElectionSignInInputLRN = React.memo(() => {
   const MemoFontAwesome = useConstant(() => <FontAwesomeIcon icon={faIdBadge} />);
 

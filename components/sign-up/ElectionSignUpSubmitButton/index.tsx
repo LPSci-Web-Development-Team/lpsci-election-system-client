@@ -7,11 +7,11 @@ import { Button } from 'baseui/button';
 // ANCHOR Styles
 import { SUBMIT_BUTTON } from './styles';
 
-export const ElectionSignInSubmitButton = React.memo(() => (
+export const ElectionSignUpSubmitButton = React.memo(() => (
   <Button
     type="submit"
     overrides={SUBMIT_BUTTON}
   >
-    Sign In
+    Sign Up
   </Button>
 ));

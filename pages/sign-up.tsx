@@ -1,4 +1,3 @@
-/* eslint-disable import/no-default-export */
 // ANCHOR React
 import * as React from 'react';
 
@@ -6,15 +5,14 @@ import * as React from 'react';
 import { ElectionPage } from '@lpsci/components/ElectionPage';
 import { GlobalProvider } from '@lpsci/components/GlobalProvider';
 import { ElectionAppHead } from '@lpsci/components/head/ElectionAppHead/ElectionAppHead';
-import { ElectionSignIn } from '@lpsci/components/sign-in/ElectionSignIn';
+import { ElectionSignUp } from '@lpsci/components/sign-up/ElectionSignUp';
 
-export const config = { amp: 'hybrid' };
-
+// eslint-disable-next-line import/no-default-export
 export default React.memo(() => (
   <GlobalProvider>
     <ElectionAppHead title="SSG Election" description="Election Web App" />
     <ElectionPage>
-      <ElectionSignIn />
+      <ElectionSignUp />
     </ElectionPage>
   </GlobalProvider>
 ));
