@@ -18,7 +18,7 @@ export const CandidateCardParty = React.memo(({ value, colorHex }: IProps) => {
 
   return (
     <H1>
-      {value}
+      {`${value.toUpperCase()} Party`}
     </H1>
   );
 });

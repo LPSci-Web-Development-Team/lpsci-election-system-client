@@ -3,14 +3,14 @@ import { ICandidate, IPosition } from 'models/interface/Vote';
 export const VOTE: ICandidate[] = [
   {
     candidateId: '1123612346123',
-    firstName: 'Prince',
-    lastName: 'Castro',
+    firstName: 'Adrian',
+    lastName: 'Dayrit',
     party: {
       name: 'Lakas',
       colorHex: '#e62121',
     },
     position: IPosition.President,
-    imageURL: 'https://encrypted-tbn0.gstatic.com/images?q=tbn%3AANd9GcTomd3CkfJrcFl7WOD3RpViSUDNNE72M1FPIqk6KZaGjdmdEBPu',
+    imageURL: 'https://scontent.fmnl4-2.fna.fbcdn.net/v/t1.0-9/29695346_804246233093525_1751249780352981014_n.jpg?_nc_cat=101&_nc_oc=AQnWDAdsPEw30rEhOWK7zf6iHkAcdeBYtWNEtwuB5Zl8fMqsC5-wULxyaKRF8GSphFg&_nc_ht=scontent.fmnl4-2.fna&oh=85040f811a49a2f24e4afb0ec7f11f20&oe=5EDA54C4',
   },
   {
     candidateId: 'fasdghaset1',
