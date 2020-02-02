@@ -18,7 +18,7 @@ export const ElectionVoting = React.memo(() => (
     <ElectionVotingTabContainer>
       {
           Object.values(IPosition).map((position, index) => (
-            <ElectionVotingTab title={`Vote for ${position}`} key={index}>
+            <ElectionVotingTab title={position} key={index}>
               <ElectionVotingTabHeading position={position} positionIndex={index} />
               <ElectionVotingFlexGrid position={position} positionIndex={index} />
             </ElectionVotingTab>

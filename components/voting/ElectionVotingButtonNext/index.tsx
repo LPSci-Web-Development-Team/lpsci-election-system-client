@@ -59,7 +59,6 @@ export const ElectionVotingButtonNext = React.memo(() => {
           list.position === l.position
         )),
       );
-
       localStorage.setItem('voteList', JSON.stringify(filteredList));
     });
   };
@@ -79,7 +78,7 @@ export const ElectionVotingButtonNext = React.memo(() => {
           onClick={nextTab}
           overrides={BUTTON_NEXT}
         >
-          {vote.candidateId ? 'Vote' : 'Abstain'}
+          {vote.candidateId ? 'Next' : 'Abstain'}
         </Button>
       ) : (
         <Button
