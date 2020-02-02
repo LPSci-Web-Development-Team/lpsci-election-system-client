@@ -10,7 +10,7 @@ interface IProps {
 }
 
 export const CandidateCardParty = React.memo(({ value, colorHex }: IProps) => {
-  const H1 = styled('text', {
+  const H1 = styled('p', {
     color: colorHex,
     fontWeight: 700,
     fontSize: '12px',

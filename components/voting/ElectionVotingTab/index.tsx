@@ -4,8 +4,11 @@ import * as React from 'react';
 // ANCHOR Base
 import { Tab } from 'baseui/tabs';
 
+// ANCHOR UI Models
+import { IPosition } from 'models/interface/Vote';
+
 interface IElectionVotingTabProps {
-  title: string;
+  title: IPosition;
   children: React.ReactNode;
 }
 
