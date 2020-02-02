@@ -53,23 +53,20 @@ export const CandicateCard = React.memo(({
   // ANCHOR Active Vote Toggle
   const [on, toggle] = React.useState<boolean>(false);
 
-  // ANCHOR Check for previously voted candidate
   React.useEffect(() => {
+    // ANCHOR Check for previously voted candidate
     if (vote.candidateId === candidateUuid) {
       toggle(true);
     } else {
       toggle(false);
     }
-  // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [vote]);
 
-  // ANCHOR Check if voter already selected a candidate
-  React.useEffect(() => {
+    // ANCHOR Check for if candidate is selected
     if (on) {
       setSelected(!selected);
     }
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [on, vote]);
+  // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [candidateUuid, on, setSelected, vote]);
 
   return (
     <CandidateCardContainer>
