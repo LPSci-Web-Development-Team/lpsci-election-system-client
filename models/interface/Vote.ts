@@ -9,7 +9,7 @@ export interface ICandidate {
 
 export interface IVoteList {
   index: number;
-  position: IPosition;
+  position?: IPosition;
   candidateId?: string;
   firstName?: string;
   lastName?: string;

@@ -9,10 +9,11 @@ import { H1 } from 'baseui/typography';
 import { isNullOrUndefined } from 'util';
 
 // ANCHOR UI Models
-import { IPosition, IVoteList } from 'models/interface/Vote';
+import { IPosition } from 'models/interface/Vote';
 import { VotingTab } from 'models/scoped-models/voting/VotingTab';
 
 // ANCHOR Styles
+import { useTraceUpdate } from '@lpsci/utils/hooks/useTraceUpdate';
 import { HEADING, HEADING_CONTAINER } from './styles';
 
 interface IElectionVotingTabHeadingProps {
@@ -23,14 +24,14 @@ interface IElectionVotingTabHeadingProps {
 export const ElectionVotingTabHeading = React.memo(
   ({ position, positionIndex }: IElectionVotingTabHeadingProps) => {
     // ANCHOR Voting Tab Models
-    const [vote, setVote, activeTabNum, voteList] = VotingTab.useSelectors((state) => [
-      state.vote, state.setVote, state.activeTabNum, state.voteList,
+    const [vote, setVote, voteList] = VotingTab.useSelectors((state) => [
+      state.vote, state.setVote, state.voteList,
     ]);
-
     React.useEffect(() => {
       // ANCHOR Check if votelist is defined
       if (isNullOrUndefined(localStorage.getItem('voteList'))) {
         localStorage.setItem('voteList', JSON.stringify([{
+          index: 0,
           position: IPosition.President,
           candidateId: undefined,
           firstName: undefined,
@@ -42,30 +43,16 @@ export const ElectionVotingTabHeading = React.memo(
     }, []);
 
     React.useEffect(() => {
-      if (vote && vote.index === positionIndex && voteList) {
-        // ANCHOR Check if vote list for active vote
-        // eslint-disable-next-line no-unused-expressions
-        voteList.forEach((item: IVoteList) => {
-          if (item.index === activeTabNum) {
-            setVote({
-              index: item.index,
-              candidateId: item.candidateId,
-              firstName: item.firstName,
-              lastName: item.lastName,
-              party: item.party,
-              position: item.position,
-              imageURL: item.imageURL,
-            });
-          }
-        });
-      } else {
+      if (isNullOrUndefined(vote.position)) {
         // ANCHOR Set Active Vote to Abstain
         setVote({
           index: positionIndex,
           position,
         });
       }
-    }, [voteList]);
+      useTraceUpdate('ACTIVE', vote);
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+    }, [position, positionIndex, setVote, voteList]);
     return (
       <Block overrides={HEADING_CONTAINER}>
         <H1 overrides={HEADING}>{`Choose Your ${position}.`}</H1>
