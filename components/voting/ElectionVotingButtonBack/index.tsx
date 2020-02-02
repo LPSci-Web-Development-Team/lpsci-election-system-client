@@ -18,22 +18,18 @@ import { BUTTON_BACK } from './styles';
 
 export const ElectionVotingButtonBack = React.memo(() => {
   // ANCHOR Voting Tab Models
-  const [setActiveTab, activeTabNum, setActiveTabNum, vote, setVote] = VotingTab.useSelectors((
+  const [
+    setActiveTab, activeTabNum, setActiveTabNum, vote, setVote, voteList,
+  ] = VotingTab.useSelectors((
     state,
-  ) => [state.setActiveTab, state.activeTabNum, state.setActiveTabNum, state.vote, state.setVote]);
-
-  // ANCHOR Vote List
-  const [voteList, setVoteList] = React.useState<IVoteList[]>();
-
-  // ANCHOR Active Tab
-  const [stored, setStored] = React.useState<number>(0);
-
-  React.useEffect(() => {
-    if (window) {
-      setVoteList(JSON.parse(localStorage.getItem('voteList') ?? '[{}]'));
-      setStored(parseInt(localStorage.getItem('activeTab') ?? '0', 0) - 1);
-    }
-  }, [activeTabNum]);
+  ) => [
+    state.setActiveTab,
+    state.activeTabNum,
+    state.setActiveTabNum,
+    state.vote,
+    state.setVote,
+    state.voteList,
+  ]);
 
   const backVoteList = (storedIndex: number) => {
     voteList?.forEach((item: IVoteList) => {
@@ -52,8 +48,8 @@ export const ElectionVotingButtonBack = React.memo(() => {
   };
 
   const backTab = React.useCallback(() => {
-    backVoteList(stored);
     const backTabIndex = activeTabNum - 1;
+    backVoteList(backTabIndex);
     setActiveTab(`${backTabIndex}`);
     setActiveTabNum(backTabIndex);
     localStorage.setItem('activeTab', `${backTabIndex}`);

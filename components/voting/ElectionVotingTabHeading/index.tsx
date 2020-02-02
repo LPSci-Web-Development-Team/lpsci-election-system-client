@@ -23,15 +23,9 @@ interface IElectionVotingTabHeadingProps {
 export const ElectionVotingTabHeading = React.memo(
   ({ position, positionIndex }: IElectionVotingTabHeadingProps) => {
     // ANCHOR Voting Tab Models
-    const [vote, setVote, activeTabNum] = VotingTab.useSelectors((state) => [
-      state.vote, state.setVote, state.activeTabNum,
+    const [vote, setVote, activeTabNum, voteList] = VotingTab.useSelectors((state) => [
+      state.vote, state.setVote, state.activeTabNum, state.voteList,
     ]);
-
-    // ANCHOR Vote List
-    const [voteList, setVoteList] = React.useState<IVoteList[]>();
-
-    // ANCHOR Active Tab
-    const [stored, setStored] = React.useState<number>(0);
 
     React.useEffect(() => {
       // ANCHOR Check if votelist is defined
@@ -48,17 +42,11 @@ export const ElectionVotingTabHeading = React.memo(
     }, []);
 
     React.useEffect(() => {
-    // ANCHOR Initiate vote list and active tab
-      setVoteList(JSON.parse(localStorage.getItem('voteList') ?? '[{dsa}]'));
-      setStored(parseInt(localStorage.getItem('activeTab') ?? '0', 0));
-    }, [activeTabNum]);
-
-    React.useEffect(() => {
       if (vote.index === positionIndex) {
         // ANCHOR Check if vote list for active vote
         // eslint-disable-next-line no-unused-expressions
         voteList?.forEach((item: IVoteList) => {
-          if (item.index === stored) {
+          if (item.index === activeTabNum) {
             setVote({
               index: item.index,
               candidateId: item.candidateId,

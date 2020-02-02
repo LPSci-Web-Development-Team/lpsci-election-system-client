@@ -15,17 +15,26 @@ interface IElectionVotingTabProps {
 }
 
 export const ElectionVotingTabContainer = React.memo(({ children }: IElectionVotingTabProps) => {
-  const [watcher, setActiveTab, setActiveTabNum] = VotingTab.useSelectors((state) => [
-    state.activeTab, state.setActiveTab, state.setActiveTabNum,
+  // ANCHOR Voting Tab Models
+  const [watcher, setActiveTab, setActiveTabNum, setVoteList] = VotingTab.useSelectors((state) => [
+    state.activeTab, state.setActiveTab, state.setActiveTabNum, state.setVoteList,
   ]);
+
+  // ANCHOR Initiate stored tab
   const [stored, setStored] = React.useState<string>('0');
 
   // ANCHOR Local storage
   React.useEffect(() => {
+    // ANCHOR Initiate active tab
     setStored(localStorage.getItem('activeTab') ?? watcher);
     setActiveTab(stored);
     setActiveTabNum(parseInt(stored, 10));
-  }, [watcher, stored]);
+  }, [stored, watcher]);
+
+  React.useEffect(() => {
+    // ANCHOR Initiate vote list
+    setVoteList(JSON.parse(localStorage.getItem('voteList') ?? '[{}]'));
+  }, [watcher]);
 
   return (
     <Tabs

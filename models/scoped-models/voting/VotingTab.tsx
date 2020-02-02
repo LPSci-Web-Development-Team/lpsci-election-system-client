@@ -17,6 +17,7 @@ export const VotingTab = createModel(() => {
     party: undefined,
     imageURL: undefined,
   });
+  const [voteList, setVoteList] = React.useState<IVoteList[]>();
 
   return {
     activeTab,
@@ -25,5 +26,7 @@ export const VotingTab = createModel(() => {
     setActiveTabNum,
     vote: activeVote,
     setVote: setActiveVote,
+    voteList,
+    setVoteList,
   };
 });

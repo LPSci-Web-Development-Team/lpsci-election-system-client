@@ -18,20 +18,13 @@ import { BUTTON_NEXT } from './styles';
 
 export const ElectionVotingButtonNext = React.memo(() => {
   // ANCHOR Voting Tabs Model
-  const [setActiveTab, activeTabNum, setActiveTabNum, vote] = VotingTab.useSelectors((
+  const [setActiveTab, activeTabNum, setActiveTabNum, vote, voteList] = VotingTab.useSelectors((
     state,
-  ) => [state.setActiveTab, state.activeTabNum, state.setActiveTabNum, state.vote]);
+  ) => [state.setActiveTab, state.activeTabNum, state.setActiveTabNum, state.vote, state.voteList]);
 
   // ANCHOR Vote List
-  const [voteList, setVoteList] = React.useState<IVoteList[]>();
   let uniqueCandidate = [];
   let filteredList = [];
-
-  React.useEffect(() => {
-    if (window) {
-      setVoteList(JSON.parse(localStorage.getItem('voteList') ?? '[{}]'));
-    }
-  }, [activeTabNum]);
 
   // ANCHOR Action Button Logic
   const positionLength: number = Object.values(IPosition).length - 1;
