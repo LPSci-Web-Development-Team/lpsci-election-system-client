@@ -3,6 +3,7 @@ import * as React from 'react';
 
 // ANCHOR Scoped Models
 import { VotingTab } from 'models/scoped-models/voting/VotingTab';
+import { CandidateCard } from 'models/scoped-models/candidate-card/CandidateCard';
 
 // ANCHOR UI Models
 import { IPosition } from 'models/interface/Vote';
@@ -44,13 +45,31 @@ export const CandicateCard = React.memo(({
   // ANCHOR Voting Tab Models
   const vote = VotingTab.useSelector((state) => state.vote);
 
+  // ANCHOR Candidate Card Models
+  const [selected, setSelected] = CandidateCard.useSelectors((state) => [
+    state.selected, state.setSelected,
+  ]);
+
   // ANCHOR Active Vote Toggle
   const [on, toggle] = React.useState<boolean>(false);
 
+  // ANCHOR Check for previously voted candidate
   React.useEffect(() => {
-    if (vote.candidateId === candidateUuid) toggle(true);
-    else toggle(false);
+    if (vote.candidateId === candidateUuid) {
+      toggle(true);
+    } else {
+      toggle(false);
+    }
+  // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [vote]);
+
+  // ANCHOR Check if voter already selected a candidate
+  React.useEffect(() => {
+    if (on) {
+      setSelected(!selected);
+    }
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [on, vote]);
 
   return (
     <CandidateCardContainer>
@@ -65,7 +84,7 @@ export const CandicateCard = React.memo(({
         candidateColorHex={candidateColorHex}
       >
         <CandicateCardImageContainer toggled={on}>
-          <CandicateCardImage src={src} alt={alt} />
+          <CandicateCardImage src={src} alt={alt} toggle={on} selected={selected} />
           {on && <CandidateToggleIdentifier />}
           <CandidateCardName value={`${candidateFirstName} ${candidateLastName}`} />
           <CandidateCardParty value={candidateParty} colorHex={candidateColorHex} />
