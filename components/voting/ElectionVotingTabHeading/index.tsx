@@ -53,7 +53,7 @@ export const ElectionVotingTabHeading = React.memo(
     }, [position, positionIndex, setVote, voteList]);
     return (
       <Block overrides={HEADING_CONTAINER}>
-        <H1 overrides={HEADING}>{`Choose your ${position}.`}</H1>
+        <H1 overrides={HEADING}>{`Choose your ${position.split('.')[0]}.`}</H1>
       </Block>
     );
   },
