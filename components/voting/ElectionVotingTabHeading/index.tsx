@@ -10,7 +10,7 @@ import { isNullOrUndefined } from 'util';
 
 // ANCHOR UI Models
 import { IPosition } from 'models/interface/Vote';
-import { VotingTab } from 'models/scoped-models/voting/VotingTab';
+import { VotingTab } from '@lpsci/scoped-models/voting/VotingTab';
 
 // ANCHOR Styles
 import { HEADING, HEADING_CONTAINER } from './styles';

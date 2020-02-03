@@ -13,7 +13,7 @@ import { ISection, IGradeLevel } from 'models/interface/SignUp';
 
 // ANCHOR Utils
 import { isNumber } from 'util';
-import { SignUpFormInput } from 'models/scoped-models/sign-up/SignUpFormInput';
+import { SignUpFormInput } from '@lpsci/scoped-models/sign-up/SignUpFormInput';
 
 interface IElectionSignUpProps {
   sectionValue: ISection[];

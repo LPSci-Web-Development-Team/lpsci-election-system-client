@@ -5,7 +5,7 @@ import * as React from 'react';
 import { styled } from 'baseui';
 
 // ANCHOR Scoped Models
-import { VotingTab } from 'models/scoped-models/voting/VotingTab';
+import { VotingTab } from '@lpsci/scoped-models/voting/VotingTab';
 
 // ANCHOR  UI Models
 import { IPosition } from 'models/interface/Vote';
