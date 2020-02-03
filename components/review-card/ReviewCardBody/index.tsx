@@ -22,9 +22,9 @@ interface IReviewCardBodyProps {
 export const ReviewCardBody = React.memo(({ position }: IReviewCardBodyProps) => (
   <StyledBody>
     {
-      VOTE.map((candidate) => (
+      VOTE.map((candidate, index) => (
         candidate.position === position
-          && <ReviewCardCandidate candidate={candidate} />
+          && <ReviewCardCandidate key={index} candidate={candidate} />
       ))
     }
     <Button
