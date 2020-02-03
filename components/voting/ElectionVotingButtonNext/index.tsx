@@ -95,7 +95,7 @@ export const ElectionVotingButtonNext = React.memo(() => {
           onClick={nextTab}
           overrides={BUTTON_NEXT}
         >
-          {vote.candidateId ? 'Next' : 'Abstain'}
+          {vote.candidateId ? 'Vote' : 'Abstain'}
         </Button>
       ) : (
         <Button
