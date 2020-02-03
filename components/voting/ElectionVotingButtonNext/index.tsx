@@ -4,6 +4,9 @@
 // ANCHOR React
 import * as React from 'react';
 
+// ANCHOR Next
+import Link from 'next/link';
+
 // ANCHOR Base
 import { Button } from 'baseui/button';
 
@@ -88,6 +91,10 @@ export const ElectionVotingButtonNext = React.memo(() => {
     changeVoteList(vote.index);
   }, [changeVoteList, nextActiveTab, nextVoteList, vote]);
 
+  const reviewTab = React.useCallback(() => {
+    nextVoteList(vote);
+  }, [nextVoteList, vote]);
+
   return (
     <>
       { !isDoneVoting ? (
@@ -98,12 +105,14 @@ export const ElectionVotingButtonNext = React.memo(() => {
           {vote.candidateId ? 'Next' : 'Abstain'}
         </Button>
       ) : (
-        <Button
-          onClick={nextTab}
-          overrides={BUTTON_NEXT}
-        >
-          Review Votes
-        </Button>
+        <Link href="/review">
+          <Button
+            onClick={reviewTab}
+            overrides={BUTTON_NEXT}
+          >
+              Review Votes
+          </Button>
+        </Link>
       )}
     </>
   );
