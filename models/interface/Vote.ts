@@ -1,4 +1,5 @@
 export interface ICandidate {
+  index: number;
   candidateId: string;
   firstName: string;
   lastName: string;
