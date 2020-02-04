@@ -8,7 +8,7 @@ import * as React from 'react';
 import { Button, KIND } from 'baseui/button';
 
 // ANCHOR Scoped-Models
-import { VotingTab } from '@lpsci/scoped-models/voting/VotingTab';
+import { VotingTab } from 'scoped-models/voting/VotingTab';
 
 // ANCHOR UI Models
 import { IVoteList } from 'models/interface/Vote';

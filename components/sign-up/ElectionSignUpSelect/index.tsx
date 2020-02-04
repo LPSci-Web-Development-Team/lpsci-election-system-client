@@ -6,14 +6,14 @@ import { FormControl } from 'baseui/form-control';
 import { Select } from 'baseui/select';
 
 // ANCHOR Components
-import { ElectionSignInInputContainer } from '@lpsci/components/sign-in/ElectionSignInInputContainer';
+import { ElectionSignInInputContainer } from 'components/sign-in/ElectionSignInInputContainer';
 
 // ANCHOR UI Models
 import { ISection, IGradeLevel } from 'models/interface/SignUp';
 
 // ANCHOR Utils
 import { isNumber } from 'util';
-import { SignUpFormInput } from '@lpsci/scoped-models/sign-up/SignUpFormInput';
+import { SignUpFormInput } from 'scoped-models/sign-up/SignUpFormInput';
 
 interface IElectionSignUpProps {
   sectionValue: ISection[];

@@ -11,7 +11,7 @@ import Link from 'next/link';
 import { Button } from 'baseui/button';
 
 // ANCHOR Scoped-Models
-import { VotingTab } from '@lpsci/scoped-models/voting/VotingTab';
+import { VotingTab } from 'scoped-models/voting/VotingTab';
 
 // ANCHOR UI Models
 import { IPosition, IVoteList } from 'models/interface/Vote';
@@ -88,7 +88,7 @@ export const ElectionVotingButtonNext = React.memo(() => {
   const nextTab = React.useCallback(() => {
     nextVoteList(vote);
     nextActiveTab();
-    changeVoteList(vote.index);
+    changeVoteList(vote.index ?? 0);
   }, [changeVoteList, nextActiveTab, nextVoteList, vote]);
 
   const reviewTab = React.useCallback(() => {

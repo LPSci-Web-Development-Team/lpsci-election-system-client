@@ -5,7 +5,7 @@ import * as React from 'react';
 import { Button } from 'baseui/button';
 
 // ANCHOR Scoped Models
-import { ConfirmationModal } from '@lpsci/scoped-models/review-modal/ConfirmationModal';
+import { ConfirmationModal } from 'scoped-models/review-modal/ConfirmationModal';
 
 // ANCHOR Styles
 import { BUTTON } from './styles';

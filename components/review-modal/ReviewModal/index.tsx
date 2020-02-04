@@ -5,7 +5,7 @@ import * as React from 'react';
 import { Modal, SIZE } from 'baseui/modal';
 
 // ANCHOR Scoped Models
-import { ConfirmationModal } from '@lpsci/scoped-models/review-modal/ConfirmationModal';
+import { ConfirmationModal } from 'scoped-models/review-modal/ConfirmationModal';
 
 // ANCHOR Components
 import { ReviewModalHeading } from '../ReviewModalHeading';

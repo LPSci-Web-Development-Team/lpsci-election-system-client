@@ -2,11 +2,13 @@
 import * as React from 'react';
 
 // ANCHOR Models
-import { SignInFormInput } from '@lpsci/scoped-models/sign-in/SignInFormInput';
-import { SignUpFormInput } from '@lpsci/scoped-models/sign-up/SignUpFormInput';
-import { VotingTab } from '@lpsci/scoped-models/voting/VotingTab';
-import { CandidateCard } from '@lpsci/scoped-models/candidate-card/CandidateCard';
-import { ConfirmationModal } from '@lpsci/scoped-models/review-modal/ConfirmationModal';
+// TODO Remove after connecting sign in page
+// eslint-disable-next-line import/no-unresolved
+import { SignInFormInput } from 'scoped-models/sign-in/SignInFormInput';
+import { SignUpFormInput } from 'scoped-models/sign-up/SignUpFormInput';
+import { VotingTab } from 'scoped-models/voting/VotingTab';
+import { CandidateCard } from 'scoped-models/candidate-card/CandidateCard';
+import { ConfirmationModal } from 'scoped-models/review-modal/ConfirmationModal';
 
 export const makeProviders = () => [
   /*

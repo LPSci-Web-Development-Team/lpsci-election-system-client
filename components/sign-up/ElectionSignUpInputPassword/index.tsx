@@ -2,7 +2,7 @@
 import * as React from 'react';
 
 // ANCHOR Hooks
-import { useConstant } from '@lpsci/utils/hooks/useConstant';
+import { useConstant } from 'utils/hooks/useConstant';
 
 // ANCHOR Base
 import { FormControl } from 'baseui/form-control';
@@ -13,7 +13,7 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faLock } from '@fortawesome/free-solid-svg-icons';
 
 // ANCHOR Components
-import { ElectionSignInInputContainer } from '@lpsci/components/sign-in/ElectionSignInInputContainer';
+import { ElectionSignInInputContainer } from 'components/sign-in/ElectionSignInInputContainer';
 
 interface IElectionPasswordProps {
   label: string;

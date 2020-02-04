@@ -4,10 +4,10 @@ import * as React from 'react';
 // ANCHOR Base
 
 // ANCHOR Components
-import { ElectionPage } from '@lpsci/components/ElectionPage';
-import { GlobalProvider } from '@lpsci/components/GlobalProvider';
-import { ElectionAppHead } from '@lpsci/components/head/ElectionAppHead/ElectionAppHead';
-import { ElectionVoting } from '@lpsci/components/voting/ElectionVoting';
+import { ElectionPage } from 'components/ElectionPage';
+import { GlobalProvider } from 'components/GlobalProvider';
+import { ElectionAppHead } from 'components/head/ElectionAppHead/ElectionAppHead';
+import { ElectionVoting } from 'components/voting/ElectionVoting';
 
 // eslint-disable-next-line import/no-default-export
 export default React.memo(() => (

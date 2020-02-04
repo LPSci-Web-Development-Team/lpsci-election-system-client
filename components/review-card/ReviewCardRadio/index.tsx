@@ -10,7 +10,7 @@ import { IPosition } from 'models/interface/Vote';
 import { VOTE } from 'models/ui-models/vote';
 
 // ANCHOR Components
-import { VotingTab } from '@lpsci/scoped-models/voting/VotingTab';
+import { VotingTab } from 'scoped-models/voting/VotingTab';
 import { ReviewCardCandidate } from '../ReviewCardCandidate';
 
 // ANCHOR Styles

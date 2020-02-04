@@ -5,7 +5,7 @@ import * as React from 'react';
 import { styled } from 'baseui';
 
 // ANCHOR Scoped Models
-import { VotingTab } from '@lpsci/scoped-models/voting/VotingTab';
+import { VotingTab } from 'scoped-models/voting/VotingTab';
 
 // ANCHOR  UI Models
 import { IPosition } from 'models/interface/Vote';
@@ -70,7 +70,18 @@ export const CandidateClickableDiv = React.memo(({
         imageURL: candidateImage,
       });
     }
-  }, [vote]);
+  }, [
+    candidateColorHex,
+    candidateFirstName,
+    candidateImage,
+    candidateLastName,
+    candidateParty,
+    candidatePosition,
+    candidateUuid,
+    positionIndex,
+    setVote,
+    vote,
+  ]);
 
   return (
     <>

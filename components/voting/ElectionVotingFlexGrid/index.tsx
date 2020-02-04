@@ -6,14 +6,12 @@ import { VOTE } from 'models/ui-models/vote';
 
 // ANCHOR Base
 import { FlexGrid, FlexGridItem } from 'baseui/flex-grid';
-import { BlockProps } from 'baseui/block';
 
 // ANCHOR Components
-import { CandicateCard } from '@lpsci/components/candidate-card';
+import { CandicateCard } from 'components/candidate-card';
 
-const FLEX: BlockProps = {
-  marginTop: '150px',
-};
+// ANCHOR Styles
+import { FLEX } from './styles';
 
 interface IElectionVotingFlexProps {
   position: string | null;
@@ -26,7 +24,7 @@ export const ElectionVotingFlexGrid = React.memo(
       flexGridColumnCount={2}
       flexGridColumnGap="scale500"
       flexGridRowGap="scale600"
-      {...FLEX}
+      overrides={FLEX}
     >
       {VOTE.map((candidate, index) => (
         position === candidate.position && (

@@ -2,8 +2,8 @@
 import * as React from 'react';
 
 // ANCHOR Scoped Models
-import { VotingTab } from '@lpsci/scoped-models/voting/VotingTab';
-import { CandidateCard } from '@lpsci/scoped-models/candidate-card/CandidateCard';
+import { VotingTab } from 'scoped-models/voting/VotingTab';
+import { CandidateCard } from 'scoped-models/candidate-card/CandidateCard';
 
 // ANCHOR UI Models
 import { IPosition } from 'models/interface/Vote';

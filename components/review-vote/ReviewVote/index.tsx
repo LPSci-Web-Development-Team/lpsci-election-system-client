@@ -2,8 +2,8 @@
 import * as React from 'react';
 
 // ANCHOR Components
-import { ReviewCard } from '@lpsci/components/review-card/ReviewCard';
-import { ReviewModal } from '@lpsci/components/review-modal/ReviewModal';
+import { ReviewCard } from 'components/review-card/ReviewCard';
+import { ReviewModal } from 'components/review-modal/ReviewModal';
 import { ReviewVoteHeading } from '../ReviewVoteHeading';
 import { ReviewVoteButton } from '../ReviewVoteButton';
 
