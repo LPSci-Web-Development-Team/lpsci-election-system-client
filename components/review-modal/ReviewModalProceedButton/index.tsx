@@ -1,14 +1,14 @@
 // ANCHOR React
 import * as React from 'react';
 
+// ANCHOR Next
+import Link from 'next/link';
+
 // ANCHOR Base
 import { ModalButton } from 'baseui/modal';
 
 // ANCHOR Scoped Models
 import { ConfirmationModal } from '@lpsci/scoped-models/review-modal/ConfirmationModal';
-
-// ANCHOR Next
-import Link from 'next/link';
 
 export const ReviewModalProceedButton = React.memo(() => {
   const setModal = ConfirmationModal.useSelector((state) => state.setModal);
