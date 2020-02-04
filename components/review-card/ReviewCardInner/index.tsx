@@ -2,21 +2,19 @@
 import * as React from 'react';
 
 // ANCHOR Base
-import { useStyletron } from 'baseui';
+import { styled } from 'baseui';
 
 interface IProps {
   children: React.ReactNode;
 }
 
-export const ReviewCardInner = ({ children }: IProps) => {
-  const [css] = useStyletron();
-  return (
-    <div
-      className={css({
-        display: 'flex',
-      })}
-    >
-      {children}
-    </div>
-  );
-};
+const DivInner = styled('div',
+  {
+    display: 'flex',
+  });
+
+export const ReviewCardInner = ({ children }: IProps) => (
+  <DivInner>
+    {children}
+  </DivInner>
+);

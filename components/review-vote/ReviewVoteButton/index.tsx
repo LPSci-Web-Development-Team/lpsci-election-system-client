@@ -10,7 +10,6 @@ import { ConfirmationModal } from 'scoped-models/review-modal/ConfirmationModal'
 // ANCHOR Styles
 import { BUTTON } from './styles';
 
-
 export const ReviewVoteButton = React.memo(() => {
   const setModal = ConfirmationModal.useSelector((state) => state.setModal);
 
