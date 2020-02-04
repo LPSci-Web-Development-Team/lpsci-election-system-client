@@ -6,7 +6,7 @@ import { FormControl } from 'baseui/form-control';
 import { Input } from 'baseui/input';
 
 // ANCHOR Components
-import { ElectionSignInInputContainer } from '@lpsci/components/sign-in/ElectionSignInInputContainer';
+import { ElectionSignInInputContainer } from 'components/sign-in/ElectionSignInInputContainer';
 
 interface IElectionInputProps {
   label: string;

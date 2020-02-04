@@ -5,7 +5,7 @@ import * as React from 'react';
 import createModel from '@lxsmnsyc/react-scoped-model';
 
 // ANCHOR Hooks
-import { useDebouncedState } from '@lpsci/utils/hooks/useDebouncedState';
+import { useDebouncedState } from 'utils/hooks/useDebouncedState';
 
 export const SignUpFormInput = createModel(() => {
   const [lrn, setLrn] = useDebouncedState('', 150);

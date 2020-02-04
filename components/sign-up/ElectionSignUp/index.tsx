@@ -2,7 +2,7 @@
 import * as React from 'react';
 
 // ANCHOR Hooks
-import { useConstant } from '@lpsci/utils/hooks/useConstant';
+import { useConstant } from 'utils/hooks/useConstant';
 
 // ANCHOR Font Awesome
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';

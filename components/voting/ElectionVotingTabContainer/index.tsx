@@ -7,7 +7,7 @@ import { Tabs } from 'baseui/tabs';
 // ANCHOR Components
 
 // ANCHOR Styles
-import { VotingTab } from 'models/scoped-models/voting/VotingTab';
+import { VotingTab } from 'scoped-models/voting/VotingTab';
 import { ELECTION_TAB } from './styles';
 
 interface IElectionVotingTabProps {
@@ -29,12 +29,12 @@ export const ElectionVotingTabContainer = React.memo(({ children }: IElectionVot
     setStored(localStorage.getItem('activeTab') ?? watcher);
     setActiveTab(stored);
     setActiveTabNum(parseInt(stored, 10));
-  }, [stored, watcher]);
+  }, [setActiveTab, setActiveTabNum, stored, watcher]);
 
   React.useEffect(() => {
     // ANCHOR Initiate vote list
     setVoteList(JSON.parse(localStorage.getItem('voteList') ?? '[{}]'));
-  }, [watcher]);
+  }, [setVoteList, watcher]);
 
   return (
     <Tabs

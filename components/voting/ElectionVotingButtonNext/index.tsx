@@ -4,11 +4,14 @@
 // ANCHOR React
 import * as React from 'react';
 
+// ANCHOR Next
+import Link from 'next/link';
+
 // ANCHOR Base
 import { Button } from 'baseui/button';
 
 // ANCHOR Scoped-Models
-import { VotingTab } from 'models/scoped-models/voting/VotingTab';
+import { VotingTab } from 'scoped-models/voting/VotingTab';
 
 // ANCHOR UI Models
 import { IPosition, IVoteList } from 'models/interface/Vote';
@@ -29,7 +32,7 @@ export const ElectionVotingButtonNext = React.memo(() => {
 
   // ANCHOR Vote List
   let uniqueCandidate = [];
-  let filteredList = [];
+  let filteredList: IVoteList[] = [];
 
   // ANCHOR Action Button Logic
   const positionLength: number = Object.values(IPosition).length - 1;
@@ -57,8 +60,8 @@ export const ElectionVotingButtonNext = React.memo(() => {
           list.index === l.index
         )),
       );
-      localStorage.setItem('voteList', JSON.stringify(filteredList));
     });
+    localStorage.setItem('voteList', JSON.stringify(filteredList));
   }, [vote]);
 
   // ANCHOR Go To Next Tab
@@ -85,8 +88,12 @@ export const ElectionVotingButtonNext = React.memo(() => {
   const nextTab = React.useCallback(() => {
     nextVoteList(vote);
     nextActiveTab();
-    changeVoteList(vote.index);
+    changeVoteList(vote.index ?? 0);
   }, [changeVoteList, nextActiveTab, nextVoteList, vote]);
+
+  const reviewTab = React.useCallback(() => {
+    nextVoteList(vote);
+  }, [nextVoteList, vote]);
 
   return (
     <>
@@ -98,12 +105,14 @@ export const ElectionVotingButtonNext = React.memo(() => {
           {vote.candidateId ? 'Vote' : 'Abstain'}
         </Button>
       ) : (
-        <Button
-          onClick={nextTab}
-          overrides={BUTTON_NEXT}
-        >
-          Review Votes
-        </Button>
+        <Link href="/review">
+          <Button
+            onClick={reviewTab}
+            overrides={BUTTON_NEXT}
+          >
+              Review Votes
+          </Button>
+        </Link>
       )}
     </>
   );

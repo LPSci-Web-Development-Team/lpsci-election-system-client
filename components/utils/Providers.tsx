@@ -2,10 +2,13 @@
 import * as React from 'react';
 
 // ANCHOR Models
-import { SignInFormInput } from 'models/scoped-models/sign-in/SignInFormInput';
-import { SignUpFormInput } from 'models/scoped-models/sign-up/SignUpFormInput';
-import { VotingTab } from 'models/scoped-models/voting/VotingTab';
-import { CandidateCard } from 'models/scoped-models/candidate-card/CandidateCard';
+// TODO Remove after connecting sign in page
+// eslint-disable-next-line import/no-unresolved
+import { SignInFormInput } from 'scoped-models/sign-in/SignInFormInput';
+import { SignUpFormInput } from 'scoped-models/sign-up/SignUpFormInput';
+import { VotingTab } from 'scoped-models/voting/VotingTab';
+import { CandidateCard } from 'scoped-models/candidate-card/CandidateCard';
+import { ConfirmationModal } from 'scoped-models/review-modal/ConfirmationModal';
 
 export const makeProviders = () => [
   /*
@@ -28,4 +31,9 @@ export const makeProviders = () => [
     NOTE: Used for providing the card a toggle
     */
   <CandidateCard.Provider key="CandidateCard" />,
+  /*
+    ANCHOR: Provider for Review Modal
+    NOTE: Used for toggling modal visibility
+  */
+  <ConfirmationModal.Provider key="ConfirmationModal" />,
 ];
