@@ -7,13 +7,10 @@ import { Button, SIZE } from 'baseui/button';
 
 // ANCHOR Model
 import { IPosition } from 'models/interface/Vote';
+import { VOTE } from 'models/ui-models/vote';
 
 // ANCHOR Components
-import { VOTE } from 'models/ui-models/vote';
-import { ReviewCardCandidate } from '../ReviewCardCandidate';
-
-// ANCHOR Styles
-import { BUTTON } from './styles';
+import { ReviewCardRadio } from '../ReviewCardRadio';
 
 interface IReviewCardBodyProps {
   position: IPosition;
@@ -21,17 +18,6 @@ interface IReviewCardBodyProps {
 
 export const ReviewCardBody = React.memo(({ position }: IReviewCardBodyProps) => (
   <StyledBody>
-    {
-      VOTE.map((candidate, index) => (
-        candidate.position === position
-          && <ReviewCardCandidate key={index} candidate={candidate} />
-      ))
-    }
-    <Button
-      size={SIZE.compact}
-      overrides={BUTTON}
-    >
-      Abstain
-    </Button>
+    <ReviewCardRadio position={position}/>
   </StyledBody>
 ));

@@ -32,7 +32,7 @@ export const ElectionVotingButtonNext = React.memo(() => {
 
   // ANCHOR Vote List
   let uniqueCandidate = [];
-  let filteredList = [];
+  let filteredList: IVoteList[] = [];
 
   // ANCHOR Action Button Logic
   const positionLength: number = Object.values(IPosition).length - 1;
@@ -60,8 +60,8 @@ export const ElectionVotingButtonNext = React.memo(() => {
           list.index === l.index
         )),
       );
-      localStorage.setItem('voteList', JSON.stringify(filteredList));
     });
+    localStorage.setItem('voteList', JSON.stringify(filteredList));
   }, [vote]);
 
   // ANCHOR Go To Next Tab
