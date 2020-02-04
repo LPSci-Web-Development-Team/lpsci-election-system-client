@@ -7,7 +7,7 @@ import { Tabs } from 'baseui/tabs';
 // ANCHOR Components
 
 // ANCHOR Styles
-import { VotingTab } from 'models/scoped-models/voting/VotingTab';
+import { VotingTab } from '@lpsci/scoped-models/voting/VotingTab';
 import { ELECTION_TAB } from './styles';
 
 interface IElectionVotingTabProps {

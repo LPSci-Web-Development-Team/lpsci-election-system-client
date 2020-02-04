@@ -1,5 +1,4 @@
 export interface ICandidate {
-  index: number;
   candidateId: string;
   firstName: string;
   lastName: string;
@@ -9,7 +8,7 @@ export interface ICandidate {
 }
 
 export interface IVoteList {
-  index: number;
+  index?: number;
   position?: IPosition;
   candidateId?: string;
   firstName?: string;

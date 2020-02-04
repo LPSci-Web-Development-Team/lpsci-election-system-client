@@ -2,10 +2,11 @@
 import * as React from 'react';
 
 // ANCHOR Models
-import { SignInFormInput } from 'models/scoped-models/sign-in/SignInFormInput';
-import { SignUpFormInput } from 'models/scoped-models/sign-up/SignUpFormInput';
-import { VotingTab } from 'models/scoped-models/voting/VotingTab';
-import { CandidateCard } from 'models/scoped-models/candidate-card/CandidateCard';
+import { SignInFormInput } from '@lpsci/scoped-models/sign-in/SignInFormInput';
+import { SignUpFormInput } from '@lpsci/scoped-models/sign-up/SignUpFormInput';
+import { VotingTab } from '@lpsci/scoped-models/voting/VotingTab';
+import { CandidateCard } from '@lpsci/scoped-models/candidate-card/CandidateCard';
+import { ConfirmationModal } from '@lpsci/scoped-models/review-modal/ConfirmationModal';
 
 export const makeProviders = () => [
   /*
@@ -28,4 +29,9 @@ export const makeProviders = () => [
     NOTE: Used for providing the card a toggle
     */
   <CandidateCard.Provider key="CandidateCard" />,
+  /*
+    ANCHOR: Provider for Review Modal
+    NOTE: Used for toggling modal visibility
+  */
+  <ConfirmationModal.Provider key="ConfirmationModal" />,
 ];

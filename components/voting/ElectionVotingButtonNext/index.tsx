@@ -11,7 +11,7 @@ import Link from 'next/link';
 import { Button } from 'baseui/button';
 
 // ANCHOR Scoped-Models
-import { VotingTab } from 'models/scoped-models/voting/VotingTab';
+import { VotingTab } from '@lpsci/scoped-models/voting/VotingTab';
 
 // ANCHOR UI Models
 import { IPosition, IVoteList } from 'models/interface/Vote';

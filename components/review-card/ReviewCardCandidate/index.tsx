@@ -7,9 +7,6 @@ import { Grid, Cell, ALIGNMENT } from 'baseui/layout-grid';
 // ANCHOR UI Models
 import { IVoteList } from 'models/interface/Vote';
 
-// ANCHOR Scoped Models
-import { VotingTab } from 'models/scoped-models/voting/VotingTab';
-
 // ANCHOR Components
 import { ReviewCardOuter } from '../ReviewCardOuter';
 import { ReviewCardInner } from '../ReviewCardInner';
