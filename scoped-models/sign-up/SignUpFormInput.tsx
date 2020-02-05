@@ -4,6 +4,9 @@ import * as React from 'react';
 // ANCHOR Model
 import createModel from '@lxsmnsyc/react-scoped-model';
 
+// ANCHOR Interface
+import { Option } from 'baseui/select';
+
 // ANCHOR Utils
 import { GradeLevel } from '@lpsci/utils/payloads/user';
 
@@ -21,6 +24,7 @@ export const SignUpFormInput = createModel(() => {
   const [section, setSection] = React.useState();
   const [loading, setLoading] = React.useState(false);
   const [error, setError] = React.useState();
+  const [sectionsSelect, setSectionsSelect] = React.useState<Option[]>([]);
 
   const handler = useConstant(() => ({
     lrn: (e: React.ChangeEvent<HTMLInputElement>) => {
@@ -58,8 +62,8 @@ export const SignUpFormInput = createModel(() => {
   }, [confirmPassword, password]);
 
   const filled = React.useMemo(() => (
-    lrn !== '' && firstName !== '' && lastName !== '' && section !== '' && passwordMatch
-  ), [lrn, firstName, lastName, section, passwordMatch]);
+    lrn !== '' && firstName !== '' && lastName !== '' && gradeLevel !== '' && passwordMatch
+  ), [lrn, firstName, lastName, gradeLevel, passwordMatch]);
 
   return {
     handler,
@@ -83,5 +87,7 @@ export const SignUpFormInput = createModel(() => {
     setLoading,
     error,
     setError,
+    sectionsSelect,
+    setSectionsSelect,
   };
 });

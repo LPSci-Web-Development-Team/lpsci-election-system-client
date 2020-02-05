@@ -21,6 +21,8 @@ import { ElectionSignUpFirstName } from '../ElectionSignUpFirstName';
 import { ElectionSignUpLastName } from '../ElectionSignUpLastName';
 import { ElectionSignUpPassword } from '../ElectionSignUpPassword';
 import { ElectionSignUpConfirmPassword } from '../ElectionSignUpConfirmPassword';
+import { ElectionSignUpGradeLevel } from '../ElectionSignUpGradeLevel';
+import { ElectionSignUpSection } from '../ElectionSignUpSection';
 
 
 export const ElectionSignUp = React.memo(() => {
@@ -58,8 +60,25 @@ export const ElectionSignUp = React.memo(() => {
           section,
         }));
 
+        console.log({
+          lrn,
+          password,
+          firstName,
+          lastName,
+          gradeLevel,
+          section
+        });
+
         setLoading(false);
       } catch (err) {
+        console.log({
+          lrn,
+          password,
+          firstName,
+          lastName,
+          gradeLevel,
+          section
+        });
         setLoading(false);
       }
     }
@@ -79,6 +98,8 @@ export const ElectionSignUp = React.memo(() => {
       <ElectionSignUpLrn />
       <ElectionSignUpFirstName />
       <ElectionSignUpLastName />
+      <ElectionSignUpGradeLevel />
+      <ElectionSignUpSection />
       <ElectionSignUpPassword />
       <ElectionSignUpConfirmPassword />
       <ElectionSignUpSubmitButton />

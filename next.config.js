@@ -32,6 +32,7 @@ const initialConfig = {
     /* TODO Add env variables here i.e.,     
     FIREBASE_API_KEY: process.env.FIREBASE_API_KEY,
     */
+   API: process.env.API,
   }
 };
 
