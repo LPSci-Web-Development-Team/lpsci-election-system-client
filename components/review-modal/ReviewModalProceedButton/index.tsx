@@ -16,7 +16,7 @@ export const ReviewModalProceedButton = React.memo(() => {
   const closeModal = React.useCallback(() => setModal(false), [setModal]);
 
   return (
-    <Link href="/success">
+    <Link href="/vote-success">
       <ModalButton onClick={closeModal}>Proceed</ModalButton>
     </Link>
   );
