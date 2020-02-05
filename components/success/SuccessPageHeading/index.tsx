@@ -8,11 +8,11 @@ import { H1 } from 'baseui/typography';
 import { HEADING } from './styles';
 
 interface ISuccessPageHeadingProps {
-  action: string;
+  text: string;
 }
 
-export const SuccessPageHeading = React.memo(({ action }: ISuccessPageHeadingProps) => (
+export const SuccessPageHeading = React.memo(({ text }: ISuccessPageHeadingProps) => (
   <H1 overrides={HEADING}>
-    {`${action} successfully!`}
+    {text}
   </H1>
-))
+));

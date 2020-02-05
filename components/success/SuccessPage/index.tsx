@@ -7,15 +7,15 @@ import { SuccessPageIllustration } from '../SuccessPageIllustration';
 import { SuccessPageButton } from '../SuccessPageButton';
 
 interface ISuccessPageProps {
-  action: string;
+  value: string;
   src: string;
   text: string;
 }
 
-export const SuccessPage = React.memo(({ action, src, text }: ISuccessPageProps) => (
+export const SuccessPage = React.memo(({ value, src, text }: ISuccessPageProps) => (
   <>
-    <SuccessPageHeading action={action} />
-    <SuccessPageIllustration src={src} alt={action} />
+    <SuccessPageHeading text={value} />
+    <SuccessPageIllustration src={src} alt={value} />
     <SuccessPageButton text={text} />
   </>
 ));

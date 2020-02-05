@@ -12,7 +12,11 @@ export default React.memo(() => (
   <GlobalProvider>
     <ElectionAppHead title="SSG Election" description="Election Web App" />
     <ElectionPage>
-      <SuccessPage action="Vote casted" src="img/vote-success.png" text="Sign Out" />
+      <SuccessPage
+        value="Vote casted successfully!"
+        src="img/vote-success.png"
+        text="Sign Out"
+      />
     </ElectionPage>
   </GlobalProvider>
 ));
