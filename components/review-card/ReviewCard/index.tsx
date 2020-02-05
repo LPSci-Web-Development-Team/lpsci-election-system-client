@@ -34,7 +34,7 @@ export const ReviewCard = React.memo(() => {
                   <React.Fragment key={i}>
                     <ReviewCardHeading
                       position={position}
-                      color={item.party?.colorHex ?? 'gray'}
+                      color={item.party?.colorHex ?? '#a5a6aa'}
                     />
                     <ReviewCardBody position={position} />
                   </React.Fragment>

@@ -80,8 +80,8 @@ export const CandicateCard = React.memo(({
         candidateImage={candidateImage}
         candidateColorHex={candidateColorHex}
       >
-        <CandicateCardImageContainer toggled={on}>
-          <CandicateCardImage src={src} alt={alt} toggle={on} selected={selected} />
+        <CandicateCardImageContainer toggle={on} selected={selected}>
+          <CandicateCardImage src={src} alt={alt} />
           {on && <CandidateToggleIdentifier />}
           <CandidateCardName value={`${candidateFirstName} ${candidateLastName}`} />
           <CandidateCardParty value={candidateParty} colorHex={candidateColorHex} />
