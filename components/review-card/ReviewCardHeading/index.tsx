@@ -19,7 +19,7 @@ export const ReviewCardHeading = React.memo(
         style: {
           fontSize: '18px',
           fontWeight: 600,
-          borderLeft: `8px ${color} solid`,
+          borderLeft: `10px ${color} solid`,
           marginLeft: '-20px',
           marginRight: '-20px',
           marginTop: '-18px',

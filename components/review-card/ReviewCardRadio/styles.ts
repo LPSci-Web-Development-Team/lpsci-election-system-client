@@ -22,7 +22,7 @@ export const SELECTED: RadioOverrides = {
 export const OPAQUE: RadioOverrides = {
   Root: {
     style: {
-      opacity: '0.3',
+      opacity: '0.6',
     },
   },
 };
