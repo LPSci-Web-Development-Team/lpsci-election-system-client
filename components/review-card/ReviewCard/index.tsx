@@ -12,7 +12,6 @@ import { ReviewCardContainer } from '../ReviewCardContainer';
 import { ReviewCardHeading } from '../ReviewCardHeading';
 import { ReviewCardBody } from '../ReviewCardBody';
 
-
 export const ReviewCard = React.memo(() => {
   // ANCHOR Voting Tab Models
   const [voteList, setVoteList] = VotingTab.useSelectors((state) => [
@@ -48,13 +47,3 @@ export const ReviewCard = React.memo(() => {
     </>
   );
 });
-
-/*
-<ReviewCardContainer>
-  <ReviewCardHeading
-    candidatePosition={candidatePosition}
-    candidateFirstName={candidateFirstName}
-    candidateLastName={candidateLastName}
-  />
-</ReviewCardContainer>;
-*/
