@@ -39,7 +39,7 @@ export const ElectionSignUpSection = React.memo(() => {
         setSectionsSelect([...selectedSection]);
       });
     }).catch((err) => console.log(err));
-  }, [gradeLevel, setSectionsSelect]);
+  }, [gradeLevel, sectionHandler, setSectionsSelect]);
 
   React.useEffect(() => {
     setSelected(null);
