@@ -1,10 +1,10 @@
 // ANCHOR React
 import * as React from 'react';
+
+// ANCHOR Components
 import { SuccessPageHeading } from '../SuccessPageHeading';
 import { SuccessPageIllustration } from '../SuccessPageIllustration';
 import { SuccessPageButton } from '../SuccessPageButton';
-
-// ANCHOR Components
 
 interface ISuccessPageProps {
   action: string;
