@@ -1,30 +1,85 @@
 // ANCHOR React
 import * as React from 'react';
 
-// ANCHOR Hooks
-import { useConstant } from 'utils/hooks/useConstant';
+// ANCHOR Models
+import { SignUpFormInput } from 'scoped-models/sign-up/SignUpFormInput';
 
-// ANCHOR Font Awesome
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faIdBadge, faUser } from '@fortawesome/free-solid-svg-icons';
+// ANCHOR Utils
+import { signupUser } from 'utils/api/voter';
+
+// ANCHOR Hooks
+import { usePromise } from 'utils/hooks/usePromise';
 
 // ANCHOR Components
-import { GRADE_AND_SECTION } from 'models/ui-models/sign-up';
 import { ElectionSignUpLogo } from '../ElectionSignUpLogo';
 import { ElectionSignUpLogoText } from '../ElectionSignUpLogoText';
 import { ElectionSignUpHeading } from '../ElectionSignUpHeading';
 import { ElectionSignUpLogoContainer } from '../ElectionSignUpLogoContainer';
-import { ElectionSignUpInputText } from '../ElectionSignUpInputText';
-import { ElectionSignUpInputPassword } from '../ElectionSignUpInputPassword';
 import { ElectionSignUpSubmitButton } from '../ElectionSignUpSubmitButton';
-import { ElectionSignUpSelect } from '../ElectionSignUpSelect';
+import { ElectionSignUpLrn } from '../ElectionSignUpLrn';
+import { ElectionSignUpFirstName } from '../ElectionSignUpFirstName';
+import { ElectionSignUpLastName } from '../ElectionSignUpLastName';
+import { ElectionSignUpPassword } from '../ElectionSignUpPassword';
+import { ElectionSignUpConfirmPassword } from '../ElectionSignUpConfirmPassword';
+import { ElectionSignUpGradeLevel } from '../ElectionSignUpGradeLevel';
+import { ElectionSignUpSection } from '../ElectionSignUpSection';
+
 
 export const ElectionSignUp = React.memo(() => {
-  const BadgeIcon = useConstant(() => <FontAwesomeIcon icon={faIdBadge} />);
-  const UserIcon = useConstant(() => <FontAwesomeIcon icon={faUser} />);
+  const [
+    lrn,
+    password,
+    confirmPassword,
+    firstName,
+    lastName,
+    gradeLevel,
+    section,
+    filled,
+    setLoading,
+    sectionId,
+  ] = SignUpFormInput.useSelectors((state) => [
+    state.lrn,
+    state.password,
+    state.confirmPassword,
+    state.firstName,
+    state.lastName,
+    state.gradeLevel,
+    state.section,
+    state.filled,
+    state.setLoading,
+    state.sectionId,
+  ]);
+
+  const mounted = usePromise([
+    lrn, password, confirmPassword, firstName, lastName, gradeLevel, section, filled,
+  ]);
+
+  const onSubmit = React.useCallback(async (event: React.FormEvent<HTMLFormElement>) => {
+    event.preventDefault();
+
+    setLoading(true);
+
+    if (filled) {
+      try {
+        await mounted(signupUser({
+          lrn,
+          password,
+          firstName,
+          lastName,
+          gradeLevel,
+          sectionId: section,
+          isAdmin: false,
+        }));
+        setLoading(false);
+      } catch (err) {
+        console.log(err);
+        setLoading(false);
+      }
+    }
+  }, [setLoading, filled, mounted, lrn, password, firstName, lastName, gradeLevel, section]);
 
   return (
-    <>
+    <form onSubmit={onSubmit}>
       <ElectionSignUpLogoContainer>
         <ElectionSignUpLogo
           name="lpsci-logo"
@@ -34,35 +89,14 @@ export const ElectionSignUp = React.memo(() => {
         <ElectionSignUpLogoText />
       </ElectionSignUpLogoContainer>
       <ElectionSignUpHeading />
-      <ElectionSignUpInputText
-        label="Learner's Reference Number"
-        placeholder="226503351137"
-        name="lrn"
-        Icon={BadgeIcon}
-      />
-      <ElectionSignUpInputText
-        label="First Name"
-        placeholder="Juan"
-        name="firstName"
-        Icon={UserIcon}
-      />
-      <ElectionSignUpInputText
-        label="Last Name"
-        placeholder="Dela Cruz"
-        name="lastName"
-        Icon={UserIcon}
-      />
-      <ElectionSignUpSelect sectionValue={GRADE_AND_SECTION} label="Grade Level" />
-      <ElectionSignUpSelect sectionValue={GRADE_AND_SECTION} label="Section" />
-      <ElectionSignUpInputPassword
-        label="Password"
-        name="password"
-      />
-      <ElectionSignUpInputPassword
-        label="Confirm Password"
-        name="confirmPassword"
-      />
+      <ElectionSignUpLrn />
+      <ElectionSignUpFirstName />
+      <ElectionSignUpLastName />
+      <ElectionSignUpGradeLevel />
+      <ElectionSignUpSection />
+      <ElectionSignUpPassword />
+      <ElectionSignUpConfirmPassword />
       <ElectionSignUpSubmitButton />
-    </>
+    </form>
   );
 });
