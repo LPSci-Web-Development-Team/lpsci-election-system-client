@@ -36,7 +36,6 @@ export const ElectionSignUp = React.memo(() => {
     section,
     filled,
     setLoading,
-    sectionId,
   ] = SignUpFormInput.useSelectors((state) => [
     state.lrn,
     state.password,
@@ -47,7 +46,6 @@ export const ElectionSignUp = React.memo(() => {
     state.section,
     state.filled,
     state.setLoading,
-    state.sectionId,
   ]);
 
   const mounted = usePromise([
