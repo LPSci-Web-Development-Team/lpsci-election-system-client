@@ -21,6 +21,7 @@ export const ElectionSignUpSection = React.memo(() => {
     sectionsSelect,
     setSectionsSelect,
     sectionHandler,
+    setError,
   ] = SignUpFormInput.useSelectors(
     (state) => [
       state.gradeLevel,
@@ -28,6 +29,7 @@ export const ElectionSignUpSection = React.memo(() => {
       state.sectionsSelect,
       state.setSectionsSelect,
       state.handler.section,
+      state.setError,
     ],
   );
 
@@ -50,8 +52,8 @@ export const ElectionSignUpSection = React.memo(() => {
         }
         setSectionsSelect([...selectedSection]);
       });
-    }).catch((err) => console.log(err));
-  }, [gradeLevel, sectionHandler, setSectionsSelect]);
+    }).catch((err) => setError(err));
+  }, [gradeLevel, sectionHandler, setError, setSectionsSelect]);
 
   React.useEffect(() => {
     setSelected(null);

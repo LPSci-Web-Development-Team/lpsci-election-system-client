@@ -27,6 +27,7 @@ export const SignUpFormInput = createModel(() => {
   const [sectionsSelect, setSectionsSelect] = React.useState<Option[]>([]);
   const [validLrn, setValidLrn] = React.useState<boolean>(false);
   const [visitedLrn, setVisitedLrn] = React.useState<boolean>(false);
+  const [disabled, setDisabled] = React.useState<boolean>(false);
 
   const handler = useConstant(() => ({
     lrnPress: (e: React.KeyboardEvent<HTMLInputElement>) => {
@@ -112,5 +113,7 @@ export const SignUpFormInput = createModel(() => {
     setSectionsSelect,
     validLrn,
     visitedLrn,
+    disabled,
+    setDisabled,
   };
 });

@@ -26,7 +26,7 @@ import { ElectionSignUpPassword } from '../ElectionSignUpPassword';
 import { ElectionSignUpConfirmPassword } from '../ElectionSignUpConfirmPassword';
 import { ElectionSignUpGradeLevel } from '../ElectionSignUpGradeLevel';
 import { ElectionSignUpSection } from '../ElectionSignUpSection';
-
+import { ElectionSignUpError } from '../ElectionSignUpError';
 
 export const ElectionSignUp = React.memo(() => {
   const [
@@ -41,6 +41,7 @@ export const ElectionSignUp = React.memo(() => {
     setLoading,
     setError,
     validLrn,
+    setDisabled,
   ] = SignUpFormInput.useSelectors((state) => [
     state.lrn,
     state.password,
@@ -53,6 +54,7 @@ export const ElectionSignUp = React.memo(() => {
     state.setLoading,
     state.setError,
     state.validLrn,
+    state.setDisabled,
   ]);
 
   const mounted = usePromise([
@@ -63,6 +65,7 @@ export const ElectionSignUp = React.memo(() => {
     event.preventDefault();
 
     setLoading(true);
+    setDisabled(true);
 
     if (filled && validLrn) {
       try {
@@ -80,10 +83,24 @@ export const ElectionSignUp = React.memo(() => {
       } catch (err) {
         setError(err);
         setLoading(false);
+        setDisabled(false);
         Router.push('/');
       }
     }
-  }, [setLoading, filled, validLrn, mounted, lrn, password, firstName, lastName, gradeLevel, section, setError]);
+  }, [
+    setLoading,
+    filled,
+    validLrn,
+    mounted,
+    lrn,
+    password,
+    firstName,
+    lastName,
+    gradeLevel,
+    section,
+    setError,
+    setDisabled,
+  ]);
 
   return (
     <form onSubmit={onSubmit}>
@@ -96,6 +113,7 @@ export const ElectionSignUp = React.memo(() => {
         <ElectionSignUpLogoText />
       </ElectionSignUpLogoContainer>
       <ElectionSignUpHeading />
+      <ElectionSignUpError />
       <ElectionSignUpLrn />
       <ElectionSignUpFirstName />
       <ElectionSignUpLastName />
