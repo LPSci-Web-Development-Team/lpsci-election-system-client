@@ -7,9 +7,6 @@ import { Button } from 'baseui/button';
 // ANCHOR Scoped Models
 import { SignUpFormInput } from '@lpsci/scoped-models/sign-up/SignUpFormInput';
 
-// ANCHOR Components
-// import { useConstantCallback } from '@lpsci/utils/hooks/useConstantCallback';
-
 // ANCHOR Styles
 import { SUBMIT_BUTTON } from './styles';
 
