@@ -14,12 +14,17 @@ import { SignUpFormInput } from '@lpsci/scoped-models/sign-up/SignUpFormInput';
 
 // ANCHOR Hooks
 import { useConstant } from '@lpsci/utils/hooks/useConstant';
-import { useConstantCallback } from '@lpsci/utils/hooks/useConstantCallback';
 
 export const ElectionSignUpLrn = React.memo(() => {
   const BadgeIcon = useConstant(() => <FontAwesomeIcon icon={faIdBadge} />);
 
-  const [lrnHandler, validLrn, visitedLrn] = SignUpFormInput.useSelectors((state) => [
+  const [
+    lrnPress,
+    lrnHandler,
+    validLrn,
+    visitedLrn,
+  ] = SignUpFormInput.useSelectors((state) => [
+    state.handler.lrnPress,
     state.handler.lrn,
     state.validLrn,
     state.visitedLrn,
@@ -34,7 +39,8 @@ export const ElectionSignUpLrn = React.memo(() => {
     >
       <Input
         startEnhancer={BadgeIcon}
-        onKeyPress={lrnHandler}
+        onKeyPress={lrnPress}
+        onChange={lrnHandler}
         placeholder="100503351137"
         type="number"
         error={error}

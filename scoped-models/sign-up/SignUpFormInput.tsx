@@ -29,14 +29,15 @@ export const SignUpFormInput = createModel(() => {
   const [visitedLrn, setVisitedLrn] = React.useState<boolean>(false);
 
   const handler = useConstant(() => ({
-    lrn: (e) => {
+    lrnPress: (e: React.KeyboardEvent<HTMLInputElement>) => {
       // Only ASCII charactar in that range allowed
       const ASCIICode = (e.which) ? e.which : e.keyCode;
       if (ASCIICode > 31 && (ASCIICode < 48 || ASCIICode > 57)) {
         e.preventDefault();
-      } else {
-        setLrn(e.target.value);
       }
+    },
+    lrn: (e: React.ChangeEvent<HTMLInputElement>) => {
+      setLrn(e.target.value);
       if (e.target.value.length !== 12) {
         setValidLrn(false);
         setVisitedLrn(true);
