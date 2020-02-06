@@ -15,8 +15,20 @@ import { SignUpFormInput } from '@lpsci/scoped-models/sign-up/SignUpFormInput';
 import { GET } from '@lpsci/utils/axios/methods';
 
 export const ElectionSignUpSection = React.memo(() => {
-  const [gradeLevel, setSection, sectionsSelect, setSectionsSelect, sectionHandler] = SignUpFormInput.useSelectors(
-    (state) => [state.gradeLevel, state.setSection, state.sectionsSelect, state.setSectionsSelect, state.handler.section],
+  const [
+    gradeLevel,
+    setSection,
+    sectionsSelect,
+    setSectionsSelect,
+    sectionHandler,
+  ] = SignUpFormInput.useSelectors(
+    (state) => [
+      state.gradeLevel,
+      state.setSection,
+      state.sectionsSelect,
+      state.setSectionsSelect,
+      state.handler.section,
+    ],
   );
 
   const [selected, setSelected] = React.useState();
@@ -33,7 +45,7 @@ export const ElectionSignUpSection = React.memo(() => {
         if (section.gradeLevel === gradeLevel) {
           selectedSection.push({
             label: section.name,
-            id: section.name,
+            id: section.id,
           });
         }
         setSectionsSelect([...selectedSection]);

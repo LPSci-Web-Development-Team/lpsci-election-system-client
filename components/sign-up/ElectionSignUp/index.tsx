@@ -27,7 +27,16 @@ import { ElectionSignUpSection } from '../ElectionSignUpSection';
 
 export const ElectionSignUp = React.memo(() => {
   const [
-    lrn, password, confirmPassword, firstName, lastName, gradeLevel, section, filled, setLoading,
+    lrn,
+    password,
+    confirmPassword,
+    firstName,
+    lastName,
+    gradeLevel,
+    section,
+    filled,
+    setLoading,
+    sectionId,
   ] = SignUpFormInput.useSelectors((state) => [
     state.lrn,
     state.password,
@@ -38,6 +47,7 @@ export const ElectionSignUp = React.memo(() => {
     state.section,
     state.filled,
     state.setLoading,
+    state.sectionId,
   ]);
 
   const mounted = usePromise([
@@ -57,28 +67,12 @@ export const ElectionSignUp = React.memo(() => {
           firstName,
           lastName,
           gradeLevel,
-          section,
+          sectionId: section,
+          isAdmin: false,
         }));
-
-        console.log({
-          lrn,
-          password,
-          firstName,
-          lastName,
-          gradeLevel,
-          section
-        });
-
         setLoading(false);
       } catch (err) {
-        console.log({
-          lrn,
-          password,
-          firstName,
-          lastName,
-          gradeLevel,
-          section
-        });
+        console.log(err);
         setLoading(false);
       }
     }

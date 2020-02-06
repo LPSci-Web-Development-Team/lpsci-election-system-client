@@ -62,12 +62,17 @@ export const SignUpFormInput = createModel(() => {
   }, [confirmPassword, password]);
 
   const filled = React.useMemo(() => (
-    lrn !== '' && firstName !== '' && lastName !== '' && gradeLevel !== '' && passwordMatch
-  ), [lrn, firstName, lastName, gradeLevel, passwordMatch]);
+    lrn !== ''
+    && firstName !== ''
+    && lastName !== ''
+    && section !== ''
+    && passwordMatch
+  ), [lrn, firstName, lastName, section, passwordMatch]);
 
   return {
     handler,
     filled,
+    passwordMatch,
     passwordUnmatch,
     lrn,
     setLrn,

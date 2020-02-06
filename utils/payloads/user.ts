@@ -13,5 +13,6 @@ export interface ISignUpPayload {
   readonly lastName: string;
   readonly password: string;
   readonly gradeLevel: GradeLevel | undefined;
-  readonly section: string;
+  readonly sectionId: string;
+  readonly isAdmin: boolean;
 }
