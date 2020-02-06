@@ -1,6 +1,9 @@
 // ANCHOR React
 import * as React from 'react';
 
+// ANCHOR Next
+import Router from 'next/router';
+
 // ANCHOR Models
 import { SignUpFormInput } from 'scoped-models/sign-up/SignUpFormInput';
 
@@ -71,6 +74,7 @@ export const ElectionSignUp = React.memo(() => {
           isAdmin: false,
         }));
         setLoading(false);
+        Router.push('/register-success');
       } catch (err) {
         setError(err);
         setLoading(false);
