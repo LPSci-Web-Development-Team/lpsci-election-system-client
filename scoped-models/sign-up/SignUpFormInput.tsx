@@ -25,10 +25,25 @@ export const SignUpFormInput = createModel(() => {
   const [loading, setLoading] = React.useState(false);
   const [error, setError] = React.useState();
   const [sectionsSelect, setSectionsSelect] = React.useState<Option[]>([]);
+  const [validLrn, setValidLrn] = React.useState<boolean>(false);
+  const [visitedLrn, setVisitedLrn] = React.useState<boolean>(false);
 
   const handler = useConstant(() => ({
-    lrn: (e: React.ChangeEvent<HTMLInputElement>) => {
-      setLrn(e.target.value);
+    lrn: (e) => {
+      // Only ASCII charactar in that range allowed
+      const ASCIICode = (e.which) ? e.which : e.keyCode;
+      if (ASCIICode > 31 && (ASCIICode < 48 || ASCIICode > 57)) {
+        e.preventDefault();
+      } else {
+        setLrn(e.target.value);
+      }
+      if (e.target.value.length !== 12) {
+        setValidLrn(false);
+        setVisitedLrn(true);
+      } else {
+        setValidLrn(true);
+        setVisitedLrn(true);
+      }
     },
     password: (e: React.ChangeEvent<HTMLInputElement>) => {
       setPassword(e.target.value);
@@ -94,5 +109,7 @@ export const SignUpFormInput = createModel(() => {
     setError,
     sectionsSelect,
     setSectionsSelect,
+    validLrn,
+    visitedLrn,
   };
 });

@@ -36,6 +36,7 @@ export const ElectionSignUp = React.memo(() => {
     section,
     filled,
     setLoading,
+    setError,
   ] = SignUpFormInput.useSelectors((state) => [
     state.lrn,
     state.password,
@@ -46,6 +47,7 @@ export const ElectionSignUp = React.memo(() => {
     state.section,
     state.filled,
     state.setLoading,
+    state.setError,
   ]);
 
   const mounted = usePromise([
@@ -70,11 +72,11 @@ export const ElectionSignUp = React.memo(() => {
         }));
         setLoading(false);
       } catch (err) {
-        console.log(err);
+        setError(err);
         setLoading(false);
       }
     }
-  }, [setLoading, filled, mounted, lrn, password, firstName, lastName, gradeLevel, section]);
+  }, [setLoading, filled, mounted, lrn, password, firstName, lastName, gradeLevel, section, setError]);
 
   return (
     <form onSubmit={onSubmit}>

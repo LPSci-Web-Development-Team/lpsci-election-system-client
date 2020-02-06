@@ -14,15 +14,32 @@ import { SignUpFormInput } from '@lpsci/scoped-models/sign-up/SignUpFormInput';
 
 // ANCHOR Hooks
 import { useConstant } from '@lpsci/utils/hooks/useConstant';
+import { useConstantCallback } from '@lpsci/utils/hooks/useConstantCallback';
 
 export const ElectionSignUpLrn = React.memo(() => {
   const BadgeIcon = useConstant(() => <FontAwesomeIcon icon={faIdBadge} />);
 
-  const lrn = SignUpFormInput.useSelector((state) => state.handler.lrn);
+  const [lrnHandler, validLrn, visitedLrn] = SignUpFormInput.useSelectors((state) => [
+    state.handler.lrn,
+    state.validLrn,
+    state.visitedLrn,
+  ]);
+
+  const error = !validLrn && visitedLrn;
 
   return (
-    <FormControl label="Learner's Reference Number">
-      <Input startEnhancer={BadgeIcon} onChange={lrn} placeholder="226503351137" required />
+    <FormControl
+      label="Learner's Reference Number"
+      error={error ? 'Please enter a valid LRN.' : null}
+    >
+      <Input
+        startEnhancer={BadgeIcon}
+        onKeyPress={lrnHandler}
+        placeholder="100503351137"
+        type="number"
+        error={error}
+        required
+      />
     </FormControl>
   );
 });
