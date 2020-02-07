@@ -16,3 +16,8 @@ export interface ISignUpPayload {
   readonly sectionId: string;
   readonly isAdmin: boolean;
 }
+
+export interface ISignInPayload {
+  readonly lrn: string;
+  readonly password: string;
+}
