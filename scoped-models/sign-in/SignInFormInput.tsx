@@ -12,7 +12,7 @@ export const SignInFormInput = createModel(() => {
   const [lrn, setLrn] = useDebouncedState('', 150);
   const [password, setPassword] = useDebouncedState('', 150);
   const [loading, setLoading] = React.useState(false);
-  const [error, setError] = React.useState();
+  const [error, setError] = React.useState<string | null>(null);
   const [validLrn, setValidLrn] = React.useState<boolean>(false);
   const [visitedLrn, setVisitedLrn] = React.useState<boolean>(false);
   const [disabled, setDisabled] = React.useState<boolean>(false);

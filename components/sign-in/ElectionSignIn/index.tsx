@@ -22,6 +22,7 @@ import { ElectionSignInInputContainer } from '../ElectionSignInInputContainer';
 import { ElectionSignInInputLRN } from '../ElectionSignInLrn';
 import { ElectionSignInInputPassword } from '../ElectionSignInPassword';
 import { ElectionSignInSubmitButton } from '../ElectionSignInSubmitButton';
+import { ElectionSignInError } from '../ElectionSignInError';
 
 
 export const ElectionSignIn = React.memo(() => {
@@ -60,12 +61,12 @@ export const ElectionSignIn = React.memo(() => {
           password,
         }));
         setLoading(false);
-        Router.push('/register-success');
+        Router.push('/voting');
       } catch (err) {
-        setError(err);
+        setError('Please enter your valid credentials');
         setLoading(false);
         setDisabled(false);
-        Router.push('/yay');
+        Router.push('/');
       }
     }
   }, [setLoading, filled, validLrn, mounted, lrn, password, setError, setDisabled]);
@@ -77,6 +78,7 @@ export const ElectionSignIn = React.memo(() => {
         <ElectionSignInLogoText />
       </ElectionSignInLogoContainer>
       <ElectionSignInHeading />
+      <ElectionSignInError />
       <ElectionSignInInputContainer>
         <ElectionSignInInputLRN />
       </ElectionSignInInputContainer>
