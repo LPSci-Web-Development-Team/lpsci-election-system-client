@@ -7,8 +7,8 @@ import { ElectionSignInLogoText } from '../ElectionSignInLogoText';
 import { ElectionSignInHeading } from '../ElectionSignInHeading';
 import { ElectionSignInLogoContainer } from '../ElectionSignInLogoContainer';
 import { ElectionSignInInputContainer } from '../ElectionSignInInputContainer';
-import { ElectionSignInInputLRN } from '../ElectionSignInInputLRN';
-import { ElectionSignInInputPassword } from '../ElectionSignInInputPassword';
+import { ElectionSignInInputLRN } from '../ElectionSignInLrn';
+import { ElectionSignInInputPassword } from '../ElectionSignInPassword';
 import { ElectionSignInSubmitButton } from '../ElectionSignInSubmitButton';
 
 export const ElectionSignIn = React.memo(() => (
