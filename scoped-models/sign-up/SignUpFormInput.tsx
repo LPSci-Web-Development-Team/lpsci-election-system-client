@@ -83,6 +83,7 @@ export const SignUpFormInput = createModel(() => {
     && firstName !== ''
     && lastName !== ''
     && section !== ''
+    && section !== null
     && passwordMatch
   ), [lrn, firstName, lastName, section, passwordMatch]);
 
