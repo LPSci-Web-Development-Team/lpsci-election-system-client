@@ -13,12 +13,12 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faLock } from '@fortawesome/free-solid-svg-icons';
 
 // ANCHOR Scoped Models
-import { SignUpFormInput } from '@lpsci/scoped-models/sign-up/SignUpFormInput';
+import { SignInFormInput } from '@lpsci/scoped-models/sign-in/SignInFormInput';
 
 export const ElectionSignInInputPassword = React.memo(() => {
   const LockIcon = useConstant(() => <FontAwesomeIcon icon={faLock} />);
 
-  const password = SignUpFormInput.useSelector((state) => state.handler.password);
+  const password = SignInFormInput.useSelector((state) => state.handler.password);
 
   return (
     <FormControl label="Password">
