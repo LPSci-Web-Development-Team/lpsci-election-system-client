@@ -24,7 +24,6 @@ import { ElectionSignInInputPassword } from '../ElectionSignInPassword';
 import { ElectionSignInSubmitButton } from '../ElectionSignInSubmitButton';
 import { ElectionSignInError } from '../ElectionSignInError';
 
-
 export const ElectionSignIn = React.memo(() => {
   const [
     lrn,
