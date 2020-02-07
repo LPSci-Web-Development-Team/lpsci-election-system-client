@@ -23,7 +23,7 @@ export const SignUpFormInput = createModel(() => {
   const [gradeLevel, setGradeLevel] = React.useState<GradeLevel | undefined>();
   const [section, setSection] = React.useState();
   const [loading, setLoading] = React.useState(false);
-  const [error, setError] = React.useState();
+  const [error, setError] = React.useState<string | null>(null);
   const [sectionsSelect, setSectionsSelect] = React.useState<Option[]>([]);
   const [validLrn, setValidLrn] = React.useState<boolean>(false);
   const [visitedLrn, setVisitedLrn] = React.useState<boolean>(false);

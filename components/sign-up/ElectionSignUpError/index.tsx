@@ -19,7 +19,7 @@ export const ElectionSignUpError = React.memo(() => {
   return (
     <When condition={error}>
       <Notification kind={KIND.negative} overrides={NOTIFICATION}>
-        {error && error.message}
+        {error}
       </Notification>
     </When>
   );

@@ -52,7 +52,7 @@ export const ElectionSignUpSection = React.memo(() => {
         }
         setSectionsSelect([...selectedSection]);
       });
-    }).catch((err) => setError(err));
+    }).catch(() => setError("Sections can't be found"));
   }, [gradeLevel, sectionHandler, setError, setSectionsSelect]);
 
   React.useEffect(() => {

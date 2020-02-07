@@ -81,7 +81,7 @@ export const ElectionSignUp = React.memo(() => {
         setLoading(false);
         Router.push('/register-success');
       } catch (err) {
-        setError(err);
+        setError('It seems like you have already registered.');
         setLoading(false);
         setDisabled(false);
         Router.push('/');
