@@ -23,6 +23,6 @@ export interface ISignInPayload {
 }
 
 export interface ISendVotePayload {
-  readonly userId: string | undefined;
+  readonly voterId: string | undefined;
   readonly candidateId: string | undefined;
 }

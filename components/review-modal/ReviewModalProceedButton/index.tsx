@@ -24,7 +24,7 @@ export const ReviewModalProceedButton = React.memo(() => {
       voteListArray.forEach((vote: IVoteList) => {
         sendVote({
           candidateId: vote.candidateId,
-          userId: cookie.get('userId'),
+          voterId: cookie.get('voterId'),
         });
       });
     }
