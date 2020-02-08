@@ -2,13 +2,17 @@
 import cookie from 'js-cookie';
 
 // ANCHOR Axios
-import { POST } from '../axios/methods';
+import { GET, POST } from '../axios/methods';
 
 // ANCHOR Payloads
 import { ISignUpPayload, ISignInPayload, ISendVotePayload } from '../payloads/user';
 
 export async function signupUser(payload: ISignUpPayload) {
   return POST('/api/voters', payload);
+}
+
+export async function checkIfVoted(voterId: string) {
+  return GET(`/api/voters/${voterId}/votes`);
 }
 
 export async function signinUser(payload: ISignInPayload) {

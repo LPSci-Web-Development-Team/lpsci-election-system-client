@@ -11,7 +11,7 @@ import cookies from 'js-cookie';
 import { SignInFormInput } from 'scoped-models/sign-in/SignInFormInput';
 
 // ANCHOR Utils
-import { signinUser } from 'utils/api/voter';
+import { signinUser, checkIfVoted } from 'utils/api/voter';
 
 // ANCHOR Hooks
 import { usePromise } from 'utils/hooks/usePromise';
@@ -64,9 +64,15 @@ export const ElectionSignIn = React.memo(() => {
         })).then((res) => {
           cookies.set('access_token', res.data.id);
           cookies.set('voterId', res.data.userId);
+          setLoading(false);
+          checkIfVoted(res.data.userId).then((res) => {
+            if (res.data.length > 0) {
+              setError('It seems like you\'ve already voted.');
+            } else {
+              Router.push('/voting');
+            }
+          });
         });
-        setLoading(false);
-        Router.push('/voting');
       } catch (err) {
         setError('Uh-oh, it seems like you\'ve inputted wrong LRN or password. Please try again.');
         setLoading(false);
