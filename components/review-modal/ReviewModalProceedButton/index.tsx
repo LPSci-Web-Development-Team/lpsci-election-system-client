@@ -28,6 +28,8 @@ export const ReviewModalProceedButton = React.memo(() => {
           position: vote.position,
         });
       });
+      localStorage.removeItem('voteList');
+      localStorage.removeItem('activeTab');
       Router.push('/vote-success');
     }
   }, []);
