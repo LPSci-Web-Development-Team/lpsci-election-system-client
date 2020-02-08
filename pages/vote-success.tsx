@@ -13,9 +13,9 @@ export default React.memo(() => (
     <ElectionAppHead title="SSG Election" description="Election Web App" />
     <ElectionPage>
       <SuccessPage
-        value="Vote casted successfully!"
+        value="Your vote has been casted successfully!"
         src="img/vote-success.png"
-        text="Sign Out"
+        text="Done"
       />
     </ElectionPage>
   </GlobalProvider>
