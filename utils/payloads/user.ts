@@ -8,7 +8,7 @@ export enum GradeLevel {
 }
 
 export interface ISignUpPayload {
-  readonly lrn: string;
+  readonly username: string;
   readonly firstName: string;
   readonly lastName: string;
   readonly password: string;
@@ -18,6 +18,6 @@ export interface ISignUpPayload {
 }
 
 export interface ISignInPayload {
-  readonly lrn: string;
+  readonly username: string;
   readonly password: string;
 }

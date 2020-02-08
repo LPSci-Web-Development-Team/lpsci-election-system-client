@@ -70,7 +70,7 @@ export const ElectionSignUp = React.memo(() => {
     if (filled && validLrn) {
       try {
         await mounted(signupUser({
-          lrn,
+          username: lrn,
           password,
           firstName,
           lastName,
