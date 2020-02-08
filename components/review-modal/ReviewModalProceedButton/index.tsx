@@ -5,7 +5,7 @@ import * as React from 'react';
 import cookie from 'js-cookie';
 
 // ANCHOR Next
-import Link from 'next/link';
+import Router from 'next/router';
 
 // ANCHOR Base
 import { ModalButton } from 'baseui/modal';
@@ -27,13 +27,12 @@ export const ReviewModalProceedButton = React.memo(() => {
           voterId: cookie.get('voterId'),
         });
       });
+      Router.push('/vote-success');
     }
   }, []);
 
 
   return (
-    <Link href="/vote-success">
-      <ModalButton onClick={onClick}>Proceed</ModalButton>
-    </Link>
+    <ModalButton onClick={onClick}>Proceed</ModalButton>
   );
 });
