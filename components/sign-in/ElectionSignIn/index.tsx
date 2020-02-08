@@ -4,6 +4,9 @@ import * as React from 'react';
 // ANCHOR Next
 import Router from 'next/router';
 
+// ANCHOR js-cookie
+import cookies from 'js-cookie';
+
 // ANCHOR Models
 import { SignInFormInput } from 'scoped-models/sign-in/SignInFormInput';
 
@@ -59,8 +62,8 @@ export const ElectionSignIn = React.memo(() => {
           username: lrn,
           password,
         })).then((res) => {
-          document.cookie = `access_token=${res.data.id}`;
-          document.cookie = `userId=${res.data.userId}`;
+          cookies.set('access_token', res.data.id);
+          cookies.set('userId', res.data.userId);
         });
         setLoading(false);
         Router.push('/voting');
