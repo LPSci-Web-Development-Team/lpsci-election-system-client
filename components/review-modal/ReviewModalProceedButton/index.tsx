@@ -25,6 +25,7 @@ export const ReviewModalProceedButton = React.memo(() => {
         sendVote({
           candidateId: vote.candidateId,
           voterId: cookie.get('voterId'),
+          position: vote.position,
         });
       });
       Router.push('/vote-success');
