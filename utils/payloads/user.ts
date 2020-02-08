@@ -21,3 +21,8 @@ export interface ISignInPayload {
   readonly username: string;
   readonly password: string;
 }
+
+export interface ISendVotePayload {
+  readonly userId: string | undefined;
+  readonly candidateId: string | undefined;
+}
