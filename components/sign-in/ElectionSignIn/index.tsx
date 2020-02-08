@@ -58,7 +58,9 @@ export const ElectionSignIn = React.memo(() => {
         await mounted(signinUser({
           username: lrn,
           password,
-        }));
+        })).then((res) => {
+          document.cookie = `access_token=${res.data.id}`;
+        });
         setLoading(false);
         Router.push('/voting');
       } catch (err) {
