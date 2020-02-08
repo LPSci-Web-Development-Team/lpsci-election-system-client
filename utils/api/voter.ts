@@ -10,5 +10,5 @@ export async function signupUser(payload: ISignUpPayload) {
 }
 
 export async function signinUser(payload: ISignInPayload) {
-  return POST('/api/voters/signin', payload);
+  return POST('/api/voters/login', payload);
 }
