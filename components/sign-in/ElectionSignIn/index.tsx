@@ -56,7 +56,7 @@ export const ElectionSignIn = React.memo(() => {
     if (filled && validLrn) {
       try {
         await mounted(signinUser({
-          lrn,
+          username: lrn,
           password,
         }));
         setLoading(false);
