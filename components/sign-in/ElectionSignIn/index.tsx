@@ -60,6 +60,7 @@ export const ElectionSignIn = React.memo(() => {
           password,
         })).then((res) => {
           document.cookie = `access_token=${res.data.id}`;
+          document.cookie = `userId=${res.data.userId}`;
         });
         setLoading(false);
         Router.push('/voting');
