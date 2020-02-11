@@ -86,6 +86,14 @@ export const ElectionSignIn = React.memo(() => {
     }
   }, [setLoading, filled, validLrn, mounted, lrn, password, setError, setDisabled]);
 
+  React.useEffect(() => {
+    const { pathname } = Router;
+    const isLoggedIn = cookies.get('access_token') !== '';
+    if (pathname == '/' && isLoggedIn) {
+      Router.push('/voting');
+    }
+  });
+
   return (
     <form onSubmit={onSubmit}>
       <ElectionSignInLogoContainer>
