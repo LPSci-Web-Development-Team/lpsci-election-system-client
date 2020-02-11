@@ -2,11 +2,13 @@
 // ANCHOR React
 import * as React from 'react';
 
+// ANCHOR js-cookie
+import cookies from 'js-cookie';
+
 // ANCHOR UI Models
 import { IPosition } from 'models/interface/Vote';
 
 // ANCHOR Components
-import { VotingTab } from '@lpsci/scoped-models/voting/VotingTab';
 import { ElectionVotingTabContainer } from '../ElectionVotingTabContainer';
 import { ElectionVotingTab } from '../ElectionVotingTab';
 import { ElectionVotingTabHeading } from '../ElectionVotingTabHeading';
@@ -16,7 +18,7 @@ import { ElectionVotingButtonNext } from '../ElectionVotingButtonNext';
 import { ElectionVotingFlexGrid } from '../ElectionVotingFlexGrid';
 
 export const ElectionVoting = React.memo(() => {
-  const gradeLevel = VotingTab.useSelector((state) => state.gradeLevel);
+  const gradeLevel = parseInt(cookies.get('gradeLevel') ?? '0', 10);
 
   return (
     <>

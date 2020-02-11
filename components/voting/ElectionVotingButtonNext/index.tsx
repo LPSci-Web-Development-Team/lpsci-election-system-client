@@ -7,6 +7,9 @@ import * as React from 'react';
 // ANCHOR Next
 import Link from 'next/link';
 
+// ANCHOR  js-cookie
+import cookies from 'js-cookie';
+
 // ANCHOR Base
 import { Button } from 'baseui/button';
 
@@ -22,13 +25,15 @@ import { BUTTON_NEXT } from './styles';
 export const ElectionVotingButtonNext = React.memo(() => {
   // ANCHOR Voting Tabs Model
   const [
-    setActiveTab, activeTabNum, setActiveTabNum, vote, setVote, voteList, gradeLevel,
+    setActiveTab, activeTabNum, setActiveTabNum, vote, setVote, voteList,
   ] = VotingTab.useSelectors((
     state,
   ) => [
     state.setActiveTab, state.activeTabNum, state.setActiveTabNum,
-    state.vote, state.setVote, state.voteList, state.gradeLevel,
+    state.vote, state.setVote, state.voteList,
   ]);
+
+  const gradeLevel = parseInt(cookies.get('gradeLevel') ?? '0', 10);
 
   // ANCHOR Vote List
   let uniqueCandidate = [];
