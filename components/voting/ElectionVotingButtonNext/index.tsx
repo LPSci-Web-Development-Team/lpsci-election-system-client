@@ -22,12 +22,12 @@ import { BUTTON_NEXT } from './styles';
 export const ElectionVotingButtonNext = React.memo(() => {
   // ANCHOR Voting Tabs Model
   const [
-    setActiveTab, activeTabNum, setActiveTabNum, vote, setVote, voteList,
+    setActiveTab, activeTabNum, setActiveTabNum, vote, setVote, voteList, gradeLevel,
   ] = VotingTab.useSelectors((
     state,
   ) => [
     state.setActiveTab, state.activeTabNum, state.setActiveTabNum,
-    state.vote, state.setVote, state.voteList,
+    state.vote, state.setVote, state.voteList, state.gradeLevel,
   ]);
 
   // ANCHOR Vote List
@@ -35,7 +35,9 @@ export const ElectionVotingButtonNext = React.memo(() => {
   let filteredList: IVoteList[] = [];
 
   // ANCHOR Action Button Logic
-  const positionLength: number = Object.values(IPosition).length - 1;
+  const positionLength: number = gradeLevel !== 12
+    ? Object.values(IPosition).length - 5
+    : Object.values(IPosition).length - 6;
   const isDoneVoting = positionLength === activeTabNum;
 
   // ANCHOR Push or Update Logic

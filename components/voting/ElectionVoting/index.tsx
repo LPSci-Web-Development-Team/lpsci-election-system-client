@@ -1,3 +1,4 @@
+/* eslint-disable no-mixed-operators */
 // ANCHOR React
 import * as React from 'react';
 
@@ -5,6 +6,7 @@ import * as React from 'react';
 import { IPosition } from 'models/interface/Vote';
 
 // ANCHOR Components
+import { VotingTab } from '@lpsci/scoped-models/voting/VotingTab';
 import { ElectionVotingTabContainer } from '../ElectionVotingTabContainer';
 import { ElectionVotingTab } from '../ElectionVotingTab';
 import { ElectionVotingTabHeading } from '../ElectionVotingTabHeading';
@@ -13,21 +15,59 @@ import { ElectionVotingButtonBack } from '../ElectionVotingButtonBack';
 import { ElectionVotingButtonNext } from '../ElectionVotingButtonNext';
 import { ElectionVotingFlexGrid } from '../ElectionVotingFlexGrid';
 
-export const ElectionVoting = React.memo(() => (
-  <>
-    <ElectionVotingTabContainer>
-      {
-          Object.values(IPosition).map((position, index) => (
-            <ElectionVotingTab title={position} key={index}>
-              <ElectionVotingTabHeading position={position} positionIndex={index} />
-              <ElectionVotingFlexGrid position={position} positionIndex={index} />
-            </ElectionVotingTab>
-          ))
-        }
-    </ElectionVotingTabContainer>
-    <ElectionVotingButtonContainer>
-      <ElectionVotingButtonBack />
-      <ElectionVotingButtonNext />
-    </ElectionVotingButtonContainer>
-  </>
-));
+export const ElectionVoting = React.memo(() => {
+  const gradeLevel = VotingTab.useSelector((state) => state.gradeLevel);
+
+  return (
+    <>
+      <ElectionVotingTabContainer>
+        {
+          Object.values(IPosition)
+            .filter((position) => (
+              gradeLevel === 7
+                && position !== 'Level Rep. (9)'
+                && position !== 'Level Rep. (10)'
+                && position !== 'Level Rep. (11)'
+                && position !== 'Level Rep. (12)'
+              || gradeLevel === 8
+                && position !== 'Level Rep. (8)'
+                && position !== 'Level Rep. (10)'
+                && position !== 'Level Rep. (11)'
+                && position !== 'Level Rep. (12)'
+              || gradeLevel === 9
+                && position !== 'Level Rep. (8)'
+                && position !== 'Level Rep. (9)'
+                && position !== 'Level Rep. (11)'
+                && position !== 'Level Rep. (12)'
+              || gradeLevel === 10
+                && position !== 'Level Rep. (8)'
+                && position !== 'Level Rep. (9)'
+                && position !== 'Level Rep. (10)'
+                && position !== 'Level Rep. (12)'
+              || gradeLevel === 11
+                && position !== 'Level Rep. (8)'
+                && position !== 'Level Rep. (9)'
+                && position !== 'Level Rep. (10)'
+                && position !== 'Level Rep. (11)'
+              || gradeLevel === 12
+                && position !== 'Level Rep. (8)'
+                && position !== 'Level Rep. (9)'
+                && position !== 'Level Rep. (10)'
+                && position !== 'Level Rep. (11)'
+                && position !== 'Level Rep. (12)'
+            ))
+            .map((position, index) => (
+              <ElectionVotingTab title={position} key={index}>
+                <ElectionVotingTabHeading position={position} positionIndex={index} />
+                <ElectionVotingFlexGrid position={position} positionIndex={index} />
+              </ElectionVotingTab>
+            ))
+          }
+      </ElectionVotingTabContainer>
+      <ElectionVotingButtonContainer>
+        <ElectionVotingButtonBack />
+        <ElectionVotingButtonNext />
+      </ElectionVotingButtonContainer>
+    </>
+  );
+});

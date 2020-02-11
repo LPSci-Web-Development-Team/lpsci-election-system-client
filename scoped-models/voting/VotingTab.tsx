@@ -18,6 +18,7 @@ export const VotingTab = createModel(() => {
     imageURL: undefined,
   });
   const [voteList, setVoteList] = React.useState<IVoteList[]>();
+  const [gradeLevel, setGradeLevel] = React.useState<number>(0);
 
   return {
     activeTab,
@@ -28,5 +29,7 @@ export const VotingTab = createModel(() => {
     setVote: setActiveVote,
     voteList,
     setVoteList,
+    gradeLevel,
+    setGradeLevel,
   };
 });
