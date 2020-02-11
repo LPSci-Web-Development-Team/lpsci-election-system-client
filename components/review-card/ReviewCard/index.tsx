@@ -35,52 +35,52 @@ export const ReviewCard = React.memo(() => {
         Object.values(IPosition)
           .filter((position) => (
             gradeLevel === 7
-              && position !== 'Level Rep. (9)'
-              && position !== 'Level Rep. (10)'
-              && position !== 'Level Rep. (11)'
-              && position !== 'Level Rep. (12)'
+            && position !== 'Level Rep. (9)'
+            && position !== 'Level Rep. (10)'
+            && position !== 'Level Rep. (11)'
+            && position !== 'Level Rep. (12)'
             || gradeLevel === 8
-              && position !== 'Level Rep. (8)'
-              && position !== 'Level Rep. (10)'
-              && position !== 'Level Rep. (11)'
-              && position !== 'Level Rep. (12)'
+            && position !== 'Level Rep. (8)'
+            && position !== 'Level Rep. (10)'
+            && position !== 'Level Rep. (11)'
+            && position !== 'Level Rep. (12)'
             || gradeLevel === 9
-              && position !== 'Level Rep. (8)'
-              && position !== 'Level Rep. (9)'
-              && position !== 'Level Rep. (11)'
-              && position !== 'Level Rep. (12)'
+            && position !== 'Level Rep. (8)'
+            && position !== 'Level Rep. (9)'
+            && position !== 'Level Rep. (11)'
+            && position !== 'Level Rep. (12)'
             || gradeLevel === 10
-              && position !== 'Level Rep. (8)'
-              && position !== 'Level Rep. (9)'
-              && position !== 'Level Rep. (10)'
-              && position !== 'Level Rep. (12)'
+            && position !== 'Level Rep. (8)'
+            && position !== 'Level Rep. (9)'
+            && position !== 'Level Rep. (10)'
+            && position !== 'Level Rep. (12)'
             || gradeLevel === 11
-              && position !== 'Level Rep. (8)'
-              && position !== 'Level Rep. (9)'
-              && position !== 'Level Rep. (10)'
-              && position !== 'Level Rep. (11)'
+            && position !== 'Level Rep. (8)'
+            && position !== 'Level Rep. (9)'
+            && position !== 'Level Rep. (10)'
+            && position !== 'Level Rep. (11)'
             || gradeLevel === 12
-              && position !== 'Level Rep. (8)'
-              && position !== 'Level Rep. (9)'
-              && position !== 'Level Rep. (10)'
-              && position !== 'Level Rep. (11)'
-              && position !== 'Level Rep. (12)'
+            && position !== 'Level Rep. (8)'
+            && position !== 'Level Rep. (9)'
+            && position !== 'Level Rep. (10)'
+            && position !== 'Level Rep. (11)'
+            && position !== 'Level Rep. (12)'
           ))
           .map((position, index) => (
             <ReviewCardContainer key={index}>
               {
-              voteList && voteList.map((item, i) => (
-                item.position === position && (
-                  <React.Fragment key={i}>
-                    <ReviewCardHeading
-                      position={position}
-                      color={item.party?.colorHex ?? '#a5a6aa'}
-                    />
-                    <ReviewCardBody position={position} />
-                  </React.Fragment>
-                )
-              ))
-            }
+                voteList && voteList.map((item, i) => (
+                  item.position === position && (
+                    <React.Fragment key={i}>
+                      <ReviewCardHeading
+                        position={position}
+                        color={item.party?.colorHex ?? '#a5a6aa'}
+                      />
+                      <ReviewCardBody position={position} />
+                    </React.Fragment>
+                  )
+                ))
+              }
             </ReviewCardContainer>
           ))
       }
