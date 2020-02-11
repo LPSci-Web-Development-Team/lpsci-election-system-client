@@ -2,7 +2,7 @@
 import * as React from 'react';
 
 // ANCHOR js-cookie
-import cookie from 'js-cookie';
+import cookies from 'js-cookie';
 
 // ANCHOR Next
 import Router from 'next/router';
@@ -24,12 +24,15 @@ export const ReviewModalProceedButton = React.memo(() => {
       voteListArray.forEach((vote: IVoteList) => {
         sendVote({
           candidateId: vote.candidateId,
-          voterId: cookie.get('voterId'),
+          voterId: cookies.get('voterId'),
           position: vote.position,
         });
       });
       localStorage.removeItem('voteList');
       localStorage.removeItem('activeTab');
+      cookies.set('voterId', '');
+      cookies.set('gradeLevel', '');
+      cookies.set('access_token', '');
       Router.push('/vote-success');
     }
   }, []);
