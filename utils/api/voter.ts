@@ -1,5 +1,5 @@
 // ANCHOR js-cookie
-import cookie from 'js-cookie';
+import cookies from 'js-cookie';
 
 // ANCHOR Axios
 import { GET, POST } from '../axios/methods';
@@ -15,6 +15,14 @@ export async function checkIfVoted(voterId: string) {
   return GET(`/api/voters/${voterId}/votes`);
 }
 
+export async function voterIdentifySection(voterId: string) {
+  return GET(`/api/voters/${voterId}/sections`, {
+    headers: {
+      Authorization: cookies.get('access_token'),
+    },
+  });
+}
+
 export async function signinUser(payload: ISignInPayload) {
   return POST('/api/voters/login', payload);
 }
@@ -22,7 +30,7 @@ export async function signinUser(payload: ISignInPayload) {
 export async function sendVote(payload: ISendVotePayload) {
   return POST('/api/votes', payload, {
     headers: {
-      Authorization: cookie.get('access_token'),
+      Authorization: cookies.get('access_token'),
     },
   });
 }

@@ -11,7 +11,7 @@ import cookies from 'js-cookie';
 import { SignInFormInput } from 'scoped-models/sign-in/SignInFormInput';
 
 // ANCHOR Utils
-import { signinUser, checkIfVoted } from 'utils/api/voter';
+import { signinUser, checkIfVoted, voterIdentifySection } from 'utils/api/voter';
 
 // ANCHOR Hooks
 import { usePromise } from 'utils/hooks/usePromise';
@@ -69,6 +69,10 @@ export const ElectionSignIn = React.memo(() => {
             if (res.data.length > 0) {
               setError('It seems like you\'ve already voted.');
             } else {
+              const voterId = cookies.get('voterId') ?? '';
+              voterIdentifySection(voterId).then((section) => {
+                cookies.set('gradeLevel', section.data.gradeLevel);
+              });
               Router.push('/voting');
             }
           });
