@@ -4,9 +4,6 @@ import * as React from 'react';
 // ANCHOR Base
 import { Tabs } from 'baseui/tabs';
 
-// ANCHOR js-cookie
-import cookies from 'js-cookie';
-
 // ANCHOR Styles
 import { VotingTab } from 'scoped-models/voting/VotingTab';
 import { ELECTION_TAB } from './styles';
@@ -25,11 +22,6 @@ export const ElectionVotingTabContainer = React.memo(({ children }: IElectionVot
     state.setActiveTabNum,
     state.setVoteList,
   ]);
-
-  // ANCHOR Cookies
-  React.useEffect(() => {
-    cookies.set('gradeLevel', '12');
-  }, []);
 
   // ANCHOR Initiate stored tab
   const [stored, setStored] = React.useState<string>('0');
