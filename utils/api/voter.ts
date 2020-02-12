@@ -8,15 +8,15 @@ import { GET, POST } from '../axios/methods';
 import { ISignUpPayload, ISignInPayload, ISendVotePayload } from '../payloads/user';
 
 export async function signupUser(payload: ISignUpPayload) {
-  return POST('http://localhost:5000/api/voters', payload);
+  return POST('/api/voters', payload);
 }
 
 export async function checkIfVoted(voterId: string) {
-  return GET(`http://localhost:5000/api/voters/${voterId}/votes`);
+  return GET(`/api/voters/${voterId}/votes`);
 }
 
 export async function voterIdentifySection(voterId: string) {
-  return GET(`http://localhost:5000/api/voters/${voterId}/sections`, {
+  return GET(`/api/voters/${voterId}/sections`, {
     headers: {
       Authorization: cookies.get('access_token'),
     },
@@ -24,11 +24,11 @@ export async function voterIdentifySection(voterId: string) {
 }
 
 export async function signinUser(payload: ISignInPayload) {
-  return POST('http://localhost:5000/api/voters/login', payload);
+  return POST('/api/voters/login', payload);
 }
 
 export async function sendVote(payload: ISendVotePayload) {
-  return POST('http://localhost:5000/api/votes', payload, {
+  return POST('/api/votes', payload, {
     headers: {
       Authorization: cookies.get('access_token'),
     },
