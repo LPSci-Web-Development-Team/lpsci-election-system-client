@@ -42,7 +42,7 @@ export const ElectionSignUpSection = React.memo(() => {
 
   React.useEffect(() => {
     const selectedSection: Option[] | undefined = [];
-    GET('/api/sections').then((response) => {
+    GET('http://localhost:5000/api/sections').then((response) => {
       response.data.forEach((section: any) => {
         if (section.gradeLevel === gradeLevel) {
           selectedSection.push({

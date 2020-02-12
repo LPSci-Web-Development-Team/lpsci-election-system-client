@@ -8,6 +8,9 @@ import { CandidateCard } from 'scoped-models/candidate-card/CandidateCard';
 // ANCHOR UI Models
 import { IPosition } from 'models/interface/Vote';
 
+// ANCHOR Utils
+import { getParty } from '@lpsci/utils/api/candidate';
+
 // ANCHOR Components
 import { CandicateCardImageContainer } from './CandidateCardImageContainer';
 import { CandicateCardImage } from './CandidateCardImage';
@@ -26,7 +29,6 @@ interface IProps {
   candidateParty: string;
   candidatePosition: IPosition;
   candidateImage: string;
-  candidateColorHex: string;
   positionIndex: number;
 }
 
@@ -39,7 +41,6 @@ export const CandicateCard = React.memo(({
   candidateParty,
   candidatePosition,
   candidateImage,
-  candidateColorHex,
   positionIndex,
 }: IProps) => {
   // ANCHOR Voting Tab Models
@@ -68,6 +69,21 @@ export const CandicateCard = React.memo(({
   // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [candidateUuid, on, setSelected, vote]);
 
+  const [party, setParty] = React.useState({
+    name: '',
+    hexColor: '',
+  });
+
+  React.useEffect(() => {
+    getParty(candidateParty)
+      .then((response) => {
+        setParty({
+          name: response.data.name,
+          hexColor: response.data.hexColor,
+        });
+      });
+  }, [candidateParty]);
+
   return (
     <CandidateCardContainer>
       <CandidateClickableDiv
@@ -75,16 +91,16 @@ export const CandicateCard = React.memo(({
         candidateUuid={candidateUuid}
         candidateFirstName={candidateFirstName}
         candidateLastName={candidateLastName}
-        candidateParty={candidateParty}
+        candidateParty={party.name}
         candidatePosition={candidatePosition}
         candidateImage={candidateImage}
-        candidateColorHex={candidateColorHex}
+        candidateColorHex={party.hexColor}
       >
         <CandicateCardImageContainer toggle={on} selected={selected}>
           <CandicateCardImage src={src} alt={alt} />
           {on && <CandidateToggleIdentifier />}
           <CandidateCardName value={`${candidateFirstName} ${candidateLastName}`} />
-          <CandidateCardParty value={candidateParty} colorHex={candidateColorHex} />
+          <CandidateCardParty value={party.name} colorHex={party.hexColor} />
         </CandicateCardImageContainer>
       </CandidateClickableDiv>
     </CandidateCardContainer>
