@@ -30,9 +30,9 @@ export const ReviewModalProceedButton = React.memo(() => {
       });
       localStorage.removeItem('voteList');
       localStorage.removeItem('activeTab');
-      cookies.set('voterId', '');
-      cookies.set('gradeLevel', '');
-      cookies.set('access_token', '');
+      cookies.remove('voterId');
+      cookies.remove('gradeLevel');
+      cookies.remove('access_token');
       Router.push('/vote-success');
     }
   }, []);

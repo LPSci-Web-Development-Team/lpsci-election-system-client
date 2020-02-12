@@ -65,17 +65,18 @@ export const ElectionSignIn = React.memo(() => {
           cookies.set('access_token', res.data.id);
           cookies.set('voterId', res.data.userId);
           setLoading(false);
-          checkIfVoted(res.data.userId).then((res) => {
-            if (res.data.length > 0) {
-              setError('It seems like you\'ve already voted.');
-            } else {
-              const voterId = cookies.get('voterId') ?? '';
-              voterIdentifySection(voterId).then((section) => {
-                cookies.set('gradeLevel', section.data.gradeLevel);
-              });
-              Router.push('/voting');
-            }
-          });
+          checkIfVoted(res.data.userId)
+            .then((resVote) => {
+              if (resVote.data.length > 0) {
+                setError('It seems like you\'ve already voted.');
+              } else {
+                const voterId = cookies.get('voterId') ?? '';
+                voterIdentifySection(voterId).then((section) => {
+                  cookies.set('gradeLevel', section.data.gradeLevel);
+                });
+                Router.push('/voting');
+              }
+            });
         });
       } catch (err) {
         setError('Uh-oh, it seems like you\'ve inputted wrong LRN or password. Please try again.');
@@ -88,9 +89,10 @@ export const ElectionSignIn = React.memo(() => {
 
   React.useEffect(() => {
     const { pathname } = Router;
-    const isLoggedIn = cookies.get('access_token') !== '';
-    if (pathname == '/' && isLoggedIn) {
+    const isLoggedIn = cookies.get('access_token') !== undefined;
+    if (isLoggedIn && pathname === '/') {
       Router.push('/voting');
+      console.log(pathname);
     }
   });
 
