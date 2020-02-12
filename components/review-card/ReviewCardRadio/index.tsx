@@ -7,7 +7,9 @@ import { Paragraph1 } from 'baseui/typography';
 
 // ANCHOR Models
 import { IPosition } from 'models/interface/Vote';
-import { VOTE } from 'models/ui-models/vote';
+
+// ANCHOR Utils
+import { getCandidate } from '@lpsci/utils/api/candidate';
 
 // ANCHOR Components
 import { VotingTab } from 'scoped-models/voting/VotingTab';
@@ -34,6 +36,19 @@ export const ReviewCardRadio = React.memo(({ position }: IReviewCardRadioProps) 
     });
   }, [position, voteList]);
 
+  const [fetchedCandidate, setFetchedCandidate] = React.useState<any>([]);
+  const temporaryFetch: any = [];
+
+  React.useEffect(() => {
+    getCandidate()
+      .then((response) => {
+        response.data.map((item: any) => (
+          temporaryFetch.push(item)
+        ));
+        setFetchedCandidate([...temporaryFetch]);
+      });
+  }, [temporaryFetch]);
+
   return (
     <RadioGroup
       value={value}
@@ -53,7 +68,7 @@ export const ReviewCardRadio = React.memo(({ position }: IReviewCardRadioProps) 
             );
           })
         );
-        VOTE.forEach((candidate) => {
+        fetchedCandidate.forEach((candidate: any) => {
           // eslint-disable-next-line no-unused-expressions
           candidate.candidateId === e.target.value && (
             voteList && voteList.forEach((vote) => {
@@ -70,13 +85,13 @@ export const ReviewCardRadio = React.memo(({ position }: IReviewCardRadioProps) 
       align={ALIGN.vertical}
     >
       {
-        VOTE.map((candidate, index) => (
+        fetchedCandidate.map((candidate: any) => (
           candidate.position === position
           && (
             <Radio
-              key={index}
-              overrides={value === candidate.candidateId ? SELECTED : OPAQUE}
-              value={candidate.candidateId}
+              key={candidate.id}
+              overrides={value === candidate.id ? SELECTED : OPAQUE}
+              value={candidate.id}
             >
               <ReviewCardCandidate candidate={candidate} />
             </Radio>
