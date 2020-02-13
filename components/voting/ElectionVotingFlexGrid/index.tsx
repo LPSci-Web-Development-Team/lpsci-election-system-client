@@ -22,16 +22,20 @@ export const ElectionVotingFlexGrid = React.memo(
   ({ position, positionIndex }: IElectionVotingFlexProps) => {
     const [fetchedCandidate, setFetchedCandidate] = React.useState<any>([]);
     const temporaryFetch: any = [];
+    const [hasFetched, setHasFetched] = React.useState(false);
 
     React.useEffect(() => {
-      getCandidate()
-        .then((response) => {
-          response.data.map((item: any) => (
-            temporaryFetch.push(item)
-          ));
-          setFetchedCandidate([...temporaryFetch]);
-        });
-    }, [temporaryFetch]);
+      if (hasFetched === false) {
+        getCandidate()
+          .then((response) => {
+            response.data.map((item: any) => (
+              temporaryFetch.push(item)
+            ));
+            setFetchedCandidate([...temporaryFetch]);
+            setHasFetched(true);
+          });
+      }
+    }, [fetchedCandidate, hasFetched, temporaryFetch]);
 
     return (
       <FlexGrid
@@ -42,19 +46,19 @@ export const ElectionVotingFlexGrid = React.memo(
       >
         {fetchedCandidate.map((candidate: any) => (
           position === candidate.position && (
-          <FlexGridItem key={candidate.id}>
-            <CandicateCard
-              src={candidate.imgUrl}
-              alt={candidate.firstName}
-              positionIndex={positionIndex}
-              candidateUuid={candidate.id}
-              candidateFirstName={candidate.firstName}
-              candidateLastName={candidate.lastName}
-              candidateParty={candidate.partyId}
-              candidatePosition={candidate.position}
-              candidateImage={candidate.imgUrl}
-            />
-          </FlexGridItem>
+            <FlexGridItem key={candidate.id}>
+              <CandicateCard
+                src={candidate.imgUrl}
+                alt={candidate.firstName}
+                positionIndex={positionIndex}
+                candidateUuid={candidate.id}
+                candidateFirstName={candidate.firstName}
+                candidateLastName={candidate.lastName}
+                candidateParty={candidate.partyId}
+                candidatePosition={candidate.position}
+                candidateImage={candidate.imgUrl}
+              />
+            </FlexGridItem>
           )
         ))}
       </FlexGrid>

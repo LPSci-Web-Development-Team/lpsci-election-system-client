@@ -37,17 +37,22 @@ export const ReviewCardRadio = React.memo(({ position }: IReviewCardRadioProps) 
   }, [position, voteList]);
 
   const [fetchedCandidate, setFetchedCandidate] = React.useState<any>([]);
+  const [hasFetched, setHasFetched] = React.useState(false);
+
   const temporaryFetch: any = [];
 
   React.useEffect(() => {
-    getCandidate()
-      .then((response) => {
-        response.data.map((item: any) => (
-          temporaryFetch.push(item)
-        ));
-        setFetchedCandidate([...temporaryFetch]);
-      });
-  }, [temporaryFetch]);
+    if (hasFetched === false) {
+      getCandidate()
+        .then((response) => {
+          response.data.map((item: any) => (
+            temporaryFetch.push(item)
+          ));
+          setFetchedCandidate([...temporaryFetch]);
+          setHasFetched(true);
+        });
+    }
+  }, [hasFetched, temporaryFetch]);
 
   return (
     <RadioGroup
