@@ -56,7 +56,7 @@ export const ElectionVotingButtonNext = React.memo(() => {
       // eslint-disable-next-line react-hooks/exhaustive-deps
       uniqueCandidate = voteList.filter(
         (list, index, self) => index === self.findIndex((l) => (
-          list.candidateId === l.candidateId && list.position === l.position
+          list.id === l.id && list.position === l.position
         )),
       );
 
@@ -109,7 +109,7 @@ export const ElectionVotingButtonNext = React.memo(() => {
           onClick={nextTab}
           overrides={BUTTON_NEXT}
         >
-          {vote.candidateId ? 'Vote' : 'Abstain'}
+          {vote.id ? 'Vote' : 'Abstain'}
         </Button>
       ) : (
         <Link href="/review">

@@ -32,7 +32,7 @@ export const ReviewCardRadio = React.memo(({ position }: IReviewCardRadioProps) 
     // eslint-disable-next-line no-unused-expressions
     voteList && voteList.forEach((item) => {
       // eslint-disable-next-line no-unused-expressions
-      item.position === position && setValue(item.candidateId ?? position);
+      item.position === position && setValue(item.id ?? position);
     });
   }, [position, voteList]);
 
@@ -59,7 +59,7 @@ export const ReviewCardRadio = React.memo(({ position }: IReviewCardRadioProps) 
             // eslint-disable-next-line no-unused-expressions
             vote.position === position && (
               Object.assign(vote, {
-                candidateId: undefined,
+                id: undefined,
                 firstName: undefined,
                 lastName: undefined,
                 party: undefined,
@@ -70,7 +70,7 @@ export const ReviewCardRadio = React.memo(({ position }: IReviewCardRadioProps) 
         );
         fetchedCandidate.forEach((candidate: any) => {
           // eslint-disable-next-line no-unused-expressions
-          candidate.candidateId === e.target.value && (
+          candidate.id === e.target.value && (
             voteList && voteList.forEach((vote) => {
               // eslint-disable-next-line no-unused-expressions
               vote.position === candidate.position && (

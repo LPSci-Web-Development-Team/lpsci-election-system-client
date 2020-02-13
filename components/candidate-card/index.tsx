@@ -56,7 +56,7 @@ export const CandicateCard = React.memo(({
 
   React.useEffect(() => {
     // ANCHOR Check for previously voted candidate
-    if (vote.candidateId === candidateUuid) {
+    if (vote.id === candidateUuid) {
       toggle(true);
     } else {
       toggle(false);
