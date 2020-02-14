@@ -11,6 +11,7 @@ export interface ISignUpPayload {
   readonly lrn: string;
   readonly firstName: string;
   readonly lastName: string;
+  readonly username: string;
   readonly password: string;
   readonly gradeLevel: GradeLevel | undefined;
   readonly sectionId: string;

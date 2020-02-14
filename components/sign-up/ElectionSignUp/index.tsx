@@ -75,6 +75,7 @@ export const ElectionSignUp = React.memo(() => {
           firstName,
           lastName,
           gradeLevel,
+          username: lrn,
           sectionId: section,
           isAdmin: false,
         }));
