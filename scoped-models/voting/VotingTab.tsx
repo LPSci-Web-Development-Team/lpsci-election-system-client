@@ -11,7 +11,7 @@ export const VotingTab = createModel(() => {
   const [activeVote, setActiveVote] = React.useState<IVoteList>({
     index: 0,
     position: IPosition.President,
-    candidateId: undefined,
+    id: undefined,
     firstName: undefined,
     lastName: undefined,
     party: undefined,

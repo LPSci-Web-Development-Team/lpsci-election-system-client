@@ -36,7 +36,7 @@ export const ElectionVotingButtonBack = React.memo(() => {
       if (item.index === storedIndex) {
         setVote({
           index: item.index,
-          candidateId: item.candidateId,
+          id: item.id,
           firstName: item.firstName,
           lastName: item.lastName,
           party: item.party,

@@ -7,6 +7,9 @@ import * as React from 'react';
 // ANCHOR Next
 import Link from 'next/link';
 
+// ANCHOR  js-cookie
+import cookies from 'js-cookie';
+
 // ANCHOR Base
 import { Button } from 'baseui/button';
 
@@ -30,12 +33,16 @@ export const ElectionVotingButtonNext = React.memo(() => {
     state.vote, state.setVote, state.voteList,
   ]);
 
+  const gradeLevel = parseInt(cookies.get('gradeLevel') ?? '0', 10);
+
   // ANCHOR Vote List
   let uniqueCandidate = [];
   let filteredList: IVoteList[] = [];
 
   // ANCHOR Action Button Logic
-  const positionLength: number = Object.values(IPosition).length - 1;
+  const positionLength: number = gradeLevel !== 12
+    ? Object.values(IPosition).length - 5
+    : Object.values(IPosition).length - 6;
   const isDoneVoting = positionLength === activeTabNum;
 
   // ANCHOR Push or Update Logic
@@ -49,7 +56,7 @@ export const ElectionVotingButtonNext = React.memo(() => {
       // eslint-disable-next-line react-hooks/exhaustive-deps
       uniqueCandidate = voteList.filter(
         (list, index, self) => index === self.findIndex((l) => (
-          list.candidateId === l.candidateId && list.position === l.position
+          list.id === l.id && list.position === l.position
         )),
       );
 
@@ -102,7 +109,7 @@ export const ElectionVotingButtonNext = React.memo(() => {
           onClick={nextTab}
           overrides={BUTTON_NEXT}
         >
-          {vote.candidateId ? 'Vote' : 'Abstain'}
+          {vote.id ? 'Vote' : 'Abstain'}
         </Button>
       ) : (
         <Link href="/review">

@@ -32,14 +32,23 @@ export const ElectionVotingTabHeading = React.memo(
         localStorage.setItem('voteList', JSON.stringify([{
           index: 0,
           position: IPosition.President,
-          candidateId: undefined,
+          id: undefined,
           firstName: undefined,
           lastName: undefined,
           party: undefined,
           imageURL: undefined,
         }]));
+        setVote({
+          index: 0,
+          position: IPosition.President,
+          id: undefined,
+          firstName: undefined,
+          lastName: undefined,
+          party: undefined,
+          imageURL: undefined,
+        });
       }
-    }, []);
+    }, [positionIndex, setVote]);
 
     React.useEffect(() => {
       if (isNullOrUndefined(vote.position)) {

@@ -1,8 +1,11 @@
 // ANCHOR React
 import * as React from 'react';
 
+// ANCHOR js-cookie
+import cookies from 'js-cookie';
+
 // ANCHOR Next
-import Link from 'next/link';
+import Router from 'next/router';
 
 // ANCHOR Base
 import { ModalButton } from 'baseui/modal';
@@ -10,14 +13,42 @@ import { ModalButton } from 'baseui/modal';
 // ANCHOR Scoped Models
 import { ConfirmationModal } from 'scoped-models/review-modal/ConfirmationModal';
 
-export const ReviewModalProceedButton = React.memo(() => {
-  const setModal = ConfirmationModal.useSelector((state) => state.setModal);
+// ANCHOR Interface
+import { IVoteList } from 'models/interface/Vote';
 
-  const closeModal = React.useCallback(() => setModal(false), [setModal]);
+// ANCHOR Utils
+import { sendVote } from '../../../utils/api/voter';
+
+export const ReviewModalProceedButton = React.memo(() => {
+  const [setModal, disable, setDisable] = ConfirmationModal.useSelectors((state) => [
+    state.setModal, state.disable, state.setDisable,
+  ]);
+
+  const onClick = React.useCallback(() => {
+    const voteList = localStorage.getItem('voteList');
+    setDisable(true);
+    if (voteList !== null) {
+      const voteListArray = JSON.parse(voteList);
+      voteListArray.forEach((vote: IVoteList) => {
+        sendVote({
+          candidateId: vote.id,
+          voterId: cookies.get('voterId'),
+          position: vote.position,
+        });
+      });
+      Router.push('/vote-success');
+      setModal(false);
+      localStorage.removeItem('voteList');
+      localStorage.removeItem('activeTab');
+      cookies.remove('voterId');
+      cookies.remove('gradeLevel');
+      cookies.remove('access_token');
+      setDisable(false);
+    }
+  }, [setDisable, setModal]);
+
 
   return (
-    <Link href="/vote-success">
-      <ModalButton onClick={closeModal}>Proceed</ModalButton>
-    </Link>
+    <ModalButton onClick={onClick} disabled={disable}>Proceed</ModalButton>
   );
 });

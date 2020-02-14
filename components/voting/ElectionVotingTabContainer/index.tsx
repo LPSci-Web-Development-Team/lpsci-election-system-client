@@ -4,8 +4,6 @@ import * as React from 'react';
 // ANCHOR Base
 import { Tabs } from 'baseui/tabs';
 
-// ANCHOR Components
-
 // ANCHOR Styles
 import { VotingTab } from 'scoped-models/voting/VotingTab';
 import { ELECTION_TAB } from './styles';
@@ -16,8 +14,13 @@ interface IElectionVotingTabProps {
 
 export const ElectionVotingTabContainer = React.memo(({ children }: IElectionVotingTabProps) => {
   // ANCHOR Voting Tab Models
-  const [watcher, setActiveTab, setActiveTabNum, setVoteList] = VotingTab.useSelectors((state) => [
-    state.activeTab, state.setActiveTab, state.setActiveTabNum, state.setVoteList,
+  const [
+    watcher, setActiveTab, setActiveTabNum, setVoteList,
+  ] = VotingTab.useSelectors((state) => [
+    state.activeTab,
+    state.setActiveTab,
+    state.setActiveTabNum,
+    state.setVoteList,
   ]);
 
   // ANCHOR Initiate stored tab

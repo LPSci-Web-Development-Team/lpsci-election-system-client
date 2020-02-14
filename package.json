@@ -16,6 +16,7 @@
     "@fortawesome/free-solid-svg-icons": "^5.12.0",
     "@fortawesome/react-fontawesome": "^0.1.8",
     "@lxsmnsyc/react-scoped-model": "^0.10.0",
+    "@types/js-cookie": "^2.2.4",
     "axios": "^0.19.2",
     "baseui": "^9.46.0",
     "date-fns": "^2.9.0",

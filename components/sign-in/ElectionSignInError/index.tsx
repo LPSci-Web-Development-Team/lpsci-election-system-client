@@ -2,7 +2,8 @@
 import * as React from 'react';
 
 // ANCHOR Base
-import { KIND, Notification } from 'baseui/notification';
+// import { KIND, Notification } from 'baseui/notification';
+import { Paragraph1 } from 'baseui/typography';
 
 // ANCHOR Model
 import { SignInFormInput } from 'scoped-models/sign-in/SignInFormInput';
@@ -11,16 +12,16 @@ import { SignInFormInput } from 'scoped-models/sign-in/SignInFormInput';
 import { When } from '../../utils/When';
 
 // ANCHOR Styles
-import { NOTIFICATION } from './styles';
+// import { NOTIFICATION } from './styles';
 
 export const ElectionSignInError = React.memo(() => {
   const error = SignInFormInput.useSelector((state: { error: any }) => state.error);
 
   return (
     <When condition={error}>
-      <Notification kind={KIND.negative} overrides={NOTIFICATION}>
+      <Paragraph1>
         {error}
-      </Notification>
+      </Paragraph1>
     </When>
   );
 });

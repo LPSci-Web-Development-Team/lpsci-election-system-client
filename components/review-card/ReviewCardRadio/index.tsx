@@ -7,7 +7,9 @@ import { Paragraph1 } from 'baseui/typography';
 
 // ANCHOR Models
 import { IPosition } from 'models/interface/Vote';
-import { VOTE } from 'models/ui-models/vote';
+
+// ANCHOR Utils
+import { getCandidate } from '@lpsci/utils/api/candidate';
 
 // ANCHOR Components
 import { VotingTab } from 'scoped-models/voting/VotingTab';
@@ -30,9 +32,27 @@ export const ReviewCardRadio = React.memo(({ position }: IReviewCardRadioProps) 
     // eslint-disable-next-line no-unused-expressions
     voteList && voteList.forEach((item) => {
       // eslint-disable-next-line no-unused-expressions
-      item.position === position && setValue(item.candidateId ?? position);
+      item.position === position && setValue(item.id ?? position);
     });
   }, [position, voteList]);
+
+  const [fetchedCandidate, setFetchedCandidate] = React.useState<any>([]);
+  const [hasFetched, setHasFetched] = React.useState(false);
+
+  const temporaryFetch: any = [];
+
+  React.useEffect(() => {
+    if (hasFetched === false) {
+      getCandidate()
+        .then((response) => {
+          response.data.map((item: any) => (
+            temporaryFetch.push(item)
+          ));
+          setFetchedCandidate([...temporaryFetch]);
+          setHasFetched(true);
+        });
+    }
+  }, [hasFetched, temporaryFetch]);
 
   return (
     <RadioGroup
@@ -44,7 +64,7 @@ export const ReviewCardRadio = React.memo(({ position }: IReviewCardRadioProps) 
             // eslint-disable-next-line no-unused-expressions
             vote.position === position && (
               Object.assign(vote, {
-                candidateId: undefined,
+                id: undefined,
                 firstName: undefined,
                 lastName: undefined,
                 party: undefined,
@@ -53,9 +73,9 @@ export const ReviewCardRadio = React.memo(({ position }: IReviewCardRadioProps) 
             );
           })
         );
-        VOTE.forEach((candidate) => {
+        fetchedCandidate.forEach((candidate: any) => {
           // eslint-disable-next-line no-unused-expressions
-          candidate.candidateId === e.target.value && (
+          candidate.id === e.target.value && (
             voteList && voteList.forEach((vote) => {
               // eslint-disable-next-line no-unused-expressions
               vote.position === candidate.position && (
@@ -70,13 +90,13 @@ export const ReviewCardRadio = React.memo(({ position }: IReviewCardRadioProps) 
       align={ALIGN.vertical}
     >
       {
-        VOTE.map((candidate, index) => (
+        fetchedCandidate.map((candidate: any) => (
           candidate.position === position
           && (
             <Radio
-              key={index}
-              overrides={value === candidate.candidateId ? SELECTED : OPAQUE}
-              value={candidate.candidateId}
+              key={candidate.id}
+              overrides={value === candidate.id ? SELECTED : OPAQUE}
+              value={candidate.id}
             >
               <ReviewCardCandidate candidate={candidate} />
             </Radio>
