@@ -69,6 +69,7 @@ fabric.properties
 
 # User config
 node_modules/
+public/img/candidates/
 .next
 .idea
 build/
